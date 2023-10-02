@@ -1,0 +1,57 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+---
+{{#partial "page"}}
+    <div class="page page-normal">
+        <main class="page-content halo-page-content halo-how-it-work__content">
+            {{#if page.sub_pages}}
+                <nav class="navBar navBar--sub">
+                    <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                    </ul>
+                </nav>  
+            {{/if}}
+            <div class="custom-page-layout">
+                {{#replace '%%Syndicate%%' page.content}}
+                    {{> components/page/rss_feed}}
+                {{else}}
+                    <div class="container">
+                        {{{page.content}}}
+                    </div>
+                {{/replace}}
+
+                {{{region name="custom_page_section_1"}}}
+                {{{region name="custom_page_section_2"}}}
+                {{{region name="custom_page_section_3"}}}
+                {{{region name="custom_page_section_4"}}}
+                {{{region name="custom_page_section_5"}}}
+                {{{region name="custom_page_section_6"}}}
+                {{{region name="custom_page_section_7"}}}
+                {{{region name="custom_page_section_8"}}}
+                {{{region name="custom_page_section_9"}}}
+                {{{region name="custom_page_section_10"}}}
+            </div>
+        </main>
+        {{#if page.feed}}
+            <ul>
+                {{#each page.feed}}
+                    <li>
+                        <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                        <p>{{content}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </div>
+
+{{/partial}}
+
+{{> layout/base}}

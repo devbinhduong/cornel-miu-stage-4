@@ -1,0 +1,120 @@
+<nav class="pagination{{#if theme_settings.halo-product-show-more}} pagination-2{{/if}}" aria-label="pagination">
+    {{#if page_type '==' 'category'}}
+        {{#if total}}
+            {{#if start}}
+                {{#if end}}
+                    {{#if end '<' total}}
+                        <div class="pagination-info"><span class="end">{{end}}</span> din <span class="total">{{total}}</span> de carti</div>
+                        <div class="pagination-total-progress">
+                            <span class="pagination-total-item"></span>
+                        </div>
+                    {{else}}
+                        <div class="pagination-info"><span class="end">{{end}}</span> din <span class="total">{{total}}</span> de carti</div>
+                        <div class="pagination-total-progress">
+                            <span class="pagination-total-item"></span>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+        {{#if theme_settings.halo-product-show-more}}
+            <div class="halo-product-show-more" id="listing-showmoreBtn">
+                {{#if next}}
+                    <a class="button button--primary" href="#">
+                        <span class="text">{{lang 'search.faceted.show-more'}}</span>
+                    </a>
+                {{else}}
+                    <a class="button button--primary disable" href="#">
+                        <span class="text">{{lang 'common.no_more_products'}}</span>
+                    </a>
+                {{/if}}
+            </div> 
+        {{/if}}
+    {{/if}}
+    {{#if page_type '==' 'brand'}}
+        {{#if links.length}}
+            {{#each shop_by_brand}}
+                {{#if name '==' ../brand.name}}
+                    <div class="pagination-info">Items <span class="start"></span> to <span class="end"></span> of <span class="total">{{count}}</span> total</div>
+                    <div class="pagination-total-progress">
+                        <span class="pagination-total-item"></span>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+        {{#if theme_settings.halo-product-show-more}}
+            <div class="halo-product-show-more" id="listing-showmoreBtn">
+                {{#if next}}
+                    <a class="button button--primary" href="#">
+                        <span class="text">{{lang 'search.faceted.show-more'}}</span>
+                    </a>
+                {{else}}
+                    <a class="button button--primary disable" href="#">
+                        <span class="text">{{lang 'common.no_more_products'}}</span>
+                    </a>
+                {{/if}}
+            </div> 
+        {{/if}}
+    {{/if}}
+    {{#if page_type '==' 'search'}}
+        <div class="pagination-info">Items <span class="start"></span> to <span class="end"></span> of <span class="total">{{total}}</span> total</div>
+        <div class="pagination-total-progress">
+            <span class="pagination-total-item"></span>
+        </div>
+        {{#if theme_settings.halo-product-show-more}}
+            <div class="halo-product-show-more" id="listing-showmoreBtn">
+                {{#if next}}
+                    <a class="button button--primary" href="#">
+                        <span class="text">{{lang 'search.faceted.show-more'}}</span>
+                    </a>
+                {{else}}
+                    <a class="button button--primary disable" href="#">
+                        <span class="text">{{lang 'common.no_more_products'}}</span>
+                    </a>
+                {{/if}}
+            </div> 
+        {{/if}}
+    {{/if}}
+    <ul class="pagination-list">
+        {{#if previous}}
+            <li class="pagination-item pagination-item--previous">
+                <a class="pagination-link"
+                   href="{{previous}}"
+                   {{#unless reload}}data-faceted-search-facet{{/unless}}
+                   aria-label="{{lang 'common.previous'}}"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M6.19937 8.49981L0.511719 1.39024L1.4878 0.609375L7.4878 8.10937L7.4878 8.89024L1.48781 16.3902L0.511719 15.6094L6.19937 8.49981Z" fill="#252525"/>
+                    </svg>
+                </a>
+            </li>
+        {{/if}}
+
+        {{#each links}}
+            <li class="pagination-item {{#if this.number '==' ../current}}pagination-item--current{{/if}}">
+                <a class="pagination-link"
+                   href="{{this.url}}"
+                   {{#unless reload}}data-faceted-search-facet{{/unless}}
+                   {{#if this.number '==' ../current}}aria-current="page"{{/if}}
+                   aria-label="{{lang 'common.paginator.page_of' current=this.number total=../links.length}}"
+                >
+                    {{this.number}}
+                </a>
+            </li>
+        {{/each}}
+
+        {{#if next}}
+            <li class="pagination-item pagination-item--next">
+                <a class="pagination-link"
+                   href="{{next}}"
+                   {{#unless reload}}data-faceted-search-facet{{/unless}}
+                   aria-label="{{lang 'common.next'}}"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M6.19937 8.49981L0.511719 1.39024L1.4878 0.609375L7.4878 8.10937L7.4878 8.89024L1.48781 16.3902L0.511719 15.6094L6.19937 8.49981Z" fill="#252525"/>
+                    </svg>
+                </a>
+            </li>
+        {{/if}}
+    </ul>
+</nav>

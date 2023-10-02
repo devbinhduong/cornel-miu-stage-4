@@ -1,0 +1,48 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+products:
+    new:
+        limit: 25
+---
+{{inject 'productId' product.id}}
+
+{{#partial "page"}}
+    <div class="halo-productView-top">
+        <div class="container">
+            <div class="breadcrumbs-product">
+                {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} 
+            </div>
+
+            {{> components/products/product-view-digital}}
+
+        </div>
+    </div>
+
+    <div class="halo-productView-bottom related-digital-block">
+        {{> components/products/related
+            products=product.related_products
+            productsnew=products.new
+            title="More like this"
+            block_id="halo-product-block-2"
+            block_limit=product.related_products.length
+            block_column=theme_settings.productpage_product_block_col
+            no_carousel=true
+        }}
+
+        <div class="digital-viewMore-wrapper">
+            <a href="#" id="digital-view-more-button" class="digital-view-more-button button button--tertiary hover-gold">{{#if category.products.length '>' 6}}VEZI TOATE{{else}}No More Product{{/if}}</a>
+        </div>
+    </div>
+
+    {{> components/products/schema}}
+{{/partial}}
+{{> layout/base}}
+

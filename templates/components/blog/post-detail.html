@@ -1,0 +1,7 @@
+{{#if post_layout '==' 'layout-custom'}}
+    {{> components/blog/post-detail-layout-2 post=post show_tags=show_tags class=class settings=settings theme_settings=theme_settings}}
+{{else if post_layout '==' 'layout-simple'}}
+    {{> components/blog/post-detail-layout-simple post=post show_tags=show_tags class=class settings=settings theme_settings=theme_settings}}
+{{else}}
+    {{> components/blog/post-detail-layout-1 recent_post=recent_post post=post show_tags=show_tags class=class settings=settings theme_settings=theme_settings}}
+{{/if}}

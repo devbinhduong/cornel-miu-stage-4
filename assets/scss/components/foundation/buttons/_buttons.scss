@@ -1,0 +1,151 @@
+// =============================================================================
+// BUTTONS (CSS)
+// =============================================================================
+
+.button {
+    font-family: 'Termina';
+    font-size: $fontSize-root;
+    font-weight: $fontWeight-semibold;
+    font-style: normal;
+    user-select: none;
+    appearance: none;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin: 0;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 38px;
+    letter-spacing: 2.4px;
+    border: 1px solid $buttonStyle-primary-borderColor;
+    color: $buttonStyle-primary-color;
+    background-color: $buttonStyle-primary-backgroundColor;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: $anchor-transition;
+
+    &.button--icon {
+        svg {
+            fill: stencilColor("button--icon-svg-color");
+        }
+    }
+
+    &.button--primary {
+        &:active {
+            color: $buttonStyle-primary-colorActive;
+            border-color: $buttonStyle-primary-borderColorActive;
+            background-color: $buttonStyle-primary-backgroundColorActive;
+        }
+    }
+
+    &.button--secondary {
+        color: $buttonStyle-default-color;
+        background-color: $buttonStyle-default-backgroundColor;
+        border-color: $buttonStyle-default-borderColor;
+
+        &:active {
+            color: $buttonStyle-default-colorActive;
+            border-color: $buttonStyle-default-borderColorActive;
+            background-color: $buttonStyle-default-backgroundColorActive;
+        }
+    }
+
+    &.button--tertiary {
+        color: $buttonStyle-tertiary-color;
+        background-color: $buttonStyle-tertiary-backgroundColor;
+        border-color: $buttonStyle-tertiary-borderColor;
+
+        &:active {
+            color: $buttonStyle-tertiary-colorHover;
+            background-color: $buttonStyle-tertiary-backgroundColorHover;
+            border-color: $buttonStyle-tertiary-borderColorHover;
+        }
+
+        &.hover-gold:hover {
+            color: $buttonStyle-default-color;
+            background-color: $buttonStyle-default-colorHover;
+            border-color: $buttonStyle-default-borderColor;
+        }
+    }
+
+    &.disable,
+    &[disabled] {
+        cursor: not-allowed;
+        pointer-events: none;
+        background: stencilColor('container-fill-dark');
+        border-color: stencilColor('container-fill-dark');
+        color: $color-textSecondary;
+        outline: 0 !important;
+
+        &:active {
+            background: stencilColor('container-fill-dark');
+            border-color: stencilColor('container-fill-dark');
+            color: $color-textSecondary;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        height: 48px;
+        line-height: 46px;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        &.button--primary {
+
+            &:hover,
+            &:focus {
+                color: $buttonStyle-primary-colorHover;
+                border-color: $buttonStyle-primary-borderColorHover;
+                background-color: $buttonStyle-primary-backgroundColorHover;
+            }
+        }
+
+        &.button--secondary {
+
+            &:hover,
+            &:focus {
+                color: $buttonStyle-default-colorHover;
+                border-color: $buttonStyle-default-borderColorHover;
+                background-color: $buttonStyle-default-backgroundColorHover;
+            }
+        }
+
+        &.button--tertiary {
+
+            &:hover,
+            &:focus {
+                color: $buttonStyle-tertiary-colorHover;
+                background-color: $buttonStyle-tertiary-backgroundColorHover;
+                border-color: $buttonStyle-tertiary-borderColorHover;
+            }
+        }
+
+        &.disable,
+        &[disabled] {
+
+            &:hover,
+            &:focus {
+                background: stencilColor('container-fill-dark');
+                border-color: stencilColor('container-fill-dark');
+                color: $color-textSecondary;
+            }
+        }
+    }
+}
+
+.button--checkout {
+    background: stencilColor('button-checkout-bgColor');
+    color: stencilColor('button-checkout-color');
+    border-color: stencilColor('button-checkout-border-color');
+
+    &:hover,
+    &:focus,
+    &:active {
+        background: stencilColor('button-checkout-bgColor-hover');
+        color: stencilColor('button-checkout-color-hover');
+        border-color: stencilColor('button-checkout-border-color-hover');
+    }
+}

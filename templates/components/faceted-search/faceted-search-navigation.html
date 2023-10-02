@@ -1,0 +1,17 @@
+<div class="accordion-nav-clear-holder">
+    <button type="button"
+         class="accordion-navigation toggleLink{{#unless start_collapsed}} is-open{{/unless}}"
+         data-collapsible="#facetedSearch-content--{{dashcase facet}}"
+         aria-label="{{lang 'search.faceted.toggleSection' title=title}}"
+    >
+        <span class="accordion-title">
+            {{title}}
+        </span>
+
+        <span class="accordion-navigation-actions">
+            <svg class="icon accordion-indicator toggleLink-text">
+                <use xlink:href="#slick-arrow-next" />
+            </svg>
+        </span>
+    </button>
+</div>

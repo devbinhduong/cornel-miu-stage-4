@@ -1,0 +1,46 @@
+<div class="halo-sticky-toolbar-mobile">
+    <div class="bottom-bar">
+        <ul class="bottom-bar--list">
+            <li class="list-item">
+                <a href="/" data-menu-mobile>
+                    <span class="icon"><svg><use xlink:href="#icon-toolbar-home" /></svg></span>
+                    <span class="text">Categorii</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a role="link" aria-disabled="true" data-search-mobile>
+                    <span class="icon"><svg><use xlink:href="#icon-search-2" /></svg></span>
+                    <span class="text">Caută</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="{{urls.cart}}" aria-label="{{lang 'cart.nav_aria_label'}}" data-cart-mobile>
+                    <span class="icon icon-cart"><svg><use xlink:href="#icon-cart-2" /></svg></span>
+                    <span class="text">Coș</span>
+                    <div class="cart-count-bubble">
+                        <span class="text countPill cart-quantity" aria-hidden="true"></span>
+                    </div>
+                </a>
+            </li>
+            <li class="list-item">
+                {{#if customer}}
+                    <a href="{{urls.account.index}}" aria-label="{{lang 'common.account'}}" data-login-mobile>
+                        <span class="icon"><svg><use xlink:href="#icon-user-2" /></svg></span>
+                        <span class="text">Cont</span>
+                    </a>
+                {{else}}
+                    <a href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}" data-login-mobile>
+                        <span class="icon"><svg><use xlink:href="#icon-user-2" /></svg></span>
+                        <span class="text">Cont</span>
+                    </a>
+                {{/if}}
+            </li>
+            <li class="list-item">
+                <a href="/contact-us/" target="_blank">
+                    <span class="icon"><svg><use xlink:href="#icon-toolbar-shop" /></svg></span>
+                    <span class="text">Contact</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

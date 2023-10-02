@@ -1,0 +1,341 @@
+// =============================================================================
+// PAGINATION (CSS)
+// =============================================================================
+
+.pagination {
+    display: block;
+    text-align: center;
+    margin: 30px 0 0 0;
+
+    .pagination-info {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        margin: 0 0 20px 0;
+        font-size: $fontSize-root;
+        font-weight: $fontWeight-normal;
+        color: #424242;
+        letter-spacing: $letterSpacing-base;
+        line-height: 18px;
+
+        @media (max-width: 551px) {
+            padding-top: 4px;
+        }
+    }
+
+    &.pagination-2 {
+        display: block;
+
+        .pagination-info {
+            display: block;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .halo-product-show-more {
+            +.pagination-list {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 551px) {
+        padding-top: 30px !important;
+    }
+
+    @media (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+
+        .pagination-info {
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        .page-blog & {
+            text-align: right;
+            justify-content: flex-end;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        margin-top: 50px;
+
+        &.pagination-2 {
+            margin-top: 0px;
+        }
+
+        .page-blog & {
+            margin-top: 60px;
+        }
+    }
+}
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Centred list via inline-block. Font-size: 0; to remove white-space.
+// 2. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-list {
+    display: block;
+    font-size: 0;
+    margin: 0;
+    text-align: center;
+    @include clearfix;
+
+    .pagination-item {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0 0 3px;
+    }
+
+    @media (min-width: 768px) {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+
+// Pagination list items
+// -----------------------------------------------------------------------------
+//
+// 1. Specificity overrides for Foundation's inadequate selectors.
+//
+// -----------------------------------------------------------------------------
+
+.pagination-item {
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    margin: 0;
+
+    .pagination-link {
+        padding: 0 5px;
+        font-size: $fontSize-root;
+        font-weight: $fontWeight-normal;
+        color: $color-textSecondary;
+        min-width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        text-decoration: none;
+        transition: $pagination-link-transition;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        background-color: transparent;
+
+        svg {
+            position: relative;
+            top: 2px;
+        }
+
+        &:hover {
+            color: $pagination-link-color-hover;
+        }
+    }
+
+    &.pagination-item--current {
+        .pagination-link {
+            background-color: $color-custom-greyLight;
+            /*border: 1px solid $color-custom-greyLight;*/
+        }
+    }
+
+    &.pagination-item--previous {
+        .pagination-link {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &.pagination-item--previous,
+    &.pagination-item--next {
+        .pagination-link {
+            padding-top: 0;
+            padding-bottom: 0;
+            border-color: #e1e1e1;
+            background-color: transparent;
+        }
+    }
+
+    @media (min-width: 1025px) {
+
+        &.pagination-item--previous,
+        &.pagination-item--next {
+            .pagination-link {
+                &:hover {
+                    /*background-color: $buttonStyle-primary-backgroundColorHover;
+                    border-color: $buttonStyle-primary-borderColorActive;
+
+                    .icon {
+                        fill: $buttonStyle-primary-colorActive;
+                    }*/
+                }
+            }
+        }
+    }
+}
+
+.pagination-item--previous,
+.pagination-item--next {
+    .pagination-link {
+        width: 40px;
+        height: 40px;
+        padding: 7px;
+
+        .icon {
+            display: inherit;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            fill: #787878;
+        }
+    }
+}
+
+// Simple/small pagination (Next/Previous arrows are the only way to navigate)
+// -----------------------------------------------------------------------------
+
+.pagination-list--small {
+    position: relative;
+
+    .pagination-item {
+        color: $pagination-list--small-color;
+        cursor: inherit;
+        line-height: $pagination-list--small-lineHeight;
+    }
+
+    .pagination-link {
+        padding: $pagination-list--small-link-padding;
+    }
+
+    .pagination-item--previous,
+    .pagination-item--next {
+        position: absolute;
+        top: 0;
+    }
+
+    .pagination-item--previous {
+        left: 0;
+    }
+
+    .pagination-item--next {
+        right: 0;
+    }
+}
+
+.pagination-total-progress {
+    max-width: 255px;
+    height: 3px;
+    background-color: $color-custom-grey;
+    text-align: left;
+    margin: 7px auto 20px;
+    display: block;
+
+    .pagination-total-item {
+        width: 0;
+        height: 100%;
+        background-color: $color-textLink-hover;
+        display: block;
+        transition: all ease 1s;
+    }
+}
+
+
+// Start Editer CSS
+
+.pagination {
+  padding-top: 36px;
+  border-top: 1px solid #f7f3e8;
+  margin-top: 0;
+
+  .pagination-info {
+    font-size: 16px;
+    color: #252525;
+  }
+
+  &.pagination-2 {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 10px;
+
+    .pagination-info {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    .halo-product-show-more + .pagination-list {
+      display: block;
+    }
+
+    .pagination-total-progress {
+      display: none;
+    }
+
+    .halo-product-show-more {
+      display: none;
+    }
+  }
+
+  &-item {
+    &--current {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+        transition: all 0.3s;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: 17px;
+    }
+
+    .pagination-link {
+      padding: 0;
+      min-width: initial;
+      height: initial;
+      font-size: 16px;
+      line-height: 1.12;
+      color: #252525;
+      border-radius: 0;
+    }
+
+    &--previous,
+    &--next {
+      .pagination-link {
+        border: none;
+        width: initial;
+        border-radius: 50%;
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          fill: #252525;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1025px) {
+    padding-top: 31px;
+  }
+}
+
+.pagination-item.pagination-item--current .pagination-link {
+  background-color: transparent;
+}
+
+// End Editer CSS

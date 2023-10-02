@@ -1,0 +1,316 @@
+{{#partial "page"}}
+<div class="container--medium">
+    <div class="page page-giftcertificates">
+        <div class="page-header">
+            <h1 class="page-heading text-center flecha-m">{{lang 'gift_certificate.heading' }}</h1>
+        </div>
+        {{> components/gift-certificate/navigation gift_page='purchase'}}
+        <main class="how-it-work__content">
+            <div class="container">
+                <div class="account">
+                    {{#each forms.gift_certificate.errors}}
+                        {{> components/common/alert/alert-error this}}
+                    {{/each}}
+                    
+                    <div class="account-body">
+                        <section class="account-content account-content2" id="gift__buy">
+                            <!-- Column Left -->
+                            <div class="gift-left-content">
+                                <div class="content-top">
+                                    <h3 class="title flecha-m">Daruieste un card cadou</h3>
+                                    <p class="desc">
+                                        Ofera-le celor dragi posibilitatea de a alege carti sau obiecte de decor dupa preferintele lor.
+                                    </p>
+                                </div>
+                                <div class="content-bottom">
+                                    <div class="updateCardContent">
+                                        <img src="https://cdn11.bigcommerce.com/s-osztkjmaqs/images/stencil/original/image-manager/gift-image.png" alt="Gift Image" class="custom-image">
+                                    </div>
+                                    <div class="text-info">
+                                        <div class="info-column">
+                                            <h4>Pentru</h4>
+                                            <p id="gift-name__receive">Cristina Pop</p>
+                                            <p id="gift-mail__receive">cristina.pop@gmail.com</p>
+                                        </div>
+                                        <div class="info-column">
+                                            <h4>De la</h4>
+                                            <p id="gift-name__send">Maya Dudas</p>
+                                            <p id="gift-mail__send">maya.dudas@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="notes">
+                                        <p><span>Valoare card cadou:</span> <span id="gift-name__price">100</span> Lei</p>
+                                        <!-- <p><span>Data trimiterii:</span> <span id="gift-name__date">31 Mai 2023</span></p> -->
+                                        <p id="gift-message">
+                                            La mulți ani Maya! Stiu cat de mult iti place sa citesti, asa ca te las pe tine sa iti alegi o carte noua. Stiu cat de mult iti place sa citesti, asa ca te las pe tine sa iti alegi o carte noua. Stiu cat de mult iti place sa citesti, asa ca te las pe tine sa iti alegi o carte noua. Stiu cat de mult iti place sa citesti...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column Right -->
+                            <form class="form gift-certificate-form" method="post" id="gift-certificate-form" action="{{forms.gift_certificate.action}}" data-giftcertificates-form>
+                                {{#if forms.gift_certificate.cart_item_id}}
+                                    <input type="hidden" name="cartitemid" value="{{forms.gift_certificate.cart_item_id}}">
+                                {{/if}}
+                                
+                                <!-- Card Theme -->
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        {{lang 'forms.gift_certificate.purchase.theme' }}<small>{{lang 'common.required' }}</small>
+                                    </label>
+                                    <div class="form-field-group" style="display: none;">
+                                        {{#each forms.gift_certificate.themes}}
+                                            <input type="radio" class="form-radio" name="certificate_theme" id="theme_{{this.value}}" value="{{this.value}}"{{#if this.value '==' ../forms.gift_certificate.values.theme}} checked{{/if}}>
+                                            <label class="form-label" for="theme_{{this.value}}">{{this.display}}</label>
+                                        {{/each}}
+                                    </div>
+
+                                    <!-- Halo Start -->
+                                    <div class="card_name_wrapper">
+                                        <select name="Card Name Dropdownm" id="card_name_dropdown">
+                                            {{#each forms.gift_certificate.themes}}
+                                                <option value="{{this.value}}">
+                                                    <label class="form-label" for="theme_{{this.value}}">{{this.display}}</label>
+                                                </option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Amount -->
+                                {{#if forms.gift_certificate.can_use_custom_amount }}
+                                    <div class="form-field card_amount_wrapper">
+                                        <label class="form-label" for="certificate_amount">
+                                            Valoare Card Cadou <span>(25-700Lei)</span><small>{{lang 'common.required' }}</small>
+                                        </label>
+                                        <input type="text" data-min="{{forms.gift_certificate.minimum.value}}" data-max="{{forms.gift_certificate.maximum.value}}" data-min-formatted="{{forms.gift_certificate.minimum.formatted}}" data-max-formatted="{{forms.gift_certificate.maximum.formatted}}" class="form-input" name="certificate_amount" id="certificate_amount" value="{{forms.gift_certificate.values.amount.value}}">
+                                    </div>
+                                {{else}}
+                                    <div class="form-field card_amount_wrapper">
+                                        <label class="form-label" for="selected_amount">
+                                            {{lang 'forms.gift_certificate.purchase.amount' }}<small>{{lang 'common.required' }}</small>
+                                        </label>
+                                        <select class="form-select" name="selected_amount" id="selected_amount">
+                                            {{#each forms.gift_certificate.amount_options}}
+                                                <option value="{{value}}">{{formatted}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                {{/if}}
+
+                                <!-- Select Date -->
+                                <!-- <div class="form-field">
+                                    <label class="form-label">
+                                        Data trimiterii <span>(pana la un an in avans)</span><small>{{lang 'common.required' }}</small>
+                                    </label>
+                                   
+
+                                    <div class="select-date-dropdown">
+                                        <button class="dropbtn">Alege data</button>
+                                        <div id="calendar" class="dropdown-content">
+                                            <input type="date" id="datepicker">
+                                        </div>
+                                    </div>
+                                      
+                                </div> -->
+
+                                <!-- Receive Person -->
+                                <h5 class="gift-info-title">
+                                    Pentru
+                                </h5>
+                                <p class="gift-infor-text">
+                                    Completeaza datele celui caruia ii daruiesti cardul:
+                                </p>
+
+                                <div class="form-field">
+                                    <label class="form-label" for="to_name">
+                                        {{lang 'forms.gift_certificate.purchase.to_name' }}<small>{{lang 'common.required' }}</small>
+                                    </label>
+                                    <input type="text" class="form-input" name="to_name" id="to_name" value="{{forms.gift_certificate.values.to_name}}">
+                                </div>
+
+                                <div class="form-field">
+                                    <label class="form-label" for="to_email">
+                                        {{lang 'forms.gift_certificate.purchase.to_email' }}<small>{{lang 'common.required' }}</small>
+                                    </label>
+                                    <input type="text" class="form-input" name="to_email" id="to_email" value="{{forms.gift_certificate.values.to_email}}">
+                                </div>
+
+                                <div class="form-field">
+                                    <label class="form-label" for="to_email2">
+                                        Confirmare email<small>{{lang 'common.required' }}</small>
+                                    </label>
+                                    <input type="text" class="form-input" name="to_email2" id="to_email2" value="{{forms.gift_certificate.values.to_email}}">
+                                    <span id="errorText" style="color: #cc4749;"></span>
+                                </div>
+
+                                <!-- Send Persion -->
+                                <h5 class="gift-info-title">
+                                    De la
+                                </h5>
+                                <p class="gift-infor-text gift-infor-text--send">
+                                    Completeaza datele tale personale:
+                                </p>
+
+                                <div class="form-field">
+                                    <label class="form-label" for="from_name">
+                                        {{lang 'forms.gift_certificate.purchase.from_name' }}<small>{{lang 'common.required' }}</small>
+                                    </label>
+                                    <input type="text" class="form-input" name="from_name" id="from_name" value="{{forms.gift_certificate.values.from_name}}">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="from_email">
+                                        {{lang 'forms.gift_certificate.purchase.from_email' }}<small>{{lang 'common.required' }}</small>
+                                    </label>
+                                    <input type="text" class="form-input" name="from_email" id="from_email" value="{{forms.gift_certificate.values.from_email}}">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="from_email2">
+                                        Confirmare email<small>{{lang 'common.required' }}</small>
+                                    </label>
+                                    <input type="text" class="form-input" name="from_email2" id="from_email2" value="{{forms.gift_certificate.values.from_email}}">
+                                    <span id="errorText" style="color: #cc4749;"></span>
+                                </div>
+
+                                <!-- Message -->
+                                <div class="form-field form-field--textarea">
+                                    <label class="form-label" for="message">{{lang 'forms.gift_certificate.purchase.message' }}</label>
+                                    <textarea class="form-input" name="message" id="message" rows="8" >{{forms.gift_certificate.values.message}}</textarea>
+                                </div>
+
+                                <!-- Button Submit -->
+                                <div class="form-actions">
+                                    {{inject 'previewError' (lang 'forms.gift_certificate.purchase.preview_error')}}
+                                    {{inject 'enterAmount' (lang 'forms.validate.gift.amount')}}
+                                    {{inject 'toName' (lang 'forms.validate.gift.to_name')}}
+                                    {{inject 'toEmail' (lang 'forms.validate.gift.to_email')}}
+                                    {{inject 'toEmail2' (lang 'forms.validate.gift.to_email')}}
+                                    {{inject 'fromName' (lang 'forms.validate.gift.from_name')}}
+                                    {{inject 'fromEmail' (lang 'forms.validate.gift.from_email')}}
+                                    {{inject 'fromEmail2' (lang 'forms.validate.gift.from_email')}}
+                                    {{inject 'certTheme' (lang 'forms.validate.gift.cert_theme')}}
+                                    {{inject 'agreeToTerms' (lang 'forms.validate.gift.agree_terms')}}
+                                    <input
+                                        id="gift-certificate-preview"
+                                        class="button button--primary"
+                                        type="submit"
+                                        value="{{lang 'forms.gift_certificate.purchase.preview' }}"
+                                        data-preview-url="{{forms.gift_certificate.preview}}"
+                                        style="display: none;"
+                                        >
+                                    <input
+                                        id="gift-certificate-submit"
+                                        class="button button--tertiary"
+                                        type="submit"
+                                        value="{{lang 'forms.gift_certificate.purchase.submit_value' }}">
+                                </div>
+                                
+                                <!-- Accept Conditions -->
+                                {{#if forms.gift_certificate.expires_in_days }}
+                                    <div class="form-field form-field--checkbox">
+                                        <input type="checkbox" class="form-checkbox" name="agree" id="agree">
+                                        <label class="form-label" for="agree">{{lang 'forms.gift_certificate.purchase.agree' days=forms.gift_certificate.expires_in_days}}</label>
+                                    </div>
+                                {{/if}}
+                                <div class="form-field form-field--checkbox">
+                                    <input type="checkbox" class="form-checkbox" name="agree2" id="agree2"{{#if forms.gift_certificate.editing}} checked{{/if}}>
+                                    <label class="form-label" for="agree2">{{lang 'forms.gift_certificate.purchase.agree2' }}</label>
+                                    <span class="custom-accept-condition-text">Citeste <a href="/pages/terms-and-conditions.html">termenii & conditiile</a> pentru card cadou.</span>
+                                </div>
+                                
+                            </form>
+                        </section>
+                        
+                        <!-- Active -->
+                        <section class="gift__active" id="gift__active">
+                            <div class="hide-on-mobile">
+                                <h3 class="custom-gift-heading">Activeaza card-ul cadou</h3>
+                                <ul>
+                                    <li>
+                                        <p>1. Codul unic de card</p>
+                                        <span class="custom-gift-text">You need your unique gift certificate code, which is part of the gift certificate that was emailed to you as an attachment. It will look something like Z50-Y6K-COS-402.</span>
+                                    </li>
+                                    <li>
+                                        <p>2. Adauga in cos produsele alese</p>
+                                        <span class="custom-gift-text">Browse the store and add items to your cart as you normally would.</span>
+                                    </li>
+                                    <li>
+                                        <p>3. Vezi cosul</p>
+                                        <span class="custom-gift-text">Click the 'View Cart' link to view the contents of your shopping cart.</span>
+                                    </li>
+                                    <li>
+                                        <p>4. Adauga codul card-ului</p>
+                                        <span class="custom-gift-text">Type your gift card’s code in where it says 'Card Cadou.’</span>
+                                    </li>
+                                
+                                </ul>
+                            </div>
+                            <div class="hide-on-desktop custom-gift-layout-mobile">
+                                <h3 class="custom-gift-heading">Ai deja un card cadou?</h3>
+                                <p>Activeaza-l online</p>
+                                <span>
+                                    Pe pagina Checkout, introduce numărul cardului și codul PIN. Vei găsi PIN-ul card-ului pe spatele cardului. 
+                                </span>
+                                <span class="small-width">
+                                    După ce ajungi la checkout pentru comanda ta, completează informațiile ca și orice altă comanda, folosind datele cardului.
+                                </span>
+                                <p class="title-second">Activeaza-l in magazin</p>
+                                <span>
+                                    Pe pagina Checkout, introduce numărul cardului și codul PIN. Vei găsi PIN-ul card-ului pe spatele card-ului. 
+                                </span>
+                                <span>
+                                    După ce ajungi la checkout pentru comanda ta, completează informațiile ca și orice altă comanda, folosind datele cardului.
+                                </span>
+                            </div>
+                        </section>
+
+                         <!-- Verify -->
+                         <section class="gift__verify" id="gift__verify">
+                            <h3 class="custom-gift-heading">Verifica soldul cardului</h3>
+                            <p class="intro custom-gift-text">{{lang 'gift_certificate.balance.intro' }}</p>
+                            
+                            <form class="form form--oneField" id="gift-certificate-balance" method="get">
+                                <input type="hidden" name="action" value="balance">
+                                <div class="form-field">
+                                    
+                                    <div class="form-prefixPostfix wrap">
+                                        <input class="form-input" placeholder="Introdu codul cardului" id="giftcertificatecode" name="giftcertificatecode">
+                                        <input class="button button--tertiary form-prefixPostfix-button--postfix" value="{{lang 'forms.gift_certificate.balance.submit_value' }}">
+                                        <label class="form-label custom-check-stock-balance" for="giftcertificatecode">
+                                            
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+
+                          <!-- Condition -->
+                          <section class="gift__condition" id="gift__condition">
+                            <h3 class="custom-gift-heading">Termeni si Conditii</h3>
+                           <div class="content">
+                            <div class="content__left">
+                                <p class="custom-gift-text">
+                                    Valoarea cardului poate fi intre 25-700 Lei. Cardul poate fi cumparat cu pana la un in avans. 
+                                </p>
+                                <p class="custom-gift-text">
+                                    Trebuie completate campurile din sectiunea "Pentru…" cu numele si adresa de e-mail a destinatarului. De asemenea, trebuie completate campurile din sectiunea "De la…" cu numele expeditor si mesajul personalizat. Sunt 250 de caractere la dispozitie pentru a-ti exprima aprecierea, dragostea sau dorul pentru cineva drag. 
+                                </p>
+                            </div>
+                            <div class="content__right">
+                                <p class="custom-gift-text">
+                                    Destinatarul va primi cardul cadou pe e-mail, la maximum 30 de minute dupa efectuarea platii, in cazul in care ai ales optiunea de trimitere imediata. Tu vei primi un mesaj de confirmare a expedierii. 
+                                </p>
+                                <p class="custom-gift-text">
+                                    Cardul poate fi folosit in maxim doua comenzi, pentru orice produse de pe stephanus.ro. Valabilitatea cardului este de 12 luni de la data expedierii lui pe e-mail.
+                                </p>
+                            </div>
+                           </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

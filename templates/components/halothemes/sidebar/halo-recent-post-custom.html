@@ -1,0 +1,72 @@
+<div class="sidebarBlock" id="recentPost-content">
+	<!-- <h5 class="sidebarBlock-heading"><span>{{lang 'blog.recent_posts'}}</span></h5> -->
+	<h5 class="sidebarBlock-heading"><span>Recent Posts</span></h5>
+	<div class="sidebarBlock-content">
+		<div class="recentPosts_List blog-content--custom">
+			{{#each (limit post 3)}}
+				<div class="blog">
+					<div class="blog-post-figure">
+						{{#if thumbnail}}
+							<figure class="blog-thumbnail">
+								<a href="{{url}}">
+									{{> components/common/responsive-img
+										image=thumbnail
+										fallback_size=theme_settings.blog_size
+										lazyload=theme_settings.lazyload_mode
+									}}
+								</a>
+							</figure>
+						{{/if}}
+					</div>
+					<div class="blog-post-body">
+						<header class="blog-header">
+							<div class="blog-header__top">
+								<p class="blog-date">{{date_published}}</p>
+								<p class="custom-blog-reading"></p>
+							</div>
+							<h2 class="blog-title" style="-webkit-box-orient: vertical;">
+								<a href="{{url}}"><span>{{title}}</span></a>
+							</h2>
+						</header>
+						<div class="blog-post halo-description">
+							{{#if body}}
+								{{{body}}}
+							{{else}}
+								{{{summary}}}
+							{{/if}}
+						</div>
+						<div class="blog-post-view-button">
+							<a href="{{url}}" class="view-blog-post__link">Citeste articolul</a>
+						</div>
+						{{>components/common/share}}
+						{{#if show_tags}}
+							{{#if post.tags}}
+								<div class="tags-block">
+									<p class="tags-title">{{lang 'blog.tags'}}</p>
+									<ul class="tags">
+										{{#each post.tags}}
+											<li class="tag">
+												<a href="{{url}}" class="link">{{name}}</a>
+											</li>
+										{{/each}}
+									</ul>
+								</div>
+							{{/if}}
+						{{/if}}
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+<div class="sidebarMoreInfo">
+	<div class="sidebarMoreInfo-content">
+		<h5 class="sidebarMoreInfo-content__title">Vrei sa aflii mai multe detalii?</h5>
+
+		<p class="sidebarMoreInfo-content__text">See all of our Guide articles and posts.</p>
+		<div class="sidebarMoreInfo-content__button">
+			<a href="/blog" class="sidebarMoreInfo-content__button--link button button--primary">VEZI TOATE</a>
+		</div>
+	</div>
+</div>
+

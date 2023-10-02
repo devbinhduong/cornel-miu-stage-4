@@ -1,0 +1,63 @@
+{{#if theme_settings.halo_sizechart}}
+	{{#if theme_settings.halo_sizechart_type '==' 'all'}}
+		<div class="productView-sizeChart{{#if product.options}} productView-sizeChartOption{{/if}}">
+			<a class="productView-sizeChart-link" href="#" data-reveal-id="modal-size-chart-form">
+				<!-- <svg class="icon" role="img" aria-hidden="true" aria-label="{{lang 'products.size_chart'}}">
+                    <title>{{lang 'products.size_chart'}}</title>
+                    <desc>{{lang 'products.size_chart'}}</desc>
+                    <use xlink:href="#icon-size-chart"></use>
+                </svg> -->
+				<span class="text">{{lang 'products.size_chart'}}</span>
+				<svg xmlns="http://www.w3.org/2000/svg" width="97" height="19" viewBox="0 0 97 19" fill="none">
+                    <path d="M47.8986 12.5262L47.8993 12.5286L47.8995 12.5292L47.8996 12.5296L47.8996 12.5296L48.5004 14.6199L49.1004 12.5296L49.1004 12.5294L49.1004 12.5294L49.1005 12.529L49.1007 12.5284L49.1014 12.526L49.1075 12.5063C49.1133 12.4875 49.1229 12.4575 49.1366 12.417C49.1639 12.336 49.2075 12.2132 49.2702 12.0547C49.3955 11.7374 49.5969 11.2773 49.8963 10.7219C50.4954 9.6109 51.4852 8.12134 53.0421 6.62918C56.1429 3.65735 61.5448 0.625 70.7373 0.625H96.375V18.375H0.625V0.625H26.2627C35.4528 0.625 40.8548 3.65732 43.9562 6.62922C45.5134 8.12141 46.5037 9.611 47.1031 10.722C47.4027 11.2775 47.6042 11.7375 47.7297 12.0548C47.7924 12.2134 47.8361 12.3362 47.8634 12.4172C47.8771 12.4577 47.8867 12.4877 47.8926 12.5065L47.8986 12.5262Z" stroke="#252525" stroke-width="1.25"/>
+                </svg>
+			</a>
+			<div id="modal-size-chart-form" class="modal productView-sizeChartform" data-reveal>
+			    <div class="modal-header">
+			        <h2 class="modal-header-title">{{lang 'products.size_chart'}}</h2>
+			        <button class="modal-close" type="button" title="Close">
+		                <span class="aria-description--hidden">Close</span>
+		                <span aria-hidden="true">×</span>
+		            </button>
+			    </div>
+			    <div class="modal-body">
+			    	<div class="productView-sizeChartimg">
+			        	<img class="lazyload" src="{{#if theme_settings.halo_homepage_layout_1}}{{cdn 'img/loading.svg'}}{{else}}{{cdn 'img/loading_2.svg'}}{{/if}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{theme_settings.halo_sizechart_image}}" alt="{{lang 'products.size_chart'}}" title="{{lang 'products.size_chart'}}">
+			    	</div>
+			    </div>
+			</div>
+		</div>
+	{{else if theme_settings.halo_sizechart_type '==' 'custom'}}
+		{{#each product.custom_fields}}
+	        {{#if name '===' '__sizechart'}}
+		        <div class="productView-sizeChart{{#if ../product.options}} productView-sizeChartOption{{/if}}">
+					<a class="productView-sizeChart-link" href="#" data-reveal-id="modal-size-chart-form">
+						<!-- <svg class="icon" role="img" aria-hidden="true" aria-label="{{lang 'products.size_chart'}}">
+		                    <title>{{lang 'products.size_chart'}}</title>
+		                    <desc>{{lang 'products.size_chart'}}</desc>
+		                    <use xlink:href="#icon-size-chart"></use>
+		                </svg> -->
+						<span class="text">{{lang 'products.size_chart'}}</span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="97" height="19" viewBox="0 0 97 19" fill="none">
+							<path d="M47.8986 12.5262L47.8993 12.5286L47.8995 12.5292L47.8996 12.5296L47.8996 12.5296L48.5004 14.6199L49.1004 12.5296L49.1004 12.5294L49.1004 12.5294L49.1005 12.529L49.1007 12.5284L49.1014 12.526L49.1075 12.5063C49.1133 12.4875 49.1229 12.4575 49.1366 12.417C49.1639 12.336 49.2075 12.2132 49.2702 12.0547C49.3955 11.7374 49.5969 11.2773 49.8963 10.7219C50.4954 9.6109 51.4852 8.12134 53.0421 6.62918C56.1429 3.65735 61.5448 0.625 70.7373 0.625H96.375V18.375H0.625V0.625H26.2627C35.4528 0.625 40.8548 3.65732 43.9562 6.62922C45.5134 8.12141 46.5037 9.611 47.1031 10.722C47.4027 11.2775 47.6042 11.7375 47.7297 12.0548C47.7924 12.2134 47.8361 12.3362 47.8634 12.4172C47.8771 12.4577 47.8867 12.4877 47.8926 12.5065L47.8986 12.5262Z" stroke="#252525" stroke-width="1.25"/>
+						</svg>
+					</a>
+					<div id="modal-size-chart-form" class="modal productView-sizeChartform" data-reveal>
+					    <div class="modal-header">
+					        <h2 class="modal-header-title">{{lang 'products.size_chart'}}</h2>
+					        <button class="modal-close" type="button" title="Close">
+				                <span class="aria-description--hidden">Close</span>
+				                <span aria-hidden="true">×</span>
+				            </button>
+					    </div>
+					    <div class="modal-body">
+					    	<div class="productView-sizeChartimg">
+					        	<img class="lazyload" src="{{#if ../theme_settings.halo_homepage_layout_1}}{{cdn 'img/loading.svg'}}{{else}}{{cdn 'img/loading_2.svg'}}{{/if}}" data-src="https://cdn11.bigcommerce.com/s-{{../settings.store_hash}}/product_images/uploaded_images/{{value}}" alt="{{lang 'products.size_chart'}}" title="{{lang 'products.size_chart'}}">
+					    	</div>
+					    </div>
+					</div>
+				</div>
+	       	{{/if}}
+	    {{/each}}
+	{{/if}}
+{{/if}}

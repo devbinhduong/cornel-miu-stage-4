@@ -1,0 +1,122 @@
+<article class="blog custom-post-layout custom-post-layout-1 blog-post-detail">
+    <div class="post-detail__top halo-fadeInUp" data-halo-animate="1">
+        <div class="detail-top__info">
+            <h2 class="blog-title">
+                <a href="{{post.url}}"><span>{{post.title}}</span></a>
+            </h2>
+
+            <div class="blog-header__bottom">
+                <div class="heading-bottom__item blog-author">
+                    <p>Autor</p>
+                    <span>{{post.author}}</span>
+                </div>
+
+                <div class="heading-bottom__item blog-date">
+                    <p>Data</p>
+                    <span>{{post.date_published}}</span>
+                </div>
+
+                <div class="heading-bottom__item blog-reading-time">
+                    <p>Read time</p>
+                    <span class="custom-blog-reading">7 minute</span>
+                </div>
+                <div class="heading-bottom__item blog-share">
+                    <p class="blog-share">Share</p>
+                    {{>components/common/share}}
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="detail-top__img">
+            {{#if post.thumbnail}}
+                <figure class="blog-thumbnail">
+                    <a href="{{post.url}}">
+                        {{> components/common/responsive-img
+                            image=post.thumbnail
+                            fallback_size=theme_settings.blog_size
+                            lazyload=theme_settings.lazyload_mode
+                        }}
+                    </a>
+                </figure>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="blog-post-body halo-fadeInUp" data-halo-animate="2">
+        <div class="blog-post halo-description body-blog__content">
+            {{#if post.body}}
+                {{{post.body}}}
+            {{else}}
+                {{{post.summary}}}
+                {{#if post.show_read_more}}
+                    &hellip; <div class="blog-post-btn"><a class="button button--primary" href="{{url}}" aria-label="{{post.title}} {{lang 'blog.read_more'}}">{{lang 'blog.read_more'}}</a></div>
+                {{/if}}
+            {{/if}}
+
+            <div class="blog-post-tags">
+                {{#if show_tags}}
+                    {{#if post.tags}}
+                    <div class="tags-block tags-block--tags">
+                        <p class="tags-title">{{lang 'blog.tags'}}</p>
+                        <ul class="tags">
+                            {{#each post.tags}}
+                            <li class="tag">
+                                <a href="{{url}}" class="link"><span class="tag-name">{{name}}</span><span class="tag-separate">,</span></a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/if}}
+                {{/if}}
+        
+                <div class="tags-block tags-block--filed">
+                    <p class="tags-title">{{lang 'blog.filed_under'}}</p>
+                    <ul class="tags">
+                        <li class="tag">
+                            <a href="#" class="link">Tips,</a>
+                        </li>
+                        <li class="tag">
+                            <a href="#" class="link">Guides,</a>
+                        </li>
+                        <li class="tag">
+                            <a href="#" class="link">Fatherhood</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="list-product-blog-detail-block-mb" class="home-product-block">
+        </div>
+
+        <div class="body-blog__recent-post">
+            {{> components/halothemes/sidebar/halo-recent-post-custom post=recent_post}}
+        </div>    
+    </div>
+
+    <div id="list-product-blog-detail-block" class="home-product-block halo-fadeInUp" data-halo-animate="3">
+        <div class="themevale_page-heading-wrapper text-center">
+            <h2>Carti similare</h2>
+        </div>
+        <div id="list-product-detail" class="product-block" data-columns="4" data-limit="8" data-dots="false">
+            <div class="productsByListId halo-block-product" data-list-id="21154,21153,21152,21151,21150,21149" id="product-by-list-21155">
+                <div class="halo_productLoading">
+                    
+                </div>
+                <div class="productCarousel1">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Similar Acticle -->
+    <div class="blog-similar blog-content--custom halo-fadeInUp" data-halo-animate="4">
+        <h3 class="similar__heading">Articole similare</h3>
+        <div class="similar__wrapper">
+            <div class="similar-blog__list">
+
+            </div>
+        </div>
+    </div>
+</article>

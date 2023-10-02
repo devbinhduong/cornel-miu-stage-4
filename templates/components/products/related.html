@@ -1,0 +1,39 @@
+<div class="halo-block halo-block-product" id="halo-related-products">
+    <div class="container">
+        <div class="halo-block-header">
+            <h2 class="title">{{title}}</h2>
+        </div>
+        {{#if no_carousel}}
+            <div class="related-digital-list">
+                {{#each (limit products 12)}}
+                    <div class="related-digital-item product halo-fadeInUp" data-halo-animate={{add @index 1}}>
+                        {{> components/products/card-digital productsnew=../productsnew settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+                    </div>
+                {{/each}}
+            </div>
+
+        {{else}}
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/carousel
+                    products=products
+                    productsnew=productsnew
+                    block_id=block_id
+                    block_limit=block_limit
+                    block_column=block_column
+                    show_dots_bar="true"
+                    list="Related Products"
+                }}
+            {{else}}
+                {{> components/products/carousel
+                    products=products
+                    productsnew=productsnew
+                    block_id=block_id
+                    block_limit=block_limit
+                    show_dots_bar="true"
+                    block_column=block_column
+                }}
+            {{/if}}
+        {{/if}}
+    </div>
+</div>
+

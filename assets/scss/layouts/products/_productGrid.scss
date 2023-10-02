@@ -1,0 +1,168 @@
+// =============================================================================
+// PRODUCT GRID (CSS)
+// =============================================================================
+
+
+// Product grid view
+// -----------------------------------------------------------------------------
+//
+// 1. Re-set the font-size, as we're reducing it to 0 in the .products class.
+//
+// -----------------------------------------------------------------------------
+.productGrid {
+    display: block;
+    font-size: 0;
+    letter-spacing: 0;
+    margin: 0 -12px;
+    list-style: none;
+    text-align: left;
+
+    .product,
+    .product-sample {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        padding: 0 12px;
+        margin: 0 0 25px 0;
+        white-space: normal;
+
+        @media (max-width: 551px) {
+            margin: 0 0 17px 0;
+            
+            .card-body {
+                padding: 10px 15px 15px;
+
+                .card-title {
+                    >a {
+                        font-size: 12px;
+                        line-height: 24px;
+                    }
+                }
+
+                .card-text[data-test-info-type="brandName"] {
+                    font-size: 12px;
+                    margin-bottom: 0px;
+                }
+
+                .card-price {
+                    font-size: 16px;
+                    margin-top: -2px;
+                    margin-bottom: 8px;
+                }
+
+                .card-figcaption-button {
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+
+    .product-sample * {
+        font-size: 0;
+    }
+
+    .custom-text {
+        display: none;
+    }
+
+    @media (min-width: 551px) {
+
+        .product,
+        .product-sample {
+            margin-bottom: 16px;
+        }
+    }
+
+    @media (min-width: 768px) {
+
+        .product,
+        .product-sample {
+            width: 33.3333333%;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        margin-left: -12px;
+        margin-right: -12px;
+
+        .product,
+        .product-sample {
+            padding-left: 12px;
+            padding-right: 12px;
+            margin-bottom: 0;
+
+            .card {
+                padding-bottom: 65px;
+            }
+        }
+
+        &.col-4 {
+
+            .product,
+            .product-sample {
+                width: 50% !important;
+            }
+        }
+
+        &.col-5 {
+
+            .product,
+            .product-sample {
+                width: 33.3333333% !important;
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        &.col-4 {
+
+            .product,
+            .product-sample {
+                width: 33.3333333% !important;
+            }
+        }
+
+        &.col-5 {
+
+            .product,
+            .product-sample {
+                width: 20% !important;
+            }
+        }
+    }
+
+    @media (min-width: 1600px) {
+        &.col-4 {
+
+            .product,
+            .product-sample {
+                width: 25% !important;
+            }
+        }
+    }
+}
+
+.product-sample {
+    .card-wrapper {
+        margin-bottom: 5px;
+    }
+
+    .card-body {
+        min-height: 140px;
+    }
+}
+
+.productGrid-showMore {
+    display: block;
+    text-align: center;
+    margin: 30px 0 0 0;
+
+    .button {
+        min-width: 200px;
+        text-transform: uppercase;
+    }
+
+    @media (min-width: 1025px) {
+        margin-top: 50px;
+    }
+}

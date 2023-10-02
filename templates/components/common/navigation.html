@@ -1,0 +1,16 @@
+<nav class="navUser{{#if theme_settings.halo_top_bar_promotion_text '==' ''}} no-top-promotion{{/if}}">
+    <ul class="navUser-section navUser-section--center navUser-section--alt">
+        {{#if theme_settings.halo_top_bar_promotion}}
+            <li class="navUser-item navUser-item--text">
+                <div class="navUser-item__item">
+                    <span class="navUser-action promotion-pc">
+                        {{{theme_settings.halo_top_bar_promotion_text}}}
+                    </span>
+                    <span class="navUser-action promotion-mb">
+                        {{{theme_settings.halo_top_bar_promotion_text_mb}}}
+                    </span>
+                </div>
+            </li>
+        {{/if}}
+    </ul>
+</nav>

@@ -1,0 +1,160 @@
+<div class="productView halo-productView halo-productView-digital" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
+    <div class="halo-productView-left productView-images zoom-image" data-image-gallery>
+        <div class="productView-images-wrapper">
+            <div class="productView-image-wrapper">
+                {{#if product.images.length '>' 0}}
+                    <div class="productView-nav"
+                        data-slick='{
+                            "fade": true,
+                            "arrows": false,
+                            "dots": false,
+                            "infinite": false,
+                            "slidesToShow": 1,
+                            "slidesToScroll": 1
+                        }'>
+                        {{#each product.images}}
+                            <figure class="productView-image" 
+                                data-fancybox="images-product" 
+                                href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}" 
+                                data-image-gallery-main
+                                data-image-gallery-main-quick-view
+                                data-zoom-image="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                                data-image-gallery-new-image-url="{{getImageSrcset this use_default_sizes=true}}"
+                                data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}">
+                                <div class="productView-img-container">
+                                    <a href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                                        {{> components/common/responsive-img
+                                            image=this
+                                            class="productView-image--default"
+                                            fallback_size=../theme_settings.product_size
+                                            lazyload="disabled"
+                                            default_image=../theme_settings.default_image_product
+                                            otherAttributes="data-main-image"
+                                        }}
+                                    </a>
+                                </div>
+                            </figure>
+                        {{/each}}
+                        {{#if product.videos.list.length}}
+                            {{#each product.videos.list}}
+                                <div data-slick-position="{{add ../product.images.length @index}}">
+                                    <figure class="productView-image">
+                                        <div class="productView-img-container">
+                                            <a href="//www.youtube.com/embed/{{id}}">
+                                                <img class="lazyload" src="{{#if ../theme_settings.halo_homepage_layout_1}}{{cdn 'img/loading.svg'}}{{else}}{{cdn 'img/loading_2.svg'}}{{/if}}" data-src="//i.ytimg.com/vi/{{id}}/hqdefault.jpg" data-sizes="auto" alt="{{../product.title}}" title="{{../product.title}}">
+                                            </a>
+                                            <div class="productView-video">
+                                                <div data-youtube="{{id}}"></div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                    </div>
+
+                    <div class="productView-nav productView-nav-mobile"
+                        data-product-image-length="{{product.images.length}}"
+                        data-product-video-length="{{product.videos.list.length}}"
+                        data-slick='{
+                            "fade": false,
+                            "arrows": true,
+                            "dots": true,
+                            "infinite": true,
+                            "slidesToShow": 1.5,
+                            "slidesToScroll": 1.5,
+                            "centerMode":true,
+                            "centerPadding": 60px,
+                            "variableWidth": true
+                        }'>
+                        {{#each product.images}}
+                            <figure class="productView-image filter-{{camelcase this.alt}}" 
+                                data-fancybox="images_mobile"
+                                href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}" 
+                                data-image-gallery-main
+                                data-zoom-image="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                                <div class="productView-img-container">
+                                    <a href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                                        {{> components/common/responsive-img
+                                            image=this
+                                            class="productView-image--default"
+                                            fallback_size=../theme_settings.product_size
+                                            lazyload="disabled"
+                                            default_image=../theme_settings.default_image_product
+                                            otherAttributes="data-main-image"
+                                        }}
+                                    </a>
+                                </div>
+                            </figure>
+                        {{/each}}
+                        {{#if product.videos.list.length}}
+                            {{#each product.videos.list}}
+                                <div data-slick-position="{{add ../product.images.length @index}}">
+                                    <figure class="productView-image">
+                                        <div class="productView-img-container">
+                                            <a href="//www.youtube.com/embed/{{id}}">
+                                                <img class="lazyload" src="{{#if ../theme_settings.halo_homepage_layout_1}}{{cdn 'img/loading.svg'}}{{else}}{{cdn 'img/loading_2.svg'}}{{/if}}" data-src="//i.ytimg.com/vi/{{id}}/hqdefault.jpg" data-sizes="auto" alt="{{../product.title}}" title="{{../product.title}}">
+                                            </a>
+                                            <div class="productView-video">
+                                                <div data-youtube="{{id}}"></div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                {{else}}
+                    <figure class="productView-image"
+                        data-image-gallery-main 
+                        data-zoom-image="{{cdn 'img/ProductDefault.gif'}}">
+                        <div class="productView-img-container productView-img-containerDefault">
+                            <a href="{{cdn 'img/ProductDefault.gif'}}">
+                                <img src="{{cdn 'img/ProductDefault.gif'}}" alt="{{product.title}}" title="{{product.title}}" data-sizes="auto" srcset="{{cdn 'img/ProductDefault.gif'}}" class="productView-image--default" data-main-image>
+                            </a>
+                        </div>
+                    </figure>
+                {{/if}}
+            </div>
+        </div>
+    </div> 
+    <div class="halo-productView-right">
+        <div class="productView-wrapper-details">
+            <section class="productView-details product-data">
+                <div class="productView-product">
+                    <div class="productView-top-custom-text">
+                        <p>Felicitare</p>
+                        <p>7.7K shares</p>
+                    </div>
+                    <h1 class="productView-title text-center">{{product.title}}</h1>
+                    
+                    <!-- Button Custom Group -->
+                    <div class="custom-button-digital-group">
+                        <div class="button button--tertiary digital-product-button digital-product-button--email hover-gold">Email</div>
+                        <div class="button button--primary digital-product-button digital-product-button--download">DESCARCA</div>
+                    </div>
+
+                    <!-- Custom New Sidebar -->
+                    {{>components/products/custom/digital-sidebar}}
+                </div>
+
+                <div class="productView-share-block">
+                    <h5 class="share-block__title">Share</h5>
+                    {{> components/common/share url=product.url}}
+
+                    <div class="share-block__copy">
+                        <p class="copy__link coppy__link-url" style="display: none;">https://store-{{settings.store_hash}}.mybigcommerce.com{{product.url}}</p>
+                        <p class="copy__link">stephanus.ro/{{product.id}}</p>
+                        <a href="#" class="copy__button">
+                            <span class="icon icon--copy-link">
+                                <svg><use xlink:href="#icon-copy-link"></use></svg>
+                            </span>
+                            Copiaza
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>

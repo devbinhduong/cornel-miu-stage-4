@@ -1,0 +1,77 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: 1000
+products:
+    featured:
+        limit: {{theme_settings.sidebar_products_per_page}}
+    new:
+        limit: {{theme_settings.sidebar_products_per_page}}
+    top_sellers:
+        limit: {{theme_settings.sidebar_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "page"}}
+    <section class="custom-section-top-banner">
+        <div class="digital-banner-text">
+            <p class="banner-text text-type termina">INCURAJARE</p>
+            <p class="banner-text text-title flecha-m">
+                Resources that help you grow
+                in your relationship with God
+            </p>
+        </div>
+    </section>
+    
+    <div class="container digital-category-layout">
+        <h1 class="page-heading flecha-m">{{category.name}}</h1>
+        <div class="haloSubCategories-digital">
+            {{#if category.subcategories}}
+                {{#each category.subcategories}}
+                <div class="haloSubCategories__item">
+                    <a class="haloSubCategories__name termina button button--primary" href="{{url}}" aria-label="Button Go To Sub Category {{name}}">{{name}}</a>
+                </div>
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class="page page-category page-listing">
+            <main id="product-listing-container" class="page-content page-digital-content">
+                <div class="halo-toolbar" style="display: none;"></div>
+
+                <div class="product-listing-content">
+                    {{#if category.products}}
+                        {{> components/category/product-listing digital_layout=true}}
+                    {{else}}
+                        <p class="page-no-products">{{lang 'categories.no_products'}}</p>
+                    {{/if}}
+                    {{#if theme_settings.halo-category-sidebar-right}}
+                        <div class="footer-cetgory-product productGrid col-{{theme_settings.product_list_display_col}}"></div>
+                    {{/if}}
+
+                    <div class="digital-viewMore-wrapper">
+                        <a href="#" id="digital-view-more-button" class="digital-view-more-button button button--tertiary hover-gold">{{#if category.products.length '>' 6}}VEZI TOATE{{else}}No More Product{{/if}}</a>
+                    </div>
+                </div>
+
+                <!-- For Mobile -->
+                <!-- <div class="product-listing-content product-listing-content--mobile">
+                    {{#if category.products}}
+                        {{> components/category/product-listing digital_layout=true}}
+                    {{else}}
+                        <p class="page-no-products">{{lang 'categories.no_products'}}</p>
+                    {{/if}}
+                    {{#if theme_settings.halo-category-sidebar-right}}
+                        <div class="footer-cetgory-product productGrid col-{{theme_settings.product_list_display_col}}"></div>
+                    {{/if}}
+
+                    <div class="digital-viewMore-wrapper">
+                        <a href="#" id="digital-view-more-button" class="digital-view-more-button button button--tertiary hover-gold">{{#if category.products.length '>' 6}}VEZI TOATE{{else}}No More Product{{/if}}</a>
+                    </div>
+                </div> -->
+
+            </main> 
+        </div>
+    </div>
+{{/partial}}
+{{> layout/base}}

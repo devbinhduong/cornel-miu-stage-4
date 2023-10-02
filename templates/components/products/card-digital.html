@@ -1,0 +1,95 @@
+{{inject "isProductCardPresented" true}}
+
+<article
+    class="card card-digital
+    {{#if alternate}} card--alternate{{/if}}card-text
+    {{#and (if images.length '>=' 2) (if theme_settings.halo_card_image_swap)}} card-hover{{/and}}"
+    data-test="card-{{id}}"
+    data-product-id="{{id}}"
+    {{#if settings.data_tag_enabled}}
+        data-event-type="{{event}}"
+        data-entity-id="{{id}}"
+        data-position="{{position}}"
+        data-name="{{name}}"
+        data-product-category="
+        {{#each category}}
+            {{#if @last}}
+                {{this}}
+            {{else}}
+                {{this}},
+            {{/if}}
+        {{/each}}"
+        data-product-brand="{{brand.name}}"
+        data-product-price="
+        {{#if price.with_tax}}
+            {{price.with_tax.value}}
+        {{else}}
+            {{price.without_tax.value}}
+        {{/if}}"
+    {{/if}}>
+    <figure class="card-figure">
+        <a href="{{url}}"
+            class="card-figure__link card-link"
+            aria-label="{{name}},{{> components/products/product-aria-label}}"
+            {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+        >
+            <div class="card-img-container{{#if images.length '<' 1}} card-img-container2{{/if}}">
+                {{#unless images.length '<' 1}}
+                    {{> components/common/responsive-img
+                        image=image
+                        class="card-image"
+                        fallback_size=theme_settings.productgallery_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                    }}
+                    {{#and (if images.length '>=' 2) (if theme_settings.halo_card_image_swap)}}
+                        {{#each images}}
+                            {{#if @index '==' 1}}
+                                <span class="card-image-2">
+                                    {{> components/common/responsive-img
+                                        image=this
+                                        class=""
+                                        fallback_size=../../theme_settings.productgallery_size
+                                        lazyload=../../theme_settings.lazyload_mode
+                                        default_image=../../theme_settings.default_image_product
+                                    }}
+                                </span>
+                            {{/if}}
+                        {{/each}}
+                    {{/and}}
+                {{else}}
+                    {{> components/common/responsive-img
+                        image=image
+                        class="card-no-image"
+                        fallback_size=theme_settings.productgallery_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                    }}
+                {{/unless}}
+            </div>
+        </a>
+    </figure>
+    <div class="card-body card-body--digital">
+        <h3 class="card-title">
+            {{#if theme_settings.halo_card_title '==' 'ellipsis'}}
+                <a aria-label="{{name}},{{> components/products/product-aria-label}}"
+                    class="card-ellipsis"
+                    href="{{url}}"
+                    {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+                    style="-webkit-box-orient: vertical;">
+                    <span>{{name}}<span class="card-name"></span></span>
+                </a>
+            {{else}}
+                <a aria-label="{{name}},{{> components/products/product-aria-label}}"
+                    href="{{url}}"
+                    {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
+                    <span>{{name}}<span class="card-name"></span></span>
+                </a>
+            {{/if}}
+        </h3>
+
+        <span class="icon icon--zoom">
+            <svg><use xlink:href="#icon-zoom"></use></svg>
+        </span>
+    </div>
+</article>

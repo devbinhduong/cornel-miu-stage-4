@@ -1,0 +1,62 @@
+<article class="blog">
+    <div class="blog-post-figure">
+        {{#if post.thumbnail}}
+            <figure class="blog-thumbnail">
+                <a href="{{post.url}}">
+                    {{> components/common/responsive-img
+                        image=post.thumbnail
+                        fallback_size=theme_settings.blog_size
+                        lazyload=theme_settings.lazyload_mode
+                    }}
+                </a>
+            </figure>
+        {{/if}}
+    </div>
+
+    <div class="blog-post-body">
+        <header class="blog-header">
+            <div class="blog-header__top">
+                <p class="blog-date">{{post.date_published}}</p>
+                <p class="custom-blog-reading"></p>
+            </div>
+            <h2 class="blog-title" style="-webkit-box-orient: vertical;">
+                <a href="{{post.url}}"><span>{{post.title}}</span></a>
+            </h2>
+        </header>
+
+        <div class="blog-post halo-description">
+            {{#if post.body}}
+                {{{post.body}}}
+            {{else}}
+                {{{post.summary}}}
+                {{#if post.show_read_more}}
+                    &hellip; <div class="blog-post-btn"><a class="button button--primary" href="{{url}}" aria-label="{{post.title}} {{lang 'blog.read_more'}}">{{lang 'blog.read_more'}}</a></div>
+                {{/if}}
+            {{/if}}
+        </div>
+
+        <div class="blog-post-view-button">
+            <a href="{{url}}" class="view-blog-post__link">Citeste articolul</a>
+        </div>
+
+
+
+        {{>components/common/share}}
+
+        {{#if show_tags}}
+            {{#if post.tags}}
+                <div class="tags-block">
+                    <p class="tags-title">{{lang 'blog.tags'}}</p>
+                    <ul class="tags">
+                        {{#each post.tags}}
+                            <li class="tag">
+                                <a href="{{url}}" class="link">{{name}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/if}}
+        {{/if}}
+
+    </div>
+</article>

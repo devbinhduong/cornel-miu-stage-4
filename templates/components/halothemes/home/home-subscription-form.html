@@ -1,0 +1,37 @@
+<div class="halo-block halo-subscription">
+    <div class="container halo-fadeInUp" data-halo-animate="1">
+        <div class="halo-subsciption-content">
+          <div class="subsciption-content-left">
+            <h3 class="title">{{lang 'newsletter.subscribe_title'}}</h3>
+            <p class="summary">{{lang 'newsletter.subscribe_intro'}}</p>
+          </div>
+          <div class="subsciption-content-right">
+            <form class="form" action="{{urls.subscribe.action}}" method="post">
+                <fieldset class="form-fieldset">
+                    <input type="hidden" name="action" value="subscribe">
+                    <input type="hidden" name="nl_first_name" value="bc">
+                    <input type="hidden" name="check" value="1">
+                    <div class="form-field">
+                        <label class="form-label is-srOnly" for="nl_email3">{{lang 'common.email_address'}}</label>
+                        <div class="form-prefixPostfix wrap">
+                            <input class="form-input"
+                                   id="nl_email3"
+                                   name="nl_email"
+                                   type="email"
+                                   value="{{customer.email}}"
+                                   placeholder="{{lang 'newsletter.subscribe_email'}}"
+                                   aria-describedby="alertBox-message-text"
+                                   aria-required="true"
+                            >
+                            <input class="button button--tertiary form-prefixPostfix-button--postfix"
+                                   type="submit"
+                                   value="{{lang 'newsletter.subscribe_button'}}"
+                            >
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>

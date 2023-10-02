@@ -1,0 +1,100 @@
+<div class="tabs-contents">
+    <div class="tab-content productDescription__block is-active" id="tab-description">
+        <div class="toggle-title productDescription__title">
+            <a class="toggleLink" data-collapsible href="#tab-description-mobile">
+                <span class="text">{{lang 'products.description'}}</span>
+                <!-- start change -->
+                <span class="icon-plus">&nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 17 8" fill="none">
+                        <path d="M16 1L8.5 7L1 1" stroke="#252525" stroke-width="1.25" stroke-linejoin="bevel"/>
+                    </svg>
+                </span>
+                <!-- end change -->
+            </a>
+        </div>
+        <div class="toggle-content productDescription__content{{#if theme_settings.show_more_description_tabs_mb}} show_read_more{{/if}}" id="tab-description-mobile">
+            {{{product.description}}}
+            {{#if theme_settings.show_more_description_tabs_mb}}
+                {{#if product.description.length '>' 200}}
+                    <div id="tab-descriptionShowmore" class="tab-descriptionShowmore">
+                        <a class="button button--secondary" href="#" data-show-more-text="{{lang 'products.read_more'}}" data-show-less-text="{{lang 'products.read_less'}}"> 
+                            {{lang 'products.read_more'}}
+                        </a>
+                    </div>
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+    {{#all product.warranty theme_settings.show_warranty_tabs}}
+        <div class="tab-content" id="tab-warranty">
+            <div class="toggle-title">
+                <a class="toggleLink" data-collapsible href="#tab-warranty-mobile">
+                    <span class="text">{{lang 'products.warranty'}}</span>
+                    <!-- start change -->
+                    <span class="icon-plus">&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 17 8" fill="none">
+                            <path d="M16 1L8.5 7L1 1" stroke="#252525" stroke-width="1.25" stroke-linejoin="bevel"/>
+                        </svg>
+                    </span>
+                    <!-- end change -->
+                </a>
+            </div>
+            <div class="toggle-content" id="tab-warranty-mobile">
+                <div class="warranty-text">{{{product.warranty}}}</div>
+            </div>
+        </div>
+    {{/all}}
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
+        <div class="tab-content" id="tab-reviews">
+            <div class="toggle-title">
+                <a class="toggleLink" data-collapsible href="#tab-reviews-mobile">
+                    <span class="text">{{lang 'products.reviews.header'}}</span>
+                    <!-- start change -->
+                    <span class="icon-plus">&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 17 8" fill="none">
+                            <path d="M16 1L8.5 7L1 1" stroke="#252525" stroke-width="1.25" stroke-linejoin="bevel"/>
+                        </svg>
+                    </span>
+                    <!-- end change -->
+                </a>
+            </div>
+            <div class="toggle-content" id="tab-reviews-mobile">
+                {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+            </div>
+        </div>
+    {{/all}}
+    {{#if theme_settings.show_shipping_tab}}
+        <div class="tab-content" id="tab-shipping">
+            <div class="toggle-title">
+                <a class="toggleLink" data-collapsible href="#tab-shipping-mobile">
+                    <span class="text">{{lang 'products.shipping_tab'}}</span>
+                    <!-- start change -->
+                    <span class="icon-plus">&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 17 8" fill="none">
+                            <path d="M16 1L8.5 7L1 1" stroke="#252525" stroke-width="1.25" stroke-linejoin="bevel"/>
+                        </svg>
+                    </span>
+                    <!-- end change -->
+                </a>
+            </div>
+            <div class="toggle-content" id="tab-shipping-mobile"></div>
+        </div>
+    {{/if}}
+    {{#if theme_settings.show_custom_tab}}
+        <div class="tab-content" id="tab-custom">
+            <div class="toggle-title">
+                <a class="toggleLink" data-collapsible href="#tab-custom-mobile">
+                    <span class="text">{{lang 'products.custom_tab'}}</span>
+                    <!-- start change -->
+                    <span class="icon-plus">&nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 17 8" fill="none">
+                            <path d="M16 1L8.5 7L1 1" stroke="#252525" stroke-width="1.25" stroke-linejoin="bevel"/>
+                        </svg>
+                    </span>
+                    <!-- end change -->
+                </a>
+            </div>
+            <div class="toggle-content" id="tab-custom-mobile"></div>
+        </div>
+    {{/if}}
+</div>

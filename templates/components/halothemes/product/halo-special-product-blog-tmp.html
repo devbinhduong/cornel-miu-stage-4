@@ -1,0 +1,135 @@
+<div class="productView halo-productView">
+    <div class="halo-productView-left productView-images zoom-image" data-image-gallery>
+        <div class="productView-image-wrapper">
+            {{#if theme_settings.halo-label-product}}
+                <div class="halo-badges">
+                    {{#each productsnew}}
+                        {{#if id '==' ../product.id}}
+                            <div class="new-badge halo-badge">
+                                <span class="text">{{lang 'products.new_label'}}</span>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                    {{#each product.custom_fields}}
+                        {{#if name '===' '__customlabel'}}
+                            <div class="custom-badge halo-badge">
+                                <span class="text">{{{value}}}</span>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                    {{#unless product.can_purchase}}
+                        {{#if product.out_of_stock}}
+                            {{#if product.out_of_stock_message}}
+                                <div class="soldOut-badge halo-badge">
+                                    <span class="text">{{lang 'products.sold_out_label'}}</span>
+                                </div>
+                            {{else}}
+                                <div class="soldOut-badge halo-badge">
+                                    <span class="text">{{lang 'products.sold_out_label'}}</span>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+                    {{/unless}}
+                </div>
+            {{/if}}
+            <div class="productView-nav"
+                data-slick='{
+                    "fade": false,
+                    "arrows": false,
+                    "dots": false,
+                    "infinite": false,
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1,
+                    "asNavFor": ".halo-spacial-product .halo-productView-left .productView-for"
+                }'>
+                {{#each product.images}}
+                    <div>
+                        <figure class="productView-image" data-fancybox="images" href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}" 
+                            data-image-gallery-main
+                            data-zoom-image="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                            <div class="productView-img-container">
+                                <a href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                                    {{> components/common/responsive-img
+                                        image=this
+                                        class="productView-image--default"
+                                        fallback_size=../theme_settings.product_size
+                                        lazyload="disabled"
+                                        default_image=../theme_settings.default_image_product
+                                        otherAttributes="data-main-image"
+                                    }}
+                                </a>
+                            </div>
+                        </figure>
+                    </div>
+                {{/each}}
+                {{#if product.videos.list.length}}
+                    {{#each product.videos.list}}
+                        <div>
+                            <figure class="productView-image">
+                                <div class="productView-img-container">
+                                    <a href="//www.youtube.com/embed/{{id}}">
+                                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="//i.ytimg.com/vi/{{id}}/hqdefault.jpg"/ data-sizes="auto">
+                                    </a>
+                                    <div class="productView-video">
+                                        <div data-youtube="{{id}}"></div>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+        <h1 class="productView-title">
+            <a href="{{product.url}}">{{product.title}}</a>
+        </h1>
+        {{#if product.brand}}
+            <h2 class="productView-brand custom-page-text">
+                <a href="{{product.brand.url}}">{{product.brand.name}}</span></a>
+            </h2>
+        {{/if}}
+        <div class="productView-price">
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{> components/products/price price=product.price}}
+            {{else}}
+                {{> components/common/login-for-pricing}}
+            {{/or}}
+            {{#if product.call_for_price}}
+                <p><span>{{product.call_for_price}}</span></p>
+            {{/if}}
+        </div>
+        <div class="productView-topInfo">
+            <div class="productView-rating">
+                {{#if settings.show_product_rating}}
+                    {{> components/products/ratings rating=product.rating}}
+                    <span class="productView-reviewLink review-link custom-page-text-small">
+                        {{#if product.num_reviews '>' 0}}
+                            <a class="custom-page-text-small" href="{{product.url}}#tab-reviews">
+                                {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                            </a>
+                        {{else}}
+                            {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                        {{/if}}
+                    </span>
+                {{/if}}
+                {{#if theme_settings.product_soldProduct}}
+                    <div class="productView-soldProduct"></div>
+                {{/if}}
+            </div>
+        </div>
+        {{#if product.options}}
+            <a href="{{product.url}}" class="item__button button button--primary">ADAUGĂ ÎN COȘ</a>
+        {{else}}
+            <a
+                href="/cart.php?action=add&amp;product_id={{product.id}}"
+                data-button-type="add-cart"
+                class="button button--primary item__button"
+                data-product-id="{{product.id}}"
+                data-wait-message="Adding to Cart…"
+                tabindex="0"
+            >
+                ADAUGĂ ÎN COȘ
+            </a>
+        {{/if}}
+    </div>
+</div>

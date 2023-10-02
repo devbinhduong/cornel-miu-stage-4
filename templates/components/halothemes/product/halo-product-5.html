@@ -1,0 +1,33 @@
+{{#each categories}}
+    {{#if id '==' ../cateID}}
+        <div class="halo-block halo-block-product halo-block-product-5 halo-block-custom-cate">
+            <div class="container">
+                <div class="halo-block-header">
+                    <h3 class="title">{{../title}}</h3>
+                </div>
+                <div class="productCarousel-wrapper">
+                    <div class="halo-block-header halo-block-header-wrapper">
+                        <img class="lazyload image-logo" src="{{cdn 'img/loading.svg'}}" data-src="https://cdn11.bigcommerce.com/s-{{../settings.store_hash}}/product_images/uploaded_images/{{../image}}" alt="{{../image.alt}}" title="{{../image.alt}}">
+                        <p>{{{../des}}}</p>
+                        <a class="link" href="{{../link}}" aria-label="{{lang 'common.view_all'}}"><span>{{lang 'common.view_all'}}</span></a>
+                    </div>
+                    <div class="productCarousel-custom">
+                        <div class="productCarousel-content" id="category_{{../cateID}}" aria-hidden="false" data-category-id="{{../cateID}}" data-category-url="{{concat url ../data-sort}}">
+                            <div class="loadingOverlay"></div>
+                            <div class="productCarousel show-dots-bar" id="halo-block-custom-cate-{{../cateID}}" data-dots-bar="true">
+                                {{> components/halothemes/product/halo-sample-product-2}}
+                                {{> components/halothemes/product/halo-sample-product-2}}
+                                {{> components/halothemes/product/halo-sample-product-2}}
+                                {{> components/halothemes/product/halo-sample-product-2}}
+                                {{> components/halothemes/product/halo-sample-product-2}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {{/if}}
+{{/each}}
+{{{region name="home_below_products_5"}}}
+

@@ -1,0 +1,186 @@
+<div class="custom-post-detail-layout halo-fadeInUp" data-halo-animate="1">
+    <div class="page-listing-author">
+        <div class="page-listing-author_image">
+            <div class="img-wrap">
+                <a href="{{post.url}}">
+                    {{> components/common/responsive-img
+                        image=post.thumbnail
+                        fallback_size=theme_settings.blog_size
+                        lazyload=theme_settings.lazyload_mode
+                    }}
+                </a>
+            </div>
+        </div>
+        <div class="page-listing-author_content">
+            <div class="page-listing-author_head">
+                {{#if post.body}}
+                    {{{post.body}}}
+                {{else}}
+                    {{{post.summary}}}
+                    {{#if post.show_read_more}}
+                        &hellip; <div class="blog-post-btn"><a class="button button--primary" href="{{url}}" aria-label="{{post.title}} {{lang 'blog.read_more'}}">{{lang 'blog.read_more'}}</a></div>
+                    {{/if}}
+                {{/if}}
+            </div>
+            <div class="page-listing-author_form">
+                <form class="form" action="{{urls.subscribe.action}}" method="post">
+                    <fieldset class="form-fieldset">
+                        <input type="hidden" name="action" value="subscribe" />
+                        <input type="hidden" name="nl_first_name" value="bc" />
+                        <input type="hidden" name="check" value="1" />
+                        <div class="form-field">
+                            <label class="form-label" for="nl_email3">{{lang 'common.title_email_address'}}</label>
+                            <div class="form-prefixPostfix wrap">
+                                <input
+                                    class="form-input"
+                                    id="nl_email3"
+                                    name="nl_email"
+                                    type="email"
+                                    value="{{customer.email}}"
+                                    placeholder="{{lang 'newsletter.subscribe_email'}}"
+                                    aria-describedby="alertBox-message-text"
+                                    aria-required="true"
+                                />
+                                <input class="button button--tertiary form-prefixPostfix-button--postfix" type="submit" value="{{lang 'newsletter.subscribe_button'}}" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="blog-content--custom">
+        <!-- Blog Search -->
+        <section class="blog-search halo-fadeInUp" data-halo-animate="2">
+            <h3 class="blog-search__heading flecha-m text-center">Cautare</h3>
+            <div class="blog-search__form">
+                <input type="text" class="blog-search__input" placeholder="Ruth Chou Simons">
+    
+                <div class="blog-search__icon">
+                    <span class="icon">
+                        <svg><use xlink:href="#blog-search-icon"></use></svg>
+                    </span>
+                </div>
+            </div>
+        </section>
+    
+        <section class="custom-post-tags" style="display: none;">
+            {{#if show_tags}}
+                {{#if post.tags}}
+                <div class="tags-block tags-block--tags">
+                    <p class="tags-title">{{lang 'blog.tags'}}</p>
+                    <ul class="tags">
+                        {{#each post.tags}}
+                        <li class="tag">
+                            <a href="{{url}}" class="link">{{name}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+            {{/if}}
+        </section>
+    
+        <section class="blog-tab__contents halo-fadeInUp" data-halo-animate="3">
+            <div id="blog-interviuri" class="blog-tab__content blog-tab__content--interviuri" style="display: none;">
+                <div class="blog-tab-content__info">
+                    <h4 class="blog-tab-content__title flecha-m text-center">Interviuri</h4>
+                    <p class="blog-tab-content__text">
+                        We’re here to guide you on finding the resources and products that support your spiritual formation to become more like Jesus.
+                    </p>
+    
+                    <a href="/blog/tag/Interviuri" class="blog-tab-content__link">
+                        View all interviuri articles
+                    </a>
+                </div>
+    
+                <div class="blog-slick-contain">
+                    <div class="blog-tab-content__post blog-tab-content__post--interviuri">
+                    </div>
+    
+                    <!-- custom slick -->
+                    <div class="custom-slider-dots"></div>
+                </div>
+            </div>
+    
+            <div id="blog-incurajare" class="blog-tab__content blog-tab__content--incurajare" style="display: none;">
+                <div class="blog-tab-content__info">
+                    <h4 class="blog-tab-content__title flecha-m text-center">Incurajare</h4>
+                    <p class="blog-tab-content__text">
+                        We’re here to guide you on finding the resources and cultivating practices that help you become more like Jesus.
+                    </p>
+    
+                    <a href="/blog/tag/Incurajare" class="blog-tab-content__link">
+                        View all incurajare articles
+                    </a>
+                </div>
+    
+                <div class="blog-slick-contain">
+                    <div class="blog-tab-content__post blog-tab-content__post--incurajare">
+                    </div>
+    
+                    <div class="custom-slider-dots"></div>
+                </div>
+            </div>
+    
+            <div id="blog-recomandari" class="blog-tab__content blog-tab__content--recomandari" style="display: none;">
+                <div class="blog-tab-content__info">
+                    <h4 class="blog-tab-content__title flecha-m text-center">Recomandari</h4>
+                    <p class="blog-tab-content__text">
+                        We’re here to guide you on finding the resources and products that support your spiritual formation to become more like Jesus.
+                    </p>
+    
+                    <a href="/blog/tag/Recomandari" class="blog-tab-content__link">
+                        View all recomandari articles
+                    </a>
+                </div>
+    
+                <div class="blog-slick-contain">
+                    <div class="blog-tab-content__post blog-tab-content__post--recomandari">
+                    </div>
+    
+                    <div class="custom-slider-dots"></div>
+                </div>
+            </div>
+    
+            <div id="blog-recenzii" class="blog-tab__content blog-tab__content--recenzii" style="display: none;">
+                <div class="blog-tab-content__info">
+                    <h4 class="blog-tab-content__title flecha-m text-center">Recenzii</h4>
+                    <p class="blog-tab-content__text">
+                        We’re here to guide you on finding the resources and products that support your spiritual formation to become more like Jesus.
+                    </p>
+    
+                    <a href="/blog/tag/Recenzii" class="blog-tab-content__link">
+                        View all recenzii articles
+                    </a>
+                </div>
+    
+                <div class="blog-slick-contain">
+                    <div class="blog-tab-content__post blog-tab-content__post--recenzii">
+                    </div>
+    
+                    <div class="custom-slider-dots"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="list-product-blog-detail-block-mb" class="home-product-block">
+    </div>
+
+    <div id="list-product-blog-detail-block" class="home-product-block halo-fadeInUp" data-halo-animate="4">
+        <div class="themevale_page-heading-wrapper text-center">
+            <h2>Carti similare</h2>
+        </div>
+        <div id="list-product-detail" class="product-block" data-columns="4" data-limit="8" data-dots="false">
+            <div class="productsByListId halo-block-product" data-list-id="21154,21153,21152,21151,21150,21149" id="product-by-list-21155">
+                <div class="halo_productLoading">
+                    
+                </div>
+                <div class="productCarousel1">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,173 @@
+---
+blog:
+    posts:
+        limit: 9
+        pages: {{theme_settings.blog_posts_pages}}
+        summary: {{theme_settings.blog_posts_summary}}
+        
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+---
+{{#partial "page"}}
+
+<div class="container-full">
+    <div class="page-header">
+        {{#unless theme_settings.hide_blog_page_heading }}
+            <h1 class="page-heading blog-heading--custom text-center flecha-m">{{ blog.name }}</h1>
+        {{/unless}}
+    </div>
+
+    <div class="page page-blog">
+        {{#if theme_settings.halo-blog-sidebar}}
+            <aside class="page-sidebar">
+                <div class="page-sidebar-close">
+                    <span class="title">{{lang 'common.sidebar'}}</span>
+                    <a href="#" class="close">
+                        <svg class="icon" role="img" aria-label="{{lang 'common.close'}}">
+                            <title>{{lang 'common.close'}}</title>
+                            <desc>{{lang 'common.close'}}</desc>
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </a>
+                </div>
+                {{> components/blog/sidebar post=blog.posts}}
+            </aside>
+        {{/if}}
+
+        <main class="page-content blog-content--custom" id="blog-listing-container">
+            {{#if theme_settings.halo-blog-sidebar}}
+                <div class="page-sidebar-mobile-wrapper">
+                    <div class="page-sidebar-mobile">
+                        <span class="text">{{lang 'common.sidebar'}}</span>
+                        <svg class="icon" role="img" aria-label="{{lang 'common.sidebar'}}">
+                            <title>{{lang 'common.sidebar'}}</title>
+                            <desc>{{lang 'common.sidebar'}}</desc>
+                            <use xlink:href="#icon-sidebar"></use>
+                        </svg>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#each breadcrumbs}}
+            {{#if @last}}
+            {{#if url '==' 'https://store-5xii52yioo.mybigcommerce.com/blog/tag/Interviuri'}}
+                <div class="blog-tab__content blog-tab__content--interviuri blog-category-special">
+                    <div class="blog-tab-content__info">
+                        <h4 class="blog-tab-content__title flecha-m text-center">Interviuri</h4>
+                        <p class="blog-tab-content__text">
+                            We’re here to guide you on finding the resources and products that support your spiritual formation to become more like Jesus.
+                        </p>
+                    </div>
+                    <div class="blog-slick-contain">
+                        <div class="blog-catagory-content">
+                            {{#each ../blog.posts}}
+                                {{> components/blog/post post=this}}
+                            {{/each}}
+                            {{> components/common/paginator ../pagination.blog}}
+                        </div>
+                        <a href="#" class="button button--tertiary post-category-viewMore">MAI MULTE</a>
+                    </div>
+                </div>
+
+            {{else if url '==' 'https://store-5xii52yioo.mybigcommerce.com/blog/tag/Incurajare'}}
+                <div class="blog-tab__content blog-tab__content--incurajare blog-category-special">
+                    <div class="blog-tab-content__info">
+                        <h4 class="blog-tab-content__title flecha-m text-center">Incurajare</h4>
+                        <p class="blog-tab-content__text">
+                            We’re here to guide you on finding the resources and products that support your spiritual formation to become more like Jesus.
+                        </p>
+                    </div>
+                    <div class="blog-slick-contain">
+                        <div class="blog-catagory-content">
+                            {{#each ../blog.posts}}
+                                {{> components/blog/post post=this}}
+                            {{/each}}
+                            {{> components/common/paginator ../pagination.blog}}
+                        </div>
+                        <a href="#" class="button button--tertiary post-category-viewMore">MAI MULTE</a>
+                    </div>
+                </div>
+
+            {{else if url '==' 'https://store-5xii52yioo.mybigcommerce.com/blog/tag/Recomandari'}}
+                <div class="blog-tab__content blog-tab__content--recomandari blog-category-special">
+                    <div class="blog-tab-content__info">
+                        <h4 class="blog-tab-content__title flecha-m text-center">Recomandari</h4>
+                        <p class="blog-tab-content__text">
+                            We’re here to guide you on finding the resources and products that support your spiritual formation to become more like Jesus.
+                        </p>
+                    </div>
+                    <div class="blog-slick-contain">
+                        <div class="blog-catagory-content">
+                            {{#each ../blog.posts}}
+                                {{> components/blog/post post=this}}
+                            {{/each}}
+                            {{> components/common/paginator ../pagination.blog}}
+                        </div>
+                        <a href="#" class="button button--tertiary post-category-viewMore">MAI MULTE</a>
+                    </div>
+                </div>
+
+            {{else if url '==' 'https://store-5xii52yioo.mybigcommerce.com/blog/tag/Recenzii'}}
+                <div class="blog-tab__content blog-tab__content--recenzii blog-category-special">
+                    <div class="blog-tab-content__info">
+                        <h4 class="blog-tab-content__title flecha-m text-center">Recenzii</h4>
+                        <p class="blog-tab-content__text">
+                            We’re here to guide you on finding the resources and products that support your spiritual formation to become more like Jesus.
+                        </p>
+                    </div>
+                    <div class="blog-slick-contain">
+                        <div class="blog-catagory-content">
+                            {{#each ../blog.posts }}
+                                {{> components/blog/post post=this}}
+                            {{/each}}
+
+                            {{> components/common/paginator ../pagination.blog}}
+                        </div>
+                        <a href="#" class="button button--tertiary post-category-viewMore">MAI MULTE</a>
+                    </div>
+                </div>
+            {{else}}
+                 <!-- Mint Start -->
+                {{#each ../breadcrumbs}}
+                    {{#if @last}}
+                        {{#if url '==' 'https://store-5xii52yioo.mybigcommerce.com/blog/'}}
+                            {{> components/blog/blog-custom-layout}}   
+                        {{else}} 
+                            <div class="blog-tab__content blog-category-special normal-tag">
+                                <div class="blog-tab-content__info">
+                                    <h4 class="blog-tab-content__title flecha-m text-center other-post-heading">{{blog.tag}}</h4>
+                                    <p class="blog-tab-content__text">
+                                    </p>
+                                </div>
+                                <div class="blog-slick-contain">
+                                    <div class="blog-catagory-content">
+                                        {{#each ../blog.posts}}
+                                            {{> components/blog/post post=this}}
+                                        {{/each}}
+            
+                                        {{> components/common/paginator ../pagination.blog}}
+                                    </div>
+                                    {{#if ../pagination.blog}}
+                                        <a href="#" class="button button--tertiary post-category-viewMore">MAI MULTE</a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+                
+            {{/if}}
+            {{/if}}
+            {{/each}}
+            
+        </main>
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

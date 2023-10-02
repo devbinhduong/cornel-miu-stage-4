@@ -1,0 +1,96 @@
+<div class="digital-overlay" id="digital-overlay"></div>
+
+<div class="digital-sidebar" id="digital-sidebar">
+    <!-- Email Content -->
+    <div class="digital-sidebar-content" id="email-content">
+        <h4 class="sidebar-content__heading">Send Ecard</h4>
+        <div class="sidebar-content__body">
+            <div class="body-content__left">
+                <div class="digital__image">
+                    {{#each product.images}}
+                        <div class="productView-img-container">
+                            <a class="digital-image__link" href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    class="productView-image--default"
+                                    fallback_size=../theme_settings.product_size
+                                    lazyload="disabled"
+                                    default_image=../theme_settings.default_image_product
+                                    otherAttributes="data-main-image"
+                                }}
+                            </a>
+                        </div>
+                    {{/each}}
+                </div>
+                <h4 class="digital__title">{{product.title}}</h4>
+                <a class="digital__url" href="https://store-{{settings.store_hash}}.mybigcommerce.com{{product.url}}" style="display: none;"></a>
+            </div>
+            
+            <div class="body-content__right">
+                <div id="halo-ask-an-expert-results-digital" class="halo-ask-an-expert-text"></div>
+                <form class="form" id="halo-ask-an-expert-form">
+                    <div class="form-field">
+                        <label class="form-label hiddenLabels" for="customer_name">Your Full Name</label>
+                        <input required type="text" class="form-input" name="customer_name" id="customer_name" placeholder="Your Name">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label hiddenLabels" for="customer_email">Your Email Address</label>
+                        <input required type="text" class="form-input" name="customer_email" id="customer_email" placeholder="Your Email">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label hiddenLabels" for="recipient_email">Recipient Email Address</label>
+                        <input required type="text" class="form-input" name="recipient_email" id="recipient_email" placeholder="Recipient Email">
+                    </div>
+                    <div class="form-field form-field-textarea">
+                        <label class="form-label" for="comment_area">Personalized Message</label>
+                        <textarea name="comment_area" cols="30" rows="6" class="form-input" id="comment_area" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="button button--tertiary" id="halo-ask-an-expert-button-digital">Send Ecard</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Content -->
+    <div class="digital-sidebar-content" id="download-content">
+        <h4 class="sidebar-content__heading">Download Ecard</h4>
+        <div class="sidebar-content__body">
+            <div class="body-content__left">
+                <div class="digital__image">
+                    {{#each product.images}}
+                        <div class="productView-img-container">
+                            <a class="digital-image__link" href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    class="productView-image--default"
+                                    fallback_size=../theme_settings.product_size
+                                    lazyload="disabled"
+                                    default_image=../theme_settings.default_image_product
+                                    otherAttributes="data-main-image"
+                                }}
+                            </a>
+                        </div>
+                    {{/each}}
+                </div>
+                <h4 class="digital__title">{{product.title}}</h4>
+            </div>
+            <div class="body-content__right">
+                <div class="form-field">
+                    <label class="form-label hiddenLabels">Enter Your Email</label>
+                    <input required type="text" class="form-input" placeholder="Email Address">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="button button--tertiary" id="digital-download-card">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="digital-sidebar-close" id="digital-sidebar-close">
+        <span class="icon icon--close">
+            <svg><use xlink:href="#icon-close"></use></svg>
+        </span>
+    </a>
+</div>

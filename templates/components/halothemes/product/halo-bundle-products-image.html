@@ -1,0 +1,30 @@
+<div class="halo-product-item">
+    <div class="halo-product-image {{#if product.can_purchase}} isChecked{{/if}}" aria-label="{{product.title}}"  data-product-id="{{product.id}}"  data-product-image-id="{{product.id}}">
+        <i class="icon-plus"></i>
+        <a class="halo-product-link{{#and (if product.images.length '>=' 2) (if theme_settings.halo_card_image_swap)}} halo-product-imageSwap{{/and}}" href="{{product.url}}" aria-label="{{product.title}}">
+            <div class="halo-product-container">
+                {{> components/common/responsive-img
+                    image=product.main_image
+                    fallback_size=theme_settings.productgallery_size
+                    lazyload=theme_settings.lazyload_mode
+                    default_image=theme_settings.default_image_product
+                }}
+                {{#and (if product.images.length '>=' 2) (if theme_settings.halo_card_image_swap)}}
+                    {{#each product.images}}
+                        {{#if @index '==' 1}}
+                            <span class="halo-product-image2">
+                                {{> components/common/responsive-img
+                                    image=this
+                                    fallback_size=../../theme_settings.productgallery_size
+                                    lazyload=../../theme_settings.lazyload_mode
+                                    default_image=../../theme_settings.default_image_product
+                                }}
+                            </span>
+                        {{/if}}
+                    {{/each}}
+                {{/and}}
+            </div>
+        </a>
+    </div>
+</div>
+    

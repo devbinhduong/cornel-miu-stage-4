@@ -1,0 +1,17 @@
+{{#if children}}
+    <p class="navPages-action navPages-action-lv1 navPages-action-depth-max has-subMenu is-root{{#if is_active}} activePage{{/if}}" data-label="{{url}}" data-index="{{@index}}">
+        <a class="text {{name}}" href="{{url}}" aria-label="{{name}}">
+          <span>{{name}}</span>
+        </a>
+        <span class="navPages-action-moreIcon" aria-hidden="true">
+            <svg class="icon"><use xlink:href="#icon-chevron-down" /></svg>
+        </span>
+    </p>
+    {{> components/common/navigation-dropdown}}
+{{else}}
+    <a class="navPages-action navPages-action-lv1 no-subMenu navPages-action-end{{#if is_active}} activePage{{/if}}" data-label="{{url}}" href="{{url}}" aria-label="{{name}}" data-index="{{@index}}">
+      <span class="text">{{name}}</span>
+    </a>
+{{/if}}
+
+

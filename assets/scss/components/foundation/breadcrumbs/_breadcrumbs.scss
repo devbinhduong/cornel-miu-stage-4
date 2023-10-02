@@ -1,0 +1,152 @@
+// =============================================================================
+// BREADCRUMBS (CSS)
+// =============================================================================
+//
+//
+// 1. Hide breadcrumbs on mobile-sized screens to improve screen real estate.
+//
+// 2. Since our breadcrumbs are centred with a variable width, we need to use
+//    display: inline-block; on the breadcrumbs. Hence needing to remove the
+//    white-space with font-size: 0;
+//    The font-size is reset in the breadcrumb settings file.
+//
+// -----------------------------------------------------------------------------
+
+.breadcrumb-wrapper {
+    padding: 0;
+    background-color: transparent;
+    text-align: left;
+
+    @media (min-width: 1025px) {
+        padding: 0;
+    }
+}
+
+.breadcrumbs {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+
+    @media (max-width: 767px) {
+        display: block;
+        white-space: nowrap;
+        overflow: auto hidden;
+        margin: 0 -10px;
+        padding: 0 10px;
+
+        .breadcrumb {
+            &.is-active {
+                .breadcrumb-label {
+                    padding-right: 20px;
+                }
+            }
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(270deg, hsla(0, 0, 100%, 1) 0%, hsla(0, 0, 100%, .1));
+            width: 12px;
+            height: 40px;
+            z-index: 1;
+            transform: rotate(180deg);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(270deg, hsla(0, 0, 100%, 1) 0%, hsla(0, 0, 100%, .1));
+            width: 50px;
+            height: 40px;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            float: none;
+            line-height: 18px;
+        }
+    }
+}
+
+.breadcrumb {
+    display: inline-block;
+    vertical-align: top;
+    font-size: $fontSize-root;
+    font-weight: $fontWeight-normal;
+    color: #6f6f6f;
+    padding: 0;
+    line-height: 35px;
+    letter-spacing: $letterSpacing-base;
+    text-transform: capitalize;
+
+    @media (max-width: 551px) {
+        font-size: 10px;
+    }
+
+    .breadcrumb-label {
+        color: inherit;
+        font-size: inherit;
+    }
+
+    &:not(:first-child) {
+        &:before {
+            content: '/';
+            font-size: inherit;
+            font-weight: inherit;
+            display: inline-block;
+            vertical-align: initial;
+            margin: 0 4px 0 6px;
+            color: #6f6f6f;
+            position: relative;
+            top: 0px;
+        }
+    }
+
+    &.is-active {
+        .breadcrumb-label {
+            color: #6f6f6f;
+        }
+    }
+}
+
+.page {
+    .breadcrumb {
+        color: #6f6f6f;
+        padding-top: 2px;
+    }
+}
+
+
+// Start Editer CSS
+
+.breadcrumb {
+  color: #252525;
+  line-height: 1.5;
+  font-family: Work Sans;
+  letter-spacing: 0.1px;
+
+  &.is-active {
+    font-weight: 500;
+
+    .breadcrumb-label {
+      color: #252525;
+    }
+  }
+}
+
+.breadcrumb:not(:first-child):before {
+  content: ">";
+  color: #252525;
+}
+
+// End Editer CSS

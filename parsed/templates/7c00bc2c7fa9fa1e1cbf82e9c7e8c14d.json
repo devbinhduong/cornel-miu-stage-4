@@ -1,0 +1,4 @@
+{
+  "components/halothemes/fbt-options/textarea": "<div class=\"form-field\" data-product-attribute=\"textarea\">\r\n    <label class=\"form-label form-label--inlineSmall\" for=\"fbt_attribute_textarea_{{id}}\">\r\n        {{display_name}}\r\n\r\n        {{> components/common/requireness-msg}}\r\n    </label>\r\n    <textarea class=\"form-input\" id=\"fbt_attribute_textarea_{{id}}\" name=\"attribute[{{id}}]\" {{#if required}}required{{/if}} {{#if max_length}}maxlength={{max_length}}{{/if}}>{{prefill}}</textarea>\r\n</div>\r\n",
+  "components/common/requireness-msg": "<small>\r\n    {{#if required}}*{{/if}}\r\n</small>\r\n"
+}

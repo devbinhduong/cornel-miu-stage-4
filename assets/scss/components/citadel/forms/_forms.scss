@@ -1,0 +1,615 @@
+// =============================================================================
+// FORMS (CSS)
+// =============================================================================
+
+
+// Form variants
+// -----------------------------------------------------------------------------
+
+.form--hiddenLabels {
+
+    .form-label {
+        @include u-hidden("visually");
+    }
+}
+
+
+// Citadel inline messages
+// -----------------------------------------------------------------------------
+
+.form-inlineMessage {
+    display: block;
+    font-size: $fontSize-root;
+    font-weight: $fontWeight-normal;
+    letter-spacing: $letterSpacing-base;
+    line-height: 1.75;
+}
+
+
+// Citadel field states
+// -----------------------------------------------------------------------------
+
+.form-field--error {
+
+    .form-input {
+        float: none;
+    }
+
+    .form-inlineMessage {
+
+        // scss-lint:disable NestingDepth
+        &:before {
+            background: $form-error-icon no-repeat;
+            background-size: $form-inlineMessage-backgroundSize;
+            content: "";
+            display: inline-block;
+            height: $form-error-icon-height;
+            left: $form-error-icon-left;
+            margin-right: $form-error-icon-marginRight;
+            position: relative;
+            top: $form-error-icon-top;
+            width: $form-error-icon-width;
+        }
+    }
+}
+
+.form-field--success {
+
+    .form-input[type="text"] {
+        background: {
+            image: $form-success-icon;
+            position: right $form-success-icon-right center;
+            repeat: no-repeat;
+        }
+
+        padding-right: $form-success-input-paddingRight;
+    }
+}
+
+
+// Citadel checkbox/radio positioning
+// -----------------------------------------------------------------------------
+
+.form-checkbox,
+.form-radio {
+    display: none;
+
+    +.form-label {
+
+        // scss-lint:disable NestingDepth
+        &:last-child {
+            display: block;
+            margin-bottom: $form-checkRadio-label-last-marginBottom;
+        }
+
+        &::after {
+            top: $form-checkRadio-labelAfter-top;
+        }
+
+        &::before {
+            top: $form-checkRadio-labelBefore-top;
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+.form-checkbox {
+    +.form-label {
+        padding-left: 25px;
+
+        &:before {
+            top: 3px;
+            border-radius: 0;
+            border-color: #d0d0d0;
+            width: 15px;
+            height: 15px;
+        }
+
+        &:after {
+            left: 0;
+            top: 3px;
+            width: 15px;
+            height: 15px;
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z' fill='rgba(255, 255, 255, 1)' /%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+
+        +.form-inlineMessage {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+    }
+
+    &:checked {
+        +.form-label {
+            &:before {
+                background: stencilColor('color-textBase');
+                border-color: stencilColor('color-textBase') !important;
+            }
+        }
+    }
+}
+
+
+// Citadel form-actions
+// -----------------------------------------------------------------------------
+
+.form-actions {
+    @include grid-row();
+    display: block;
+    text-align: center;
+
+    .button,
+    input,
+    a {
+        vertical-align: top;
+        width: 100%;
+
+        +.button,
+        +input,
+        +a {
+            margin-top: spacing("half");
+        }
+    }
+}
+
+// Stencil form additions
+// -----------------------------------------------------------------------------
+//
+// 1. Order has been placed here so that if a form error is shown, it will
+//    appear before the button.
+//
+// -----------------------------------------------------------------------------
+
+.form-label--alternate {
+    font-family: fontFamily("headingSans");
+    font-size: fontSize("smallest");
+    margin-bottom: spacing("half");
+}
+
+.form-select--date {
+    width: initial;
+
+    +.form-select--date {
+        margin-left: 15px;
+    }
+}
+
+.form-select--small,
+.form-select--date {
+    background-position: right spacing("third") top spacing("third");
+    background-size: remCalc(18px);
+    font-size: $input-small-fontSize;
+    height: $input-small-height;
+    line-height: 1rem;
+    max-width: 20rem;
+    padding: $input-small-padding;
+    padding-right: $select-small-paddingRight;
+}
+
+.form-select--short {
+    max-width: 6rem;
+    width: 4.5rem;
+}
+
+.form-file {
+    font-size: $fontSize-root;
+    margin-bottom: spacing("third");
+
+    +label {
+        input[type="checkbox"] {
+            position: relative;
+            top: 2px;
+        }
+    }
+}
+
+.form-fileDescription {
+    color: $color-textBase;
+    font-size: fontSize("smallest") + 2px;
+
+    strong {
+        font-weight: $fontWeight-medium;
+    }
+}
+
+.form-field-group {
+    border: $input-border-width $input-border-style $input-border-color;
+    border-radius: $input-border-radius;
+    padding: spacing("single");
+}
+
+// This component should live inside a .form-row
+.form-column {
+    @include grid-column(12);
+
+    @include breakpoint("small") {
+        @include grid-column(6);
+    }
+}
+
+.form-prefixPostfix {
+
+    &.wrap {
+        flex-wrap: wrap;
+    }
+
+    .form-input,
+    .button {
+        display: block;
+        width: 100%;
+    }
+
+    .form-input {
+
+        .home-layout-3 & {
+            background-color: #e3e3e3;
+        }
+
+        @media (min-width: 551px) {
+            width: auto;
+        }
+    }
+
+    .button {
+        text-transform: uppercase;
+        height: 50px;
+        margin-top: 20px;
+
+        @media (min-width: 551px) {
+            width: auto;
+            margin-top: 0;
+            margin-left: 20px;
+        }
+
+        .home-layout-3 & {
+            height: 40px;
+            line-height: 38px;
+        }
+    }
+
+    .form-inlineMessage {
+        margin-bottom: spacing("quarter");
+
+        @include breakpoint("large") {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.form-prefixPostfix-button--postfix {
+    margin: spacing("half") 0 0;
+    order: 1; // 1
+
+    @include breakpoint("large") {
+        margin: 0 0 0 spacing("half");
+        order: 0; // 1
+    }
+}
+
+
+// Increment field
+// -----------------------------------------------------------------------------
+
+.form-increment {
+    position: relative;
+    max-width: 122px;
+    min-height: 50px;
+
+    .button {
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        background: 0 0;
+        border: 1.25px solid #252525;
+
+        &[data-action=dec] {
+            bottom: 0;
+            left: 0;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                display: block;
+                line-height: 22px;
+                background-color: $color-custom-greyDarker;
+            }
+
+            &:before {
+                top: 50%;
+                left: 4px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                width: 8px;
+                height: 1px;
+            }
+        }
+
+        &[data-action=inc] {
+            bottom: 0;
+            right: 0;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                display: block;
+                line-height: 22px;
+                background-color: $color-custom-greyDarker;
+            }
+
+            &:before {
+                top: 50%;
+                right: 4px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                width: 8px;
+                height: 1px;
+            }
+
+            &:after {
+                top: 50%;
+                right: 7px;
+                width: 1px;
+                height: 8px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.form-input--incrementTotal {
+    border: 0;
+    display: inline-block;
+    font-size: fontSize("smaller");
+    font-weight: fontWeight("bold");
+    height: auto;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: remCalc(35px);
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+
+// Stencil form options
+// -----------------------------------------------------------------------------
+//
+// 1. Issue with FastClick JS library workaround: https://github.com/ftlabs/fastclick/issues/351
+// 2. Resetting font due to inline-block whitespace issue.
+// 3. Added for STENCIL-3384. Did not change directly on .form-option-variant to avoid 1.
+// 4. Added for STRF-4031. Breaks 3 for small screens.
+//
+
+.form-option {
+    border: 1px solid stencilColor("input-border-color");
+    color: stencilColor("form-label-font-color");
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0; // 2
+    margin-bottom: spacing("third");
+    margin-right: spacing("third");
+    padding: 1px;
+    transition: all 0.15s ease;
+
+    &:hover {
+        border-color: stencilColor("input-border-color-active");
+    }
+
+    .form-radio:checked+& {
+        border-color: stencilColor("checkRadio-color");
+        box-shadow: 0 0 0 1px stencilColor("checkRadio-color");
+    }
+}
+
+.form-option-variant {
+    display: inline-block;
+    font-size: $body-fontSize; // 2
+    min-width: remCalc(38px);
+    padding: 1px spacing("quarter");
+    pointer-events: none; // 1
+    text-align: center;
+}
+
+.form-option-variant--color,
+.form-option-variant--pattern {
+    @include square(22);
+    min-width: initial;
+    padding: 0;
+
+    @include breakpoint('small') {
+        // 4
+        pointer-events: inherit; // 3
+    }
+}
+
+.form-option-variant--pattern {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+// Form input (small)
+// -----------------------------------------------------------------------------
+.form-input--small {
+    font-size: $input-small-fontSize + 4px;
+    height: $input-small-height;
+    line-height: 1rem;
+    padding: $input-small-padding;
+}
+
+
+// Form min/max input row
+// -----------------------------------------------------------------------------
+.form-minMaxRow {
+    @include clearfix();
+    margin-left: -$form-minMaxRow-column-gutter;
+    margin-right: -$form-minMaxRow-column-gutter;
+
+    .form-field {
+        @include grid-column(4);
+        margin-bottom: 0;
+        padding-left: $form-minMaxRow-column-gutter;
+        padding-right: $form-minMaxRow-column-gutter;
+    }
+
+    .button {
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .form-input {
+        padding: 0 10px;
+    }
+}
+
+
+// Form row modifications
+// -----------------------------------------------------------------------------
+//
+// 1. If there are more than 2 fields per form-row--half, clear the left of every
+// odd one.
+//
+// -----------------------------------------------------------------------------
+
+.form-row--half>.form-field:nth-child(odd) {
+    @include breakpoint("small") {
+        clear: left;
+    }
+}
+
+[data-product-attribute="set-radio"],
+[data-product-attribute="product-list"] {
+    .unavailable {
+        opacity: $productOptions-disable-opacity * 2;
+        text-decoration: line-through;
+    }
+}
+
+.form-field--success .form-input,
+.form-field--success .form-select,
+.form-field--success .form-checkbox+.form-label::before,
+.form-field--success .form-radio+.form-label::before,
+.form-field--success .form-prefixPostfix-label {
+    border-color: stencilColor('color-success');
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+
+// Start Editer CSS
+
+.form-minMaxRow {
+  .form-input {
+    border-color: #252525;
+  }
+
+  .form-field {
+    width: 100%;
+
+    &:not(:last-child) {
+      .form-input {
+        border-radius: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        font-size: 12px;
+        padding: 0 23px;
+        min-height: 40px;
+        height: 40px;
+
+        &[type="number"]::-webkit-inner-spin-button,
+        &[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      &:not(:last-child) {
+        width: 45%;
+
+        .form-input {
+          min-height: 24px;
+          height: 24px;
+          width: 50px;
+          font-size: 10px;
+          text-align: center;
+          padding: 0 5px;
+        }
+      }
+
+      &:last-child {
+        width: 100%;
+        margin-top: 40px;
+      }
+    }
+
+    @media screen and (max-width: 767.98px) {
+      max-width: 182px;
+    }
+  }
+  .button {
+    color: white;
+    border-color: #252525;
+    background-color: #252525;
+    padding-left: 36px;
+    padding-right: 36px;
+    width: fit-content;
+    font-size: 8px;
+    font-weight: 600;
+    font-family: "Termina";
+
+    &:hover {
+      color: #252525;
+      background-color: #fff;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .form-field {
+      float: none;
+
+      + .form-field {
+        margin-top: 14px;
+      }
+    }
+  }
+}
+
+.form-fieldset {
+  &.form-field--error {
+    .form-input {
+      border-color: #cc4749;
+    }
+  }
+}
+
+.form-minMaxRow .button {
+  letter-spacing: 1.6px;
+  height: 40px;
+  line-height: 38px;
+  min-width: 148px;
+  font-size: 8px;
+}
+
+// End Editer CSS
