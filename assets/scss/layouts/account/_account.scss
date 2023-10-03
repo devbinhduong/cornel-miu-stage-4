@@ -798,3 +798,193 @@
         }
     }
 }
+
+/* Overplay css loading */
+@keyframes customSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.wislist-loading {
+    border: 4px solid rgba(0, 0, 0, 0.3);
+    border-top: 4px solid #252525;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: customSpin 1s linear infinite;
+    margin: 0 auto;
+}
+
+
+/* Custom Account Layout */
+.page-account.custom-page-account {
+    display: flex;
+    margin-left: -52px;
+    margin-right: -52px;
+
+    .page-account__sidebar {
+        width: 100%;
+        max-width: 496px;
+        padding-left: 52px;
+        padding-right: 52px;
+        
+        .navBar--account {
+            margin: 0;
+            .navBar-section {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+
+
+                .navBar-item {
+                    width: 100%;
+                    padding: 0;
+                    text-align: left;
+                    border: none;
+                    padding: 9px 14px 5px;
+
+                    .navBar-action {
+                        border: none !important;
+                        padding: 0;
+                        color: #252525;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 18px; /* 112.5% */
+                        letter-spacing: 0.1px;
+                        text-transform: unset;
+                    }
+
+                    &.is-active {
+                        border-left: 1px solid #252525;
+                        .navBar-action {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Wish List Sidebar */
+        .custom-account-wishlist {
+            margin-top: 80px;
+            .account-wishlist__header {
+                color: #252525;
+                font-family: "flecha-s";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: 0.1px;
+                margin: 0;
+            }
+
+            .account-wishlist__list {
+                position: relative;
+                padding-top: 40px;
+
+                .product {
+                    position: relative;
+                    list-style: none;
+                    
+                    .custom-text{
+                        display: none;
+                    }
+                    .card {
+                        display: flex;
+                        margin-left: -12px;
+                        margin-right: -12px;
+                        
+                        .card-figure {
+                            width: 100%;
+                            max-width: 104px;
+                            display: block;
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            .card-img-container {
+                                img {
+                                    width: 80px;
+                                    height: 80px;
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        
+                        .card-body {
+                            padding: 0 12px 0;
+                            max-width: 235px;
+                            text-align: left;
+                            
+                            .card-title {
+                                > a {
+                                    color: #252525;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 18px; /* 150% */
+                                    letter-spacing: 0.1px;
+                                    font-family: "Work Sans";
+                                }
+                            }
+                            
+                            .card-wrapper {
+                                justify-content: flex-start;
+                                
+                                .price {
+                                    color: #252525;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 18px; /* 150% */
+                                    letter-spacing: 0.1px;
+                                }
+                            }
+                            
+                            .card-figcaption-bottom {
+                                .button {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .form {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: fit-content;
+                        margin: 0;
+                        
+                        .button {
+                            font-size: 0;
+                            width: 24px;
+                            height: 24px;
+                            padding: 0;
+                            background-color: transparent;
+                            border: none;
+                            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="%23F7F3E8"/><path d="M8 8L11.9782 12L8 16" stroke="%23252525" stroke-width="1.25" stroke-linejoin="bevel"/><path d="M15.6719 16L11.6937 12L15.6719 8" stroke="%23252525" stroke-width="1.25" stroke-linejoin="bevel"/></svg>');
+                        }
+                    }
+                    
+                    + .product {
+                        margin-top: 20px;
+                    }
+                }
+            }
+
+            .account-wishlist__action {
+                > a {
+                    color: #252525;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 18px; /* 112.5% */
+                    letter-spacing: 0.1px;
+                    text-decoration-line: underline;
+                    margin-top: 38px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

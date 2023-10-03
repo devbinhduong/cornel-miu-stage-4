@@ -1,5 +1,15 @@
 <nav class="navBar navBar--account">
     <ul class="navBar-section haloCustomScrollbar-x">
+        {{#if account_page '===' 'menu_control'}}
+            <li class="navBar-item is-active">
+                <span class="navBar-action navBar--user-action">Contul meu</span>
+            </li>
+        {{else}}
+            <li class="navBar-item">
+                <a class="navBar-action navBar--user-action" href="{{urls.account.recent_items}}">Contul meu</a>
+            </li>
+        {{/if}}
+
         {{#if account_page '===' 'orders'}}
             {{#if page_type '===' 'account_order'}}
                 <li class="navBar-item is-active">
@@ -65,15 +75,6 @@
                     <a class="navBar-action navBar--user-action" href="{{urls.account.wishlists.all}}">{{lang 'account.nav.wishlists' num_wishlists=customer.num_wishlists}}</a>
                 </li>
             {{/if}}
-        {{/if}}
-        {{#if account_page '===' 'recent_items'}}
-            <li class="navBar-item is-active">
-                <span class="navBar-action navBar--user-action">{{lang 'account.nav.recently_viewed'}}</span>
-            </li>
-        {{else}}
-            <li class="navBar-item">
-                <a class="navBar-action navBar--user-action" href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
-            </li>
         {{/if}}
         {{#if account_page '===' 'settings'}}
             <li class="navBar-item is-active">

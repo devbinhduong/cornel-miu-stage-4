@@ -88,6 +88,9 @@ export default function(context) {
             eventFilter();
             viewEventMore();
 
+            /* Account Wishlist Sidebar */
+            accountWishlistSidebar();
+
             if (theme_settings.halo_recently_viewed_products) {
                 haloRecentlyViewedProduct($context);
             }
@@ -2710,4 +2713,52 @@ function viewEventMore() {
             eventContents[currentIndex + 1].style.display = 'block';
         }
     }
+}
+
+/* Get Account Wishlist Sidebar */
+function accountWishlistSidebar() {
+    let productWishlist = document.querySelector('.account-wishlist__list');
+
+    /* Add Loading */
+    const loadingElement = document.createElement('div');
+    loadingElement.classList.add('wislist-loading');
+    productWishlist.appendChild(loadingElement);
+    
+    fetch('/wishlist.php')
+        .then(response => response.text())
+        .then(data => {
+            /* Remove Loading 1 */
+            loadingElement.remove();
+
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = data;
+
+            const trList = tempElement.querySelectorAll('.table-tbody tr');
+
+            const lastTr = trList[trList.length - 1];
+            const lastAHref = lastTr.querySelector('a').getAttribute('href');
+            
+            const loadingElement2 = document.createElement('div');
+            loadingElement2.classList.add('wislist-loading');
+            productWishlist.appendChild(loadingElement2);
+
+            fetch(lastAHref)
+                .then(response => response.text())
+                .then(data => {
+
+                    /* Remove Loading 2 */
+                    loadingElement2.remove();
+
+                    const tempElement = document.createElement('div');
+                    tempElement.innerHTML = data;
+
+                    const productBlocks = tempElement.querySelectorAll('.product');
+
+                    productBlocks.forEach(productBlock => {
+                        productWishlist.appendChild(productBlock);
+                    });
+                })
+        })
+        
+        .catch(error => console.error('Error:', error)); 
 }
