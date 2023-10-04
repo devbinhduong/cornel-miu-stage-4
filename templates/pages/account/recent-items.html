@@ -1,39 +1,29 @@
 {{#partial "page"}}
-    <div class="container">
-        <div class="page page-account custom-page-account">
-            <div class="page-account__sidebar">
-                {{> components/account/navigation account_page='menu_control'}}
-                {{> components/account/account-wishlist}}
+    <div class="container--medium">
+        <div class="breadcrumb-wrapper">
+            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
+        <div class="page page-account">
+            <div class="page-header">
+                <h1 class="page-heading">{{lang 'account.recent_items.heading' }}</h1>
             </div>
-
-            <main class="page-content page-account__content">
-                <div class="page-header">
-                    <h1 class="page-heading">Contul meu</h1>
-                </div>
-
+            {{> components/account/navigation account_page='recent_items'}}
+            <main class="page-content">
                 <div class="account">
                     <div class="account-body">
                         <section class="account-content account-content2">
-                            <h3 class="custom-account__title">Informatii despre cont</h3>
-
-                            <div class="custom-account__info-list">
-                                <div class="custom-account__info-item">
-                                    <h4 class="item-title">Informatii de contact</h4>
-                                    
-                                    <div class="item-row">
-                                        <div class="item-col col-25">
-                                            <p class="col-title">Prenume</p>
-                                            <p class="col-value col-value--last-name">{{split customer.name " "}}</p>
-                                        </div>
-                                        <div class="item-col col-25">
-                                            <p class="col-title">Nume</p>
-                                            <p class="col-value col-value--first-name">{{split customer.name " "}}</p>
-                                        </div>
-
-                                        <span class="testesesesess">{{customer.phone}}</span>
-                                    </div>
-                                </div>
-                            </div>
+                            {{#unless customer.recently_viewed_products.items}}
+                                {{> components/common/alert/alert-info (lang 'account.recent_items.no_items')}}
+                            {{/unless}}
+                            {{#if customer.recently_viewed_products.items}}
+                                <ul class="productGrid col-{{theme_settings.product_list_display_col}}">
+                                    {{#each customer.recently_viewed_products.items}}
+                                        <li class="product">
+                                            {{> components/products/card theme_settings=../theme_settings}}
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            {{/if}}
                         </section>
                     </div>
                 </div>

@@ -1,0 +1,139 @@
+{{#partial "page"}}
+    <div class="container">
+        <div class="page page-account custom-page-account">
+            <div class="page-account__sidebar">
+                {{> components/account/navigation account_page='menu_control'}}
+                {{> components/account/account-wishlist}}
+            </div>
+
+            <main class="page-content page-account__content">
+                <div class="page-header">
+                    <h1 class="page-heading flecha-m">Contul meu</h1>
+                </div>
+
+                <div class="account">
+                    <div class="account-body">
+                        <section class="account-content account-content2">
+                            <h3 class="custom-account__title flecha-m">Informatii despre cont</h3>
+
+                            <div class="custom-account__info-list">
+                                <!-- Informatii de contact -->
+                                <div class="custom-account__info-item">
+                                    <h4 class="item-title">Informatii de contact</h4>
+                                    
+                                    <div class="grid no-gap">
+                                        <div class="item-row row">
+                                            <div class="item-col col l-4 m-2 s-2">
+                                                <p class="col-title">Prenume</p>
+                                                <p class="col-value col-value--last-name"></p>
+                                            </div>
+                                            <div class="item-col col l-4 m-2 s-2">
+                                                <p class="col-title">Nume</p>
+                                                <p class="col-value col-value--first-name"></p>
+                                            </div>
+                                            <div class="item-col col l-4 m-2 s-2">
+                                                <p class="col-title">Nume</p>
+                                                <p class="col-value col-value--date"></p>
+                                            </div>
+                                            <div class="item-col col l-4 m-2 s-2">
+                                                <p class="col-title">Data nasterii</p>
+                                                <p class="col-value col-value--phone">+{{customer.phone}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="item-row row">
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Adresa de email</p>
+                                                <p class="col-value col-value--email">{{customer.email}}</p>
+                                            </div>
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Parola</p>
+                                                <p class="col-value col-value--password">
+                                                    <!-- Get Page -->
+                                                    <span class="password">*******</span>
+                                                    <span class="icon icon--view-password">
+                                                        <svg><use xlink:href="#icon-view-password"></use></svg>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="custom-account-modify">Modifica</a>
+                                </div>
+
+                                <!-- Adrese -->
+                                <div class="custom-account__info-item">
+                                    <h4 class="item-title">Adrese</h4>
+                                    
+                                    <div class="grid no-gap">
+                                        <div class="item-row row">
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Adresa de facturare</p>
+                                                <!-- Get Page -->
+                                                <p class="col-value col-value--address">31 Street Name Apt.8 Cluj-Napoca, Romania</p>
+                                            </div>
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Adresa de livrare</p>
+
+                                                <!-- Get Page -->
+                                                <p class="col-value col-value--address2">31 Street Name Apt.8 Cluj-Napoca, Romania</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="custom-account-modify">Modifica</a>
+                                </div>
+                                
+                                <!-- Metode de plata -->
+                                <div class="custom-account__info-item">
+                                    <h4 class="item-title">Metode de plata</h4>
+                                    
+                                    <div class="grid no-gap">
+                                        <div class="item-row row">
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Numar card bancar</p>
+                                                <p class="col-value col-value--payment-number">
+                                                    <!-- Visa **** **** **** 8207 -->
+                                                    Visa **** **** ****
+                                                    {{#each customer.payment_methods}}{{#each stored_instruments}}{{last_4}}{{/each}}{{/each}}
+                                                </p>
+                                            </div>
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Numele titularului de card</p>
+                                                <p class="col-value col-value--payment-name">Maya Dudas</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="custom-account-modify">Modifica</a>
+                                </div>
+
+                                <!-- Abonari -->
+                                <div class="custom-account__info-item">
+                                    <h4 class="item-title">Abonari</h4>
+                                    
+                                    <div class="grid no-gap">
+                                        <div class="item-row row">
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Newsletter</p>
+                                                <p class="col-value">Abonat</p>
+                                            </div>
+                                            <div class="item-col col l-2 m-1 s-1">
+                                                <p class="col-title">Marketing prin email</p>
+                                                <p class="col-value">Abonat</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="custom-account-modify">Modifica</a>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{{/partial}}
+{{> layout/base}}

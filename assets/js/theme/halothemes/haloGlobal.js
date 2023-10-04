@@ -91,6 +91,12 @@ export default function(context) {
             /* Account Wishlist Sidebar */
             accountWishlistSidebar();
 
+            /* Account Information */
+            accountInformation();
+
+            /* Account Address */
+            getAccountAddress();
+
             if (theme_settings.halo_recently_viewed_products) {
                 haloRecentlyViewedProduct($context);
             }
@@ -2719,6 +2725,8 @@ function viewEventMore() {
 function accountWishlistSidebar() {
     let productWishlist = document.querySelector('.account-wishlist__list');
 
+    if(!productWishlist) return;
+
     /* Add Loading */
     const loadingElement = document.createElement('div');
     loadingElement.classList.add('wislist-loading');
@@ -2761,4 +2769,85 @@ function accountWishlistSidebar() {
         })
         
         .catch(error => console.error('Error:', error)); 
+}
+
+/* Get Account Information */
+function accountInformation () {
+    let accountEditUrl = '/account.php?action=account_details';
+
+    fetch(accountEditUrl)
+        .then(response => response.text())
+        .then(data => {
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = data;
+
+            const accountInformation = tempElement.querySelector('.account-body .form-row');
+
+            if(accountInformation) {
+                let firstName = accountInformation.querySelector("#account_firstname").value,
+                    lastName = accountInformation.querySelector("#account_lastname").value,
+                    day = accountInformation.querySelector('.form-select[data-label="day"] option[selected]').value,
+                    month = accountInformation.querySelector('.form-select[data-label="month"] option[selected]').value,
+                    year = accountInformation.querySelector('.form-select[data-label="year"] option[selected]').value;
+                
+                let showFirstName = document.querySelector(".col-value--last-name"),
+                    showLastName = document.querySelector(".col-value--first-name"),
+                    showBirthDay = document.querySelector(".col-value--date");
+                
+                showFirstName.textContent = firstName;
+                showLastName.textContent = lastName;
+                showBirthDay.textContent = `${day}.${month}.${year}`;
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+function getAccountAddress() {
+    let getAccountAddress = '/account.php?action=address_book';
+
+    fetch(getAccountAddress)
+        .then(response => response.text())
+        .then(data => {
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = data;
+
+            const AddressList = tempElement.querySelectorAll('.addressList .address');
+
+            for(let addressItem of AddressList) {
+                let address = addressItem.querySelectorAll(".address-details li");
+
+                const addressParts = [];
+
+                address.forEach(li => {
+                    const content = li.textContent.trim();
+                    if (content !== "") {
+                        addressParts.push(content);
+                    }
+                });
+
+                const newAddress = addressParts.join(', ');
+                
+                if(newAddress !== ""){
+                    document.querySelector(".col-value--address").innerHTML = newAddress;
+                    document.querySelector(".col-value--address2").innerHTML = newAddress;
+                }
+            }
+
+            // if(accountInformation) {
+            //     let firstName = accountInformation.querySelector("#account_firstname").value,
+            //         lastName = accountInformation.querySelector("#account_lastname").value,
+            //         day = accountInformation.querySelector('.form-select[data-label="day"] option[selected]').value,
+            //         month = accountInformation.querySelector('.form-select[data-label="month"] option[selected]').value,
+            //         year = accountInformation.querySelector('.form-select[data-label="year"] option[selected]').value;
+                
+            //     let showFirstName = document.querySelector(".col-value--last-name"),
+            //         showLastName = document.querySelector(".col-value--first-name"),
+            //         showBirthDay = document.querySelector(".col-value--date");
+                
+            //     showFirstName.textContent = firstName;
+            //     showLastName.textContent = lastName;
+            //     showBirthDay.textContent = `${day}.${month}.${year}`;
+            // }
+        })
+        .catch(error => console.error('Error:', error));
 }
