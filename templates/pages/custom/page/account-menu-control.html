@@ -11,6 +11,8 @@
                     <h1 class="page-heading flecha-m">Contul meu</h1>
                 </div>
 
+                <div class="account-navigation-mobile"></div>
+
                 <div class="account">
                     <div class="account-body">
                         <section class="account-content account-content2">
@@ -32,11 +34,11 @@
                                                 <p class="col-value col-value--first-name"></p>
                                             </div>
                                             <div class="item-col col l-4 m-2 s-2">
-                                                <p class="col-title">Nume</p>
+                                                <p class="col-title">Data nasterii</p>
                                                 <p class="col-value col-value--date"></p>
                                             </div>
                                             <div class="item-col col l-4 m-2 s-2">
-                                                <p class="col-title">Data nasterii</p>
+                                                <p class="col-title">Numar de telefon</p>
                                                 <p class="col-value col-value--phone">+{{customer.phone}}</p>
                                             </div>
                                         </div>
@@ -58,7 +60,7 @@
                                         </div>
                                     </div>
 
-                                    <a href="#" class="custom-account-modify">Modifica</a>
+                                    <a href="{{urls.account.details}}" class="custom-account-modify">Modifica</a>
                                 </div>
 
                                 <!-- Adrese -->
@@ -81,7 +83,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="#" class="custom-account-modify">Modifica</a>
+                                    <a href="{{urls.account.addresses}}" class="custom-account-modify">Modifica</a>
                                 </div>
                                 
                                 <!-- Metode de plata -->
@@ -105,7 +107,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="#" class="custom-account-modify">Modifica</a>
+                                    <a href="{{urls.account.payment_methods.all}}" class="custom-account-modify">Modifica</a>
                                 </div>
 
                                 <!-- Abonari -->
@@ -120,7 +122,7 @@
                                             </div>
                                             <div class="item-col col l-2 m-1 s-1">
                                                 <p class="col-title">Marketing prin email</p>
-                                                <p class="col-value">Abonat</p>
+                                                <p class="col-value col-value--marketing">Abonat</p>
 
                                             </div>
                                         </div>
@@ -132,6 +134,9 @@
                         </section>
                     </div>
                 </div>
+
+                <!-- Wishlist Mobile -->
+                <div class="custom-account-wishlist-mobile page-account__sidebar"></div>
             </main>
         </div>
     </div>

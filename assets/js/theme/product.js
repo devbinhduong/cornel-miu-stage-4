@@ -578,7 +578,7 @@ export default class Product extends PageManager {
         const overlay = document.querySelector("#digital-overlay");
         const sidebar = document.querySelector("#digital-sidebar"); 
         let imageSidebar = document.querySelector("#download-content .digital-image__link");
-        let imageLink = imageSidebar.getAttribute("href");
+        let imageLink = imageSidebar?.getAttribute("href");
         let downloadClicked = false;
 
         if (!downloadButton || !imageLink) return;

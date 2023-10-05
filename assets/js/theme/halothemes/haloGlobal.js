@@ -96,6 +96,8 @@ export default function(context) {
 
             /* Account Address */
             getAccountAddress();
+            changeNavigationPosition();
+            changeWishlistPosition();
 
             if (theme_settings.halo_recently_viewed_products) {
                 haloRecentlyViewedProduct($context);
@@ -235,6 +237,8 @@ export default function(context) {
             checkCookiesPopup();
             activeMenuMobile();
             searchFormMobile();
+            changeNavigationPosition();
+            changeWishlistPosition();
         });
     }
     eventLoad();
@@ -2762,8 +2766,41 @@ function accountWishlistSidebar() {
 
                     const productBlocks = tempElement.querySelectorAll('.product');
 
-                    productBlocks.forEach(productBlock => {
-                        productWishlist.appendChild(productBlock);
+                    if(productBlocks.length === 0) {
+                        productWishlist.innerHTML = '<p class="account-wishlist__empty">Your Wish List is empty. When you add items to your Wish List they will appear here.</p>';
+                    } else {
+                        productBlocks.forEach((productBlock, index) => {
+                            /* Show 3 Items */
+                            if(index < 3) {
+                                productWishlist.appendChild(productBlock);
+                            }
+                        });
+                    }
+
+                })
+
+                /* Remove Wishlist Item */
+                .then(() => {
+                    let wistListItems = document.querySelectorAll('.account-wishlist__list .product');
+                    wistListItems.forEach(item => {
+                        let removeButton = item.querySelector('.button-remove-wishlist'),
+                            link = item.querySelector('.form').getAttribute('action');
+                        
+                        removeButton.addEventListener('click', function(e) {
+                            e.preventDefault();
+
+                            let link = this.closest('.form').getAttribute('action'),
+                                itemLink = this.closest('.product');
+
+                            /* Add loading */
+                            const loadingElement3 = document.createElement('div');
+                                loadingElement3.classList.add('loading-scroll');
+                                itemLink.appendChild(loadingElement3);
+
+                            $.post(link).done(function() {
+                                itemLink.remove();
+                            });
+                        });
                     });
                 })
         })
@@ -2793,6 +2830,8 @@ function accountInformation () {
                 let showFirstName = document.querySelector(".col-value--last-name"),
                     showLastName = document.querySelector(".col-value--first-name"),
                     showBirthDay = document.querySelector(".col-value--date");
+                
+                if(!showFirstName || !showLastName || !showBirthDay) return;
                 
                 showFirstName.textContent = firstName;
                 showLastName.textContent = lastName;
@@ -2828,26 +2867,43 @@ function getAccountAddress() {
                 const newAddress = addressParts.join(', ');
                 
                 if(newAddress !== ""){
-                    document.querySelector(".col-value--address").innerHTML = newAddress;
-                    document.querySelector(".col-value--address2").innerHTML = newAddress;
+                    let addressValue1 = document.querySelector(".col-value--address");
+                    let addressValue2 = document.querySelector(".col-value--addres2");
+
+                    if(!addressValue1 || !addressValue2) return;
+
+                    addressValue1.innerHTML = newAddress;
+                    addressValue2.querySelector(".col-value--address2").innerHTML = newAddress;
                 }
             }
-
-            // if(accountInformation) {
-            //     let firstName = accountInformation.querySelector("#account_firstname").value,
-            //         lastName = accountInformation.querySelector("#account_lastname").value,
-            //         day = accountInformation.querySelector('.form-select[data-label="day"] option[selected]').value,
-            //         month = accountInformation.querySelector('.form-select[data-label="month"] option[selected]').value,
-            //         year = accountInformation.querySelector('.form-select[data-label="year"] option[selected]').value;
-                
-            //     let showFirstName = document.querySelector(".col-value--last-name"),
-            //         showLastName = document.querySelector(".col-value--first-name"),
-            //         showBirthDay = document.querySelector(".col-value--date");
-                
-            //     showFirstName.textContent = firstName;
-            //     showLastName.textContent = lastName;
-            //     showBirthDay.textContent = `${day}.${month}.${year}`;
-            // }
         })
         .catch(error => console.error('Error:', error));
+}
+
+function changeWishlistPosition() {
+    let wistlistSidebar = document.querySelector(".custom-account-wishlist"),
+        placeDesktop = document.querySelector(".page-account__sidebar"),
+        placeMobile = document.querySelector(".custom-account-wishlist-mobile");
+    
+    if(!wistlistSidebar) return;
+
+    if(window.innerWidth < 767) {
+        placeMobile.appendChild(wistlistSidebar);
+    }else {
+        placeDesktop.appendChild(wistlistSidebar);
+    }
+}
+
+function changeNavigationPosition() {
+    let navigationSidebar = document.querySelector(".page-account__sidebar .navBar--account"),
+        placeDesktop = document.querySelector(".page-account__sidebar"),
+        placeMobile = document.querySelector(".account-navigation-mobile");
+    
+    if(!navigationSidebar) return;
+
+    if(window.innerWidth < 767) {
+        placeMobile.appendChild(navigationSidebar);
+    }else {
+        placeDesktop.appendChild(navigationSidebar);
+    }
 }
