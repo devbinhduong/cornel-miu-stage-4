@@ -39,11 +39,11 @@
         {{/if}}
         {{#if account_page '===' 'messages'}}
             <li class="navBar-item is-active">
-                <span class="navBar-action navBar--user-action">{{lang 'account.nav.messages' num_new_messages=customer.num_new_messages}}</span>
+                <span class="navBar-action navBar--user-action">Messages</span>
             </li>
         {{else}}
             <li class="navBar-item">
-                <a class="navBar-action navBar--user-action" href="{{urls.account.inbox}}">{{lang 'account.nav.messages' num_new_messages=customer.num_new_messages}}</a>
+                <a class="navBar-action navBar--user-action" href="{{urls.account.inbox}}">Messages</a>
             </li>
         {{/if}}
         {{#if account_page '===' 'addresses'}}
@@ -69,11 +69,11 @@
         {{#if settings.show_wishlist}}
             {{#if account_page '===' 'wishlists'}}
                 <li class="navBar-item is-active">
-                    <span class="navBar-action navBar--user-action">{{lang 'account.nav.wishlists' num_wishlists=customer.num_wishlists}}</span>
+                    <span class="navBar-action navBar--user-action">Wishlist</span>
                 </li>
             {{else}}
                 <li class="navBar-item">
-                    <a class="navBar-action navBar--user-action" href="{{urls.account.wishlists.all}}">{{lang 'account.nav.wishlists' num_wishlists=customer.num_wishlists}}</a>
+                    <a class="navBar-action navBar--user-action" href="{{urls.account.wishlists.all}}">Wishlist</a>
                 </li>
             {{/if}}
         {{/if}}

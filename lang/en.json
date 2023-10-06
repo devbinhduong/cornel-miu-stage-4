@@ -379,7 +379,7 @@
             "merchant_said": "{store_name} said:"
         },
         "orders": {
-            "heading": "Orders",
+            "heading": "Comenzi si retururi",
             "none": "You haven't placed any orders with us. When you do, their status will appear on this page.",
             "return": {
                 "already_returned": "This order contains no products that can be returned. Have you already returned all of the items within this order?",
@@ -407,10 +407,10 @@
             "details": {
                 "heading": "Order #{number}",
                 "order_contents": "Order Contents",
-                "ship_to": "Ship To",
+                "ship_to": "Livrare",
                 "ship_to_multi": "Items shipped to {street}, {city}, {state}, {zip}, {country}",
                 "ship_to_multi_text": "Order will be shipped to multiple addresses",
-                "bill_to": "Bill To",
+                "bill_to": "Facturare",
                 "how_to_pay": "Here's how to pay for your order:",
                 "order_details": "Order Details",
                 "order_total": "Order total:",

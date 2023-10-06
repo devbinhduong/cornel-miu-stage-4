@@ -3081,7 +3081,7 @@ body {
     }
 }
 
-.page-type-product:has(.digital-overlay) {
+.page-type-product:has(.halo-productView-digital) {
     .header-sticky {
         z-index: -1;
     }

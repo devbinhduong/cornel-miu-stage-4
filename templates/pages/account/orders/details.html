@@ -16,12 +16,12 @@
                         {{> components/common/alert/alert-info message}}
                     {{/each}}
                     <div class="account-content account-content--fixedSmall">
-                        {{> components/account/order-contents order=order}}
+                        {{> components/account/order-contents order=order num_products=order.items.length}}
 
                         <dl class="account-orderTotal">
                             {{#each order.total_rows}}
                                 {{#if value.value}}
-                                    <dt class="account-orderTotal-key">{{label}}:</dt>
+                                    <dt class="account-orderTotal-key">{{#if label "==" 'Shipping'}}Livrare{{else if label "==" 'Grand total'}}Total{{else}}{{label}}{{/if}}:</dt>
                                     <dd class="account-orderTotal-value">{{value.formatted}}</dd>
                                 {{/if}}
                             {{/each}}
@@ -30,121 +30,49 @@
 
                     <aside class="account-sidebar">
                         <section class="account-sidebar-block">
-                            <h3 class="account-heading">{{lang 'account.orders.details.order_details'}}</h3>
-                            <dl class="definitionList">
-                                <dt class="definitionList-key">{{lang 'account.orders.details.order_status'}}</dt>
-                                <dd class="definitionList-value">{{order.status_text}}</dd>
-                                <dt class="definitionList-key">{{lang 'account.orders.details.payment_date'}}</dt>
-                                <dd class="definitionList-value">{{order.date}}</dd>
-                                <dt class="definitionList-key">{{lang 'account.orders.details.order_total'}}</dt>
-                                <dd class="definitionList-value">{{order.total.formatted}}</dd>
-                                {{#if order.payment_method}}
-                                    <dt class="definitionList-key">{{lang 'account.orders.details.payment_method'}}</dt>
-                                    <dd class="definitionList-value">
-                                        {{order.payment_method}}
-                                        {{#if order.card_number_last_four}}
-                                            {{lang 'account.orders.details.card_ending' card=order.card_number_last_four}}
-                                        {{/if}}
-                                    </dd>
-                                {{/if}}
-                                {{#if order.order_instructions}}
-                                    <dt class="order-payments-description">{{lang 'account.orders.details.how_to_pay'}}</dt>
-                                    <dd class="order-payments-value order-payments-value--long">{{nl2br order.order_instructions}}</dd>
-                                {{/if}}
-                            </dl>
+                            <h3 class="account-heading">Data cumpararii</h3>
 
-                            <button data-print-invoice="{{order.invoice_url}}" class="button">{{lang 'account.orders.details.print_invoice'}}</button>
+                            <div class="definitionList">
+                                <p class="definitionList-value">{{order.date}}</p>
+                            </div>
                         </section>
 
-                        {{#if order.shipping_address}}
-                            <section class="account-sidebar-block">
-                                <h3 class="account-heading">{{lang 'account.orders.details.ship_to'}}</h3>
-                                <ul class="account-order-address">
-                                    <li>{{{ sanitize order.shipping_address.full_name}}}</li>
-                                    <li>{{{ sanitize order.shipping_address.company}}}</li>
-                                    <li>{{{ sanitize order.shipping_address.address_lines.[0]}}}</li>
-                                    <li>{{{ sanitize order.shipping_address.address_lines.[1]}}}</li>
-                                    <li>{{{ sanitize order.shipping_address.city}}}, {{{ sanitize order.shipping_address.state}}} {{{ sanitize order.shipping_address.zip}}}</li>
-                                    <li>{{{ sanitize order.shipping_address.country}}}</li>
-                                </ul>
-                            </section>
-                        {{else}}
-                            {{#if order.has_multiple_shipping_addresses}}
-                                <section class="account-sidebar-block">
-                                    <h3 class="account-heading">{{lang 'account.orders.details.ship_to'}}</h3>
-                                    <div class="account-order-address">
-                                        {{lang 'account.orders.details.ship_to_multi_text'}}
-                                    </div>
-                                </section>
-                            {{/if}}
-                        {{/if}}
+                        <section class="account-sidebar-block">
+                            <h3 class="account-heading">{{lang 'account.orders.details.ship_to'}}</h3>
+
+                            <div class="definitionList">
+                                <p class="definitionList-value">{{{ sanitize order.shipping_address.full_name}}}</p>
+                                <p class="definitionList-value">{{{ sanitize order.shipping_address.address_lines.[0]}}} {{{ sanitize order.shipping_address.city}}} {{{ sanitize order.shipping_address.zip}}} {{{ sanitize order.shipping_address.state}}}, {{{ sanitize order.shipping_address.country}}}</p>
+                                <p class="definitionList-value">+{{customer.phone}}</p>
+                                <p class="definitionList-value">{{customer.email}}</p>
+                            </div>
+                        </section>
 
                         <section class="account-sidebar-block">
                             <h3 class="account-heading">{{lang 'account.orders.details.bill_to'}}</h3>
-                            <ul class="account-order-address">
-                                <li>{{{ sanitize order.billing_address.full_name}}}</li>
-                                <li>{{{ sanitize order.billing_address.company}}}</li>
-                                <li>{{{ sanitize order.billing_address.address_lines.[0]}}}</li>
-                                <li>{{{ sanitize order.billing_address.address_lines.[1]}}}</li>
-                                <li>{{{ sanitize order.billing_address.city}}}, {{{ sanitize order.billing_address.state}}} {{{ sanitize order.billing_address.zip}}}</li>
-                                <li>{{{ sanitize order.billing_address.country}}}</li>
-                            </ul>
+
+                            <div class="definitionList">
+                                <p class="definitionList-value">{{{ sanitize order.billing_address.full_name}}}</p>
+                                <p class="definitionList-value">{{{ sanitize order.billing_address.address_lines.[0]}}} {{{ sanitize order.billing_address.city}}}{{{ sanitize order.billing_address.zip}}} {{{ sanitize order.billing_address.state}}}, {{{ sanitize order.billing_address.country}}}</p>
+                                <p class="definitionList-value">+{{customer.phone}}</p>
+                                <p class="definitionList-value">{{customer.email}}</p>
+                            </div>
                         </section>
 
-                        {{#if shipments}}
-                            <section class="account-sidebar-block">
-                                <h3 class="account-heading">{{lang 'account.orders.details.shipments.header'}}</h3>
-                                {{#each shipments}}
-                                    <dl class="definitionList">
-                                        <dt class="definitionList-key">{{lang 'account.orders.details.shipments.date'}}:</dt>
-                                        <dd class="definitionList-value">{{date_shipped}}</dd>
-                                        <dt class="definitionList-key">{{lang 'account.orders.details.shipments.method'}}:</dt>
-                                        <dd class="definitionList-value">{{shipping_provider}}</dd>
-                                        <dt class="definitionList-key">{{lang 'account.orders.details.shipments.link'}}:</dt>
-                                        <dd class="definitionList-value">
-                                            {{#if shipping_track.url}}
-                                                <a href="{{shipping_track.url}}">
-                                            {{/if}}
-
-                                            {{#if show_shipping_method}}
-                                                {{shipping_track.number}} &mdash; {{shipping_method}}
-                                            {{else}}
-                                                {{shipping_track.number}}
-                                            {{/if}}
-
-                                            {{#if shipping_track.url}}
-                                                </a>
-                                            {{/if}}
-                                        </dd>
-                                    </dl>
-                                {{/each}}
-                            </section>
-                        {{/if}}
-
-                        {{#if order.comments}}
-                            <section class="account-sidebar-block">
-                                <h3 class="account-heading">{{lang 'account.orders.details.comments'}}</h3>
-                                <p>{{order.comments}}</p>
-                            </section>
-                        {{/if}}
-
                         <section class="account-sidebar-block">
-                            <h3 class="account-heading">{{lang 'account.orders.details.actions'}}</h3>
-                            <div class="order-details-info">
-                                <form class="account-reorder-form" action="{{order.reorder_url}}" method="post" data-account-reorder-form>
-                                    <input type="hidden" name="orderid" value="{{order.id}}">
-                                    {{#each order.items}}
-                                        {{#if show_reorder}}
-                                            <input type="hidden" name="reorderitem[{{order_product_id}}]">
-                                        {{/if}}
-                                    {{/each}}
-                                    <input type="submit" class="button" value="{{lang 'account.orders.details.reorder'}}">
-                                </form>
-                                {{#if settings.returns_enabled}}
-                                    {{#if order.is_complete}}
-                                        <a href="{{order.return_url}}" class="button">{{lang 'account.orders.details.return'}}</a>
+                            <h3 class="account-heading">Metoda de plata</h3>
+
+                            <div class="definitionList">
+                                <p class="definitionList-value">
+                                    {{order.payment_method}}
+                                    {{#if order.card_number_last_four}}
+                                        {{lang 'account.orders.details.card_ending' card=order.card_number_last_four}}
                                     {{/if}}
-                                {{/if}}
+                                </p>
+
+                                <p class="definitionList-value">
+                                    {{nl2br order.order_instructions}}
+                                </p>
                             </div>
                         </section>
                     </aside>

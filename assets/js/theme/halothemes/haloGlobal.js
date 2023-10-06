@@ -98,6 +98,9 @@ export default function(context) {
             getAccountAddress();
             changeNavigationPosition();
             changeWishlistPosition();
+            changeDateFormat();
+            orderTabs();
+            viewMoreButton();
 
             if (theme_settings.halo_recently_viewed_products) {
                 haloRecentlyViewedProduct($context);
@@ -2833,8 +2836,8 @@ function accountInformation () {
                 
                 if(!showFirstName || !showLastName || !showBirthDay) return;
                 
-                showFirstName.textContent = firstName;
-                showLastName.textContent = lastName;
+                showFirstName.textContent = lastName;
+                showLastName.textContent = firstName;
                 showBirthDay.textContent = `${day}.${month}.${year}`;
             }
         })
@@ -2907,3 +2910,104 @@ function changeNavigationPosition() {
         placeDesktop.appendChild(navigationSidebar);
     }
 }
+
+function converseDate(inputDate) {
+    /* Split Day - Month -Year From inputDate */
+    const parts = inputDate.match(/(\d+)(?:st|nd|rd|th) (\w+) (\d{4})/);
+
+    if(!parts) return;
+
+    /* Array include all month name */
+    const monthName = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+    
+    const day = parts[1];
+    const month = monthName.indexOf(parts[2]) + 1;
+    const year = parts[3];
+
+    /* Format Date */
+    if(day && month && year) {
+        return `${day.toString().padStart(2, '0')}.${month.toString().padStart(2, '0')}.${year}`;
+    }
+
+    return null;
+}
+
+function changeDateFormat(){
+    let orderItems = document.querySelectorAll(".account-listItem.order__item");
+
+    for (let item of orderItems) {
+        let orderDate = item.querySelector(".custom-order-date");
+        
+        let newDateFormat = converseDate(orderDate.textContent);
+
+        if(newDateFormat) {
+            orderDate.textContent = newDateFormat;
+        }
+    }
+}
+
+function orderTabs() {
+    let orderTitles = document.querySelectorAll(".account-listItem.order__item .order-tab__title");
+
+    if(!orderTitles) return;
+    
+    for(let title of orderTitles) {
+        title.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            /* Order Tab */
+            let item = this.closest(".account-listItem.order__item");
+            item.classList.toggle("is-open");
+
+            /* Get TabContent */
+            let tabHref = this.getAttribute("href");
+
+            fetch(tabHref)
+                .then(response => response.text())
+                .then(data => {
+                    const tempElement = document.createElement('div');
+                    tempElement.innerHTML = data;
+
+                    let orderContent = tempElement.querySelectorAll(".account-body");
+
+
+                    if(orderContent) {
+                        let tabContentItem = item.querySelector(".order-tab__content");
+
+                        tabContentItem.innerHTML = orderContent[0].innerHTML;
+                    }
+                })
+        });
+    }
+
+}
+
+function viewMoreButton () {
+    var itemsToShow = 1; 
+    var items = document.querySelectorAll('.account-listItem');
+    var viewMoreButton = document.querySelector('.order-viewMore-button');
+    var currentIndex = 0;
+
+    for (var i = itemsToShow; i < items.length; i++) {
+        items[i].style.display = 'none';
+    }
+
+    viewMoreButton.addEventListener('click', function() {
+        var nextIndex = currentIndex + itemsToShow;
+        
+        for (var i = currentIndex; i < nextIndex && i < items.length; i++) {
+            items[i].style.display = 'block';
+        }
+        
+        currentIndex = nextIndex;
+        
+        if (currentIndex >= items.length) {
+            viewMoreButton.style.display = 'none';
+        }
+    });
+
+}
+
