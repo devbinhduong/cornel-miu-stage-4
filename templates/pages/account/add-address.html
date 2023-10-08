@@ -1,9 +1,6 @@
 {{#partial "page"}}
-    <div class="container--medium">
-        <div class="breadcrumb-wrapper">
-            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-        </div>
-        <div class="page page-account">
+    <div class="container">
+        <div class="page page-account custom-page-account">
             <div class="page-header">
                 {{#if forms.address.address_id}}
                     <h1 class="page-heading">{{lang 'forms.address.edit.heading'}}</h1>
@@ -11,8 +8,25 @@
                     <h1 class="page-heading">{{lang 'forms.address.add.heading'}}</h1>
                 {{/if}}
             </div>
-            {{> components/account/navigation account_page='addresses'}}
-            <main class="page-content">
+
+            <div class="page-account__sidebar">
+                {{> components/account/navigation account_page='addresses'}}
+                {{> components/account/account-wishlist}}
+            </div>
+
+            <main class="page-content page-account__content">
+                <div class="page-header">
+                    <h1 class="page-heading flecha-m">
+                        {{#if forms.address.address_id}}
+                            {{lang 'forms.address.edit.heading'}}
+                        {{else}}
+                            {{lang 'forms.address.add.heading'}}
+                        {{/if}}
+                    </h1>
+                </div>
+
+                <div class="account-navigation-mobile"></div>
+
                 <div class="account">
                     <div class="account-body">
                         <section class="account-content account-content2">
@@ -40,6 +54,9 @@
                         </section>
                     </div>
                 </div>
+
+                <!-- Wishlist Mobile -->
+                <div class="custom-account-wishlist-mobile page-account__sidebar"></div>
             </main>
         </div>
     </div>

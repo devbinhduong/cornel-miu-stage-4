@@ -1,14 +1,16 @@
 {{#partial "page"}}
-    <div class="container--medium">
-        <div class="breadcrumb-wrapper">
-            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-        </div>
-        <div class="page page-account">
-            <div class="page-header">
-                <h1 class="page-heading">{{lang 'account.messages.heading' }}</h1>
+    <div class="container">
+        <div class="page page-account custom-page-account">
+            <div class="page-account__sidebar">
+                {{> components/account/navigation account_page='messages'}}
+                {{> components/account/account-wishlist}}
             </div>
-            {{> components/account/navigation account_page='messages'}}
-            <main class="page-content">
+            <main class="page-content page-account__content">
+                <div class="page-header">
+                    <h1 class="page-heading flecha-m">{{lang 'account.messages.heading' }}</h1>
+                </div>
+
+                <div class="account-navigation-mobile"></div>
                 <div class="account">
                     <div class="account-body">
                         <section class="account-content account-content2">
@@ -23,6 +25,9 @@
                         </section>
                     </div>
                 </div>
+
+                <!-- Wishlist Mobile -->
+                <div class="custom-account-wishlist-mobile page-account__sidebar"></div>
             </main>
         </div>
     </div>

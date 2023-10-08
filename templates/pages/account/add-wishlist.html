@@ -1,9 +1,6 @@
 {{#partial "page"}}
-    <div class="container--medium">
-        <div class="breadcrumb-wrapper">
-            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-        </div>
-        <div class="page page-account">
+    <div class="container">
+        <div class="page page-account custom-page-account">
             <div class="page-header">
                 <h1 class="page-heading">
                     {{#if forms.wishlist.id}}
@@ -17,8 +14,29 @@
                     {{/if}}
                 </h1>
             </div>
-            {{> components/account/navigation account_page='wishlists'}}
-            <main class="page-content">
+
+            <div class="page-account__sidebar">
+                {{> components/account/navigation account_page='wishlists'}}
+                {{> components/account/account-wishlist}}
+            </div>
+            
+            <main class="page-content page-account__content">
+                <div class="page-header">
+                    <h1 class="page-heading flecha-m">
+                        {{#if forms.wishlist.id}}
+                        {{lang 'account.wishlists.edit'}}
+                    {{else}}
+                        {{#if forms.wishlist.action}}
+                            {{lang 'account.wishlists.new'}}
+                        {{else}}
+                            {{lang 'account.wishlists.heading'}}
+                        {{/if}}
+                    {{/if}}
+                    </h1>
+                </div>
+
+                <div class="account-navigation-mobile"></div>
+
                 <div class="account">
                     <div class="account-body">
                         <section class="account-content account-content2">
@@ -26,6 +44,9 @@
                         </section>
                     </div>
                 </div>
+
+                <!-- Wishlist Mobile -->
+                <div class="custom-account-wishlist-mobile page-account__sidebar"></div>
             </main>
         </div>
     </div>

@@ -1,18 +1,20 @@
 {{#partial "page"}}
-<div class="container--medium">
-    <div class="breadcrumb-wrapper">
-        {{#if wishlist.is_editable}}
-            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-        {{/if}}
-    </div>
-    <div class="page page-account">
-        <div class="page-header">
-            <h1 class="page-heading">{{lang 'account.wishlists.view_heading' name=wishlist.name}}</h1>
+<div class="container">
+    <div class="page page-account custom-page-account">
+        <div class="page-account__sidebar">
+            {{#if wishlist.is_editable}}
+                {{> components/account/navigation account_page='wishlists'}}
+            {{/if}}
+            {{> components/account/account-wishlist}}
         </div>
-        {{#if wishlist.is_editable}}
-            {{> components/account/navigation account_page='wishlists'}}
-        {{/if}}
-        <main class="page-content">
+
+        <main class="page-content page-account__content">
+            <div class="page-header">
+                <h1 class="page-heading flecha-m">{{lang 'account.wishlists.view_heading' name=wishlist.name}}</h1>
+            </div>
+
+            <div class="account-navigation-mobile"></div>
+
             <div class="account">
                 {{#if wishlist.is_editable}}
                     {{#if wishlist.is_public '>' 0}}
@@ -35,6 +37,9 @@
                     </section>
                 </div>
             </div>
+
+            <!-- Wishlist Mobile -->
+            <div class="custom-account-wishlist-mobile page-account__sidebar"></div>
         </main>
     </div>
 </div>
