@@ -19,6 +19,8 @@ import loadingProgressBar from '../global/loading-progress-bar';
 import quickSearch from '../global/quick-search';
 import { Fancybox } from 'fancybox';
 
+import addBrandForWishlistItem from './addBrandForWishlistItem';
+
 import { api } from '@bigcommerce/stencil-utils';
 
 
@@ -28,6 +30,7 @@ import { forEach } from 'lodash';
 
 export default function(context) {
     const $context = context,
+        token = context.token,
         theme_settings = context.themeSettings;
 
     var $header = $('header.header'),
@@ -101,6 +104,7 @@ export default function(context) {
             changeDateFormat();
             orderTabs();
             viewMoreButton();
+            addBrandForWishlistItem($context);
 
             if (theme_settings.halo_recently_viewed_products) {
                 haloRecentlyViewedProduct($context);
@@ -2988,14 +2992,16 @@ function orderTabs() {
 function viewMoreButton () {
     var itemsToShow = 1; 
     var items = document.querySelectorAll('.account-listItem');
-    var viewMoreButton = document.querySelector('.order-viewMore-button');
+    var accountViewMoreButton = document.querySelector('.order-viewMore-button');
     var currentIndex = 0;
+
+    if(!accountViewMoreButton) return;
 
     for (var i = itemsToShow; i < items.length; i++) {
         items[i].style.display = 'none';
     }
 
-    viewMoreButton.addEventListener('click', function() {
+    accountViewMoreButton.addEventListener('click', function() {
         var nextIndex = currentIndex + itemsToShow;
         
         for (var i = currentIndex; i < nextIndex && i < items.length; i++) {
@@ -3005,9 +3011,8 @@ function viewMoreButton () {
         currentIndex = nextIndex;
         
         if (currentIndex >= items.length) {
-            viewMoreButton.style.display = 'none';
+            accountViewMoreButton.style.display = 'none';
         }
     });
 
 }
-
