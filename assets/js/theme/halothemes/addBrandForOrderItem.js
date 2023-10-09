@@ -6,9 +6,9 @@ export default function(context, wrapper) {
     var  list = [];
 
     function getProductListId() {
-        let productWishlist = document.querySelectorAll('.product-wishlist-item .card');
+        let orderList = document.querySelectorAll('.custom-order-content .account-listItem');
 
-        for (let product of productWishlist) {
+        for (let product of orderList) {
             let productId = product.getAttribute("data-product-id");
 
             if(!productId) return;
@@ -19,13 +19,15 @@ export default function(context, wrapper) {
         list = uniqueArray(list);
 
         if(list.length > 0){
-            getWishlistBrandName(list).then(data => {
+            getBrandNameByGrapql(list).then(data => {
+                console.log("data", data)
                 renderBrandName(data);
             });
         }
     }
 
-    function getWishlistBrandName(list){
+    function getBrandNameByGrapql(list){
+        console.log("list", list);
         return fetch('/graphql', {
             method: 'POST',
             headers: {
@@ -60,15 +62,17 @@ export default function(context, wrapper) {
         $.each(aFilter, (index, element) => {
             var productId = element.node.entityId;
             var brandName = element.node.brand ? element.node.brand.name : '';
-            var productWishlist = document.querySelectorAll('.product-wishlist-item .card[data-product-id="'+productId+'"]');
+            var orderList = document.querySelectorAll('.custom-order-content .account-listItem[data-product-id="'+productId+'"]');
 
-            for (let product of productWishlist) {
+            console.log("orderList", orderList)
+
+            for (let product of orderList) {
                 /* Create div tag below title for contain brand name */
                 var brandNameDiv = document.createElement('p');
-                brandNameDiv.classList.add('wish-list-brand-name');
-                product.querySelector('.card-title').after(brandNameDiv);
+                brandNameDiv.classList.add('order-item-brand-name');
+                product.querySelector('.account-product-title').after(brandNameDiv);
 
-                var brandBlock = product.querySelector('.wish-list-brand-name');
+                var brandBlock = product.querySelector('.order-item-brand-name');
 
                 if(brandName){
                     brandBlock.innerHTML = brandName;

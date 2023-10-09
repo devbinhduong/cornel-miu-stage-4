@@ -20,6 +20,7 @@ import quickSearch from '../global/quick-search';
 import { Fancybox } from 'fancybox';
 
 import addBrandForWishlistItem from './addBrandForWishlistItem';
+import addBrandForOrderItem from './addBrandForOrderItem';
 
 import { api } from '@bigcommerce/stencil-utils';
 
@@ -92,7 +93,7 @@ export default function(context) {
             viewEventMore();
 
             /* Account Wishlist Sidebar */
-            accountWishlistSidebar();
+            accountWishlistSidebar($context);
 
             /* Account Information */
             accountInformation();
@@ -102,7 +103,7 @@ export default function(context) {
             changeNavigationPosition();
             changeWishlistPosition();
             changeDateFormat();
-            orderTabs();
+            orderTabs($context);
             viewMoreButton();
             addBrandForWishlistItem($context);
 
@@ -2733,7 +2734,7 @@ function viewEventMore() {
 }
 
 /* Get Account Wishlist Sidebar */
-function accountWishlistSidebar() {
+function accountWishlistSidebar($context) {
     let productWishlist = document.querySelector('.account-wishlist__list');
 
     if(!productWishlist) return;
@@ -2809,6 +2810,10 @@ function accountWishlistSidebar() {
                             });
                         });
                     });
+                })
+
+                .then(() => {
+                    addBrandForWishlistItem($context)
                 })
         })
         
@@ -2953,7 +2958,7 @@ function changeDateFormat(){
     }
 }
 
-function orderTabs() {
+function orderTabs($context) {
     let orderTitles = document.querySelectorAll(".account-listItem.order__item .order-tab__title");
 
     if(!orderTitles) return;
@@ -2984,13 +2989,32 @@ function orderTabs() {
                         tabContentItem.innerHTML = orderContent[0].innerHTML;
                     }
                 })
+
+                /* Format Date */
+                .then(() => {
+                    let definitionList = document.querySelectorAll(".definitionList-value.custom-order-date");
+                    
+                    for (let orderDate of definitionList) {
+                        let newDateFormat = converseDate(orderDate.textContent);
+                
+                        if(newDateFormat) {
+                            orderDate.textContent = newDateFormat;
+                        }
+                    }
+                })
+
+                /* Add Brand */
+                .then(() => {
+                    console.log("add brand for order item")
+                    addBrandForOrderItem($context);
+                })
         });
     }
 
 }
 
 function viewMoreButton () {
-    var itemsToShow = 1; 
+    var itemsToShow = 3; 
     var items = document.querySelectorAll('.account-listItem');
     var accountViewMoreButton = document.querySelector('.order-viewMore-button');
     var currentIndex = 0;

@@ -934,6 +934,21 @@
                 position: relative;
                 padding-top: 40px;
 
+                .product-wishlist-item {
+                    .wish-list-brand-name {
+                        color: #252525;
+                        font-family: "Work Sans";
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        letter-spacing: 0.1px;
+                        text-align: left;
+                        margin-bottom: -3px;
+                        margin-top: 2px;
+                    }
+                }
+
                 .product {
                     position: relative;
                     list-style: none;
@@ -952,11 +967,21 @@
                             display: block;
                             padding-left: 12px;
                             padding-right: 12px;
+
+                            @media (max-width: 400px) {
+                                padding-right: 0;
+                            }
+
                             .card-img-container {
                                 img {
                                     width: 80px;
                                     height: 80px;
                                     margin: 0;
+
+                                    @media (max-width: 400px) {
+                                        width: 68px;
+                                        height: 68px;
+                                    }
                                 }
                             }
                         }
@@ -970,6 +995,9 @@
                                 max-width: calc(100% - 150px);
                             }
                             
+                            @media (max-width: 400px) {
+                                padding-left: 0;
+                            }
                             .card-title {
                                 > a {
                                     color: #252525;
@@ -1237,12 +1265,36 @@
 
 /* Order Page */
 .custom-page-account--order {
+    .page-account__content {
+        .page-header {
+            margin-bottom: 62px;
+
+            @media (max-width: 767px) {
+                margin-bottom: 28px;
+            }
+        }
+    }
+
     .account-body {
         .order__list {
             .order__item {
                 border-bottom: 1px solid #F7F3E8 ;
                 padding-top: 12px;
                 padding-bottom: 36px;
+
+                @media (max-width: 767px) {
+                    padding-top: 6px;
+                    padding-bottom: 28px;
+                }
+                
+                &.is-open {
+                    padding-bottom: 26px;
+
+                    @media (max-width: 767px) {
+                        padding-top: 4px;
+                        padding-bottom: 14px;
+                    }
+                }
 
                 &:first-child {
                     border-top: 1px solid #F7F3E8 ;
@@ -1256,7 +1308,12 @@
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-                        padding-right: 100px;
+                        padding-right: 120px;
+
+                        @media (max-width: 767px) {
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
 
                         .item__left {
                             h3 {
@@ -1292,6 +1349,11 @@
                             font-weight: 500;
                             line-height: 18px; /* 150% */
                             letter-spacing: 0.1px;
+                            margin-top: 12px;
+
+                            &.title__top--right {
+                                margin-top: 30px;
+                            }
                         }
 
                     }
@@ -1300,6 +1362,12 @@
                         top: 50%;
                         right: 0;
                         transform: translateY(-50%);
+                        max-height: 16px;
+
+                        @media (max-width: 767px) {
+                            top: 30px;
+                            transform: translateY(0);
+                        }
                     }
 
                 }
@@ -1319,12 +1387,23 @@
                         margin-right: -24px;
                         margin-left: -24px;
 
+                        @media (max-width: 1250px) {
+                            flex-direction: column;
+                        }
+
                         .account-content {
                             flex: 1;
                             padding-left: 24px;
                             padding-right: 24px;
-                            padding-top: 67px;
+                            padding-top: 71px;
 
+                            @media (max-width: 1250px) {
+                                width: 100%;
+                            }
+
+                            @media (max-width: 767px) {
+                                padding-top: 59px;
+                            }
 
                             .order-product-count {
                                 color: #252525;
@@ -1334,11 +1413,16 @@
                                 font-weight: 500;
                                 line-height: 18px; /* 150% */
                                 letter-spacing: 0.1px;
+                                margin-bottom: 10px;
                             }
 
                             .custom-order-content {
-                                width: calc(100% - 100px);
                                 border-bottom: 1px solid #F7F3E8;
+                                padding-bottom: 9px;
+
+                                @media (min-width: 1251px) {
+                                    width: calc(100% - 120px);
+                                }
 
                                 .account-listShipping {
                                     display: none;
@@ -1348,16 +1432,97 @@
                                     padding: 0;
                                     border: none;
 
+                                    .account-product {
+                                        display: flex;
+                                    }
+
                                     .account-product-checkItem {
                                         left: 0;
+                                        display: none;
+                                    }
+
+                                    .account-product-figure {
+                                        left: 0;
+                                        max-width: 80px;
+                                        max-height: 80px;
+                                        width: 100%;
+
+                                        img {
+                                            margin: 0;
+                                        }
+                                    }
+
+                                    .account-product-body {
+                                        padding-left: 24px;
+                                        padding-top: 6px;
+                                        display: flex;
+                                        flex-direction: row-reverse;
+                                        flex-wrap: wrap;
+                                        justify-content: flex-end;
+
+                                        @media (max-width: 1250px) {
+                                            width: 100%;
+                                        }
+
+                                        @media (max-width: 767px) {
+                                            padding-left: 12px;
+                                        }
+
+                                        .account-product-price {
+                                            color: #252525;
+                                            font-family: "Work Sans";
+                                            font-size: 12px;
+                                            font-style: normal;
+                                            font-weight: 400;
+                                            line-height: 18px; /* 150% */
+                                            letter-spacing: 0.1px;
+                                            float: none;
+                                            padding-left: 12px;
+                                            
+                                            @media (min-width: 1250px) {
+                                                padding-left: 24px;
+                                            }
+                                        }
+
+                                        .account-product-title {
+                                            color: #252525;
+                                            font-family: "Work Sans";
+                                            font-size: 12px;
+                                            font-style: normal;
+                                            font-weight: 400;
+                                            line-height: normal;
+                                            letter-spacing: 0.1px;
+                                            max-width: 196px;
+                                            width: 100%;
+
+                                            @media (max-width: 1250px) {
+                                                max-width: calc(100% - 70px);
+                                            }
+                                        }
+
+                                        .definitionList {
+                                            width: 100%;
+                                            max-width: 100%;
+                                        }
+                                    }
+                                    
+                                    + .account-listItem {
+                                        margin-top: 16px;
                                     }
                                 }
                             }
 
                             .account-orderTotal {
-                                width: calc(100% - 100px);
                                 float: left;
-                                padding-top: 8px;
+                                padding-top: 13px;
+
+                                @media (min-width: 1251px) {
+                                    width: calc(100% - 120px);
+                                }
+
+                                @media (max-width: 1250px) {
+                                    width: 100%;
+                                }
 
                                 .account-orderTotal-value {
                                     border-bottom: none;
@@ -1370,6 +1535,7 @@
                                     font-weight: 400;
                                     line-height: 18px; /* 150% */
                                     letter-spacing: 0.1px;
+                                    margin-bottom: 5px;
 
 
                                     &:last-child {
@@ -1400,7 +1566,38 @@
                             padding-left: 24px;
                             padding-right: 24px;
                             max-width: 232px;
-                            padding-top: 67px;
+                            padding-top: 71px;
+
+                            @media (max-width: 1250px) {
+                                display: flex;
+                                flex-wrap: wrap;
+                                max-width: 100%;
+                                width: 100%;
+                                margin-left: -12px;
+                                margin-right: -12px;
+
+                                .account-sidebar-block {
+                                    width: 100%;
+                                    padding-left: 12px;
+                                    padding-right: 12px;
+
+                                    &.account-sidebar-block--half {
+                                        width: 50%;
+
+                                        + .account-sidebar-block--half {
+                                            @media (max-width: 767px) {
+                                                padding-left: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            @media (max-width: 767px) {
+                                padding-top: 18px;
+                                padding-right: 12px;
+                            }
 
                             .account-sidebar-block {
                                 .account-heading {
@@ -1413,7 +1610,7 @@
                                     line-height: 18px; /* 150% */
                                     letter-spacing: 0.1px;
                                     padding-bottom: 0;
-                                    margin-bottom: 10px;
+                                    margin-bottom: 6px;
                                 }
 
                                 .definitionList-value {
@@ -1427,11 +1624,44 @@
                                 }
 
                                 + .account-sidebar-block {
-                                    margin-top: 24px;
+                                    margin-top: 30px;
+                                    padding-bottom: 8px;
+
+                                    @media (max-width: 767px) {
+                                        margin-top: 15px;
+                                    }
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+
+        .custom-order-viewMore {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+
+            @media (max-width: 767px) {
+                margin-top: 32px;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                flex-shrink: 0;
+
+                a {
+                    color: #252525;
+                    text-align: center;
+                    font-family: "Termina";
+                    font-size: 8px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 40px;
+                    letter-spacing: 1.6px;
+                    min-width: 148px;
                 }
             }
         }

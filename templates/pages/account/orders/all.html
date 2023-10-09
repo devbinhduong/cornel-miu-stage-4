@@ -30,7 +30,7 @@ customer:
                         <section class="account-content account-content2">
                             {{#if customer.orders.length}}
                                 {{> components/account/orders-list orders=customer.orders}}
-                                {{> components/common/small-paginator pagination.orders}}
+                                {{> components/common/small-paginator pagination.orders orderLength=customer.orders.length}}
                             {{else}}
                                 {{> components/common/alert/alert-info (lang 'account.orders.none')}}
                             {{/if}}
