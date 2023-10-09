@@ -6,7 +6,7 @@ export default function(context, wrapper) {
     var  list = [];
 
     function getProductListId() {
-        let productWishlist = document.querySelectorAll('.account-content .product-wishlist-item .card');
+        let productWishlist = document.querySelectorAll('.page-account__sidebar .product-wishlist-item .card');
 
         for (let product of productWishlist) {
             let productId = product.getAttribute("data-product-id");
@@ -60,7 +60,7 @@ export default function(context, wrapper) {
         $.each(aFilter, (index, element) => {
             var productId = element.node.entityId;
             var brandName = element.node.brand ? element.node.brand.name : '';
-            var productWishlist = document.querySelectorAll('.account-content .product-wishlist-item .card[data-product-id="'+productId+'"]');
+            var productWishlist = document.querySelectorAll('.page-account__sidebar .product-wishlist-item .card[data-product-id="'+productId+'"]');
 
             for (let product of productWishlist) {
                 /* Create div tag below title for contain brand name */

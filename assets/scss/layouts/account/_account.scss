@@ -826,6 +826,7 @@
     position: absolute;
     top: 30%;
     left: 50%;
+    z-index: 99;
     transform: translate(-50%, -50%);
 }
 
@@ -1684,4 +1685,17 @@
         line-height: 24px; /* 150% */
         letter-spacing: 0.1px;
     }
+}
+
+.custom-button-print-invoice {
+    display: block;
+    width: 148px;
+    min-width: unset !important;
+    height: 40px;
+    line-height: 38px;
+    font-size: 8px;
+    letter-spacing: 1.6px;
+    padding: 0;
+    max-width: 148px;
+    margin-top: 32px;
 }

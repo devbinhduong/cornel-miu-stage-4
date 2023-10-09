@@ -21,6 +21,7 @@ import { Fancybox } from 'fancybox';
 
 import addBrandForWishlistItem from './addBrandForWishlistItem';
 import addBrandForOrderItem from './addBrandForOrderItem';
+import addBrandForWishlistSidebar from './addBrandForWishlistSidebar';
 
 import { api } from '@bigcommerce/stencil-utils';
 
@@ -106,6 +107,7 @@ export default function(context) {
             orderTabs($context);
             viewMoreButton();
             addBrandForWishlistItem($context);
+            removeWishlistItem();
 
             if (theme_settings.halo_recently_viewed_products) {
                 haloRecentlyViewedProduct($context);
@@ -804,8 +806,14 @@ export default function(context) {
                 check_loadProductGrid = false;
 
                 if ($('.productGrid:not(.productListing)').length > 0) {
-                    const col = context.themeSettings.home_product_col,
+                    let col = context.themeSettings.home_product_col,
                         limitProduct = 2 * parseInt(col);
+
+                    let isPageWishlist = document.querySelector('.page-type-wishlist');
+
+                    if(isPageWishlist) {
+                        limitProduct = 9;
+                    }
 
                     $('.productGrid:not(.productListing)').each((index, element) => {
                         var $prodWrapId = $(element).attr('id');
@@ -814,7 +822,7 @@ export default function(context) {
                         $(element).find('.product:hidden').slice(0, limitProduct).css('display', 'inline-block');
 
                         if ($(element).find('.product').length > limitProduct) {
-                            $(element).after('<div class="productGrid-showMore"><a class="button button--primary" href="#" data-href="' + $prodWrapId + '">Show More</a></div>');
+                            $(element).after('<div class="productGrid-showMore"><a class="button button--primary" href="#" data-href="' + $prodWrapId + '">VEZI TOATE</a></div>');
                         }
 
                         haloAddOptionForProduct($context, $prodWrapId);
@@ -2813,7 +2821,7 @@ function accountWishlistSidebar($context) {
                 })
 
                 .then(() => {
-                    addBrandForWishlistItem($context)
+                    addBrandForWishlistSidebar($context)
                 })
         })
         
@@ -3039,4 +3047,29 @@ function viewMoreButton () {
         }
     });
 
+}
+
+
+function removeWishlistItem () {
+    let wistListItems = document.querySelectorAll('.page-type-wishlist .productGrid .product');
+    wistListItems.forEach(item => {
+        let removeButton = item.querySelector('.button-remove-wishlist'),
+            link = item.querySelector('.form').getAttribute('action');
+        
+        removeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            let link = this.closest('.form').getAttribute('action'),
+                itemLink = this.closest('.product');
+
+            /* Add loading */
+            const loadingElement3 = document.createElement('div');
+                loadingElement3.classList.add('loading-scroll');
+                itemLink.appendChild(loadingElement3);
+
+            $.post(link).done(function() {
+                itemLink.remove();
+            });
+        });
+    });
 }
