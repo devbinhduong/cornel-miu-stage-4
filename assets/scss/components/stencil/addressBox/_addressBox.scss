@@ -170,3 +170,19 @@
     display: inline-block;
     margin: 0;
 }
+
+
+.addressList {
+    .panel-body {
+        .form-actions {
+            .button, button {
+                min-width: 148px;
+            }
+
+            button {
+                margin-left: 0;
+                margin-top: 12px !important;
+            }
+        }
+    }
+}
