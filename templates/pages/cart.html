@@ -14,30 +14,19 @@ cart: true
 <div class="container">
     <div class="page page-cart{{#if theme_settings.halo_shipping}} has-calculate-shipping{{/if}}">
         <div class="page-header">
-            {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
             {{> components/cart/page-title}}
         </div>
         {{#and (if theme_settings.halo_shipping) (if cart.items.length)}}
             <div class="halo-free-shipping-message animated-loading">
-                <div class="progress-shipping" role="progressbar">
-                    <div class="progress-meter" style="width: 0"></div>
-                </div>
                 <div class="shipping-message">
                     <span class="message"></span>
                     <span class="progress-percent">0%</span>
                 </div>
+                <div class="progress-shipping" role="progressbar">
+                    <div class="progress-meter" style="width: 0"></div>
+                </div>
             </div>
         {{/and}}
-        <div class="cart-notification">
-            {{#if cart.items.length}}
-                {{#if theme_settings.halo-cart-notification}}
-                    <div class="halo-cart-notification" data-coundown="{{theme_settings.halo-cart-notification-time}}">
-                        <span class="icon"><svg><use xlink:href="#icon-info"></use></svg></span>
-                        <span class="text">{{theme_settings.halo-cart-notification-text1}} {{theme_settings.halo-cart-notification-text2}} <span class="time"></span> {{lang 'cart.minutes'}}.</span>
-                    </div>
-                {{/if}}
-            {{/if}}
-        </div>
         <div class="page-content" data-cart>
             <div data-cart-status>
                 {{> components/cart/status-messages}}
@@ -48,6 +37,10 @@ cart: true
                 <div class="cart-content-wrapper">
                     <div data-cart-content class="cart-content-item">
                         {{> components/cart/content}}
+
+                        <p class="cart-page-note">
+                            Impachetarea a trei cadouri sunt gratuite. Orice impachetare de cadou peste trei obiecte costa 5 Lei pe obiect.
+                        </p>
                     </div>
                     <div data-cart-totals class="cart-content-item">
                         {{> components/cart/totals}}

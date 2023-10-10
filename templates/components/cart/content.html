@@ -34,8 +34,10 @@
                         </div>
                         <div class="cart-item-block-right">
                             <h4 class="cart-item-name">
-                                <a href="{{url}}" style="-webkit-box-orient: vertical;">{{name}}</a>
+                                <a href="{{url}}">{{name}}</a>
                             </h4>
+
+                            <p class="cart-item__brand">{{brand.name}}</p>
                             {{#if release_date}}
                                 <p>({{release_date}})</p>
                             {{/if}}
@@ -79,6 +81,13 @@
                                     </dd>
                                 </dl>
                             {{/if}}
+
+                            <!-- Custom Gift Wrapping -->
+                            <div class="custom-gift-wrapping">
+                                <input type="checkbox" id="gift-wrapping__radio" class="gift-wrapping__radio">
+                                <label for="gift-wrapping__radio" class="gift-wrapping__label">Doresc impachetare cadou</label><br>
+                            </div>
+
                         </div>
                     </div>
                 </td>
