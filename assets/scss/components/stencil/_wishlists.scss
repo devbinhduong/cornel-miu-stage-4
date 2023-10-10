@@ -58,66 +58,159 @@
 
 /* Custom Start */
 .page-type-wishlist {
-    .productGrid {
-        max-width: 624px;
-        .product-wishlist-item {
-            position: relative;
+    .page-account__content {
+        .page-header {
+            margin-bottom: 56px;
+            
+            @media (max-width: 767px) {
+                margin-bottom: 26px;
+            }
+        }
 
-            .card {
-                .card-figure {
-                    .card-img-container {
-                        img {
+        .wistlist-item-count {
+            color: #252525;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px; /* 150% */
+            letter-spacing: 0.1px;
 
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+    
+        .productGrid {
+            margin-top: 0;
+            padding-top: 49px;
+
+            @media (min-width: 768px) {
+                max-width: 624px;
+            }
+            
+            .product-wishlist-item {
+                position: relative;
+
+                @media (min-width: 768px) and (max-width: 1100px) {
+                    width: 50%;
+                }
+    
+                .card {
+                    .card-figure {
+                        .card-img-container {
+                            img {
+    
+                            }
+                        }
+                    }
+                    
+                    .card-body {
+                        padding-top: 20px;
+
+                        @media (max-width: 767px) {
+                            padding-top: 15px;
+                            padding-left: 0;
+                            padding-right: 0;
+                        }
+
+                        .card-title {
+                            > a {
+                                color: #252525;
+                                text-align: center;
+                                font-family: "flecha-s";
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                                letter-spacing: 0.1px;
+
+                                @media (max-width: 767px) {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+    
+                        .price-section {
+                            color: #252525;
+                            text-align: center;
+                            font-family: "Work Sans";
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            letter-spacing: 0.1px;
+
+                            @media (max-width: 767px) {
+                                font-size: 16px;
+                            }
+                        }
+
+                        .wish-list-brand-name {
+                            margin-bottom: 12px;
+
+                            @media (max-width: 767px) {
+                                color: #252525;
+                                text-align: center;
+                                font-size: 12px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 24px; /* 200% */
+                                letter-spacing: 0.1px;
+                                margin-top: 6px;
+                                margin-bottom: 0;
+                            }
+                        }
+
+                        .card-wrapper {
+                            @media (max-width: 767px) {
+                                margin-bottom: 6px;
+                            }
                         }
                     }
                 }
-                
-                .card-body {
-                    .card-title {
-                        > a {
-                            color: #252525;
-                            text-align: center;
-                            font-family: "flecha-s";
-                            font-size: 16px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: normal;
-                            letter-spacing: 0.1px;
-                        }
-                    }
-
-                    .price-section {
-                        color: #252525;
-                        text-align: center;
-                        font-family: "Work Sans";
-                        font-size: 20px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: normal;
-                        letter-spacing: 0.1px;
+    
+                .form {
+                    position: absolute;
+                    right: 16px;
+                    bottom: 16px;
+                    width: -moz-fit-content;
+                    width: fit-content;
+                    margin: 0;
+                    z-index: 1;
+    
+                    .button-remove-wishlist {
+                        font-size: 0;
+                        width: 24px;
+                        height: 24px;
+                        padding: 0;
+                        background-color: transparent;
+                        border: none;
+                        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="%23F7F3E8"/><path d="M8 8L11.9782 12L8 16" stroke="%23252525" stroke-width="1.25" stroke-linejoin="bevel"/><path d="M15.6719 16L11.6937 12L15.6719 8" stroke="%23252525" stroke-width="1.25" stroke-linejoin="bevel"/></svg>');
                     }
                 }
             }
+        }
 
-            .form {
-                position: absolute;
-                right: 28px;
-                top: 140px;
-                width: -moz-fit-content;
-                width: fit-content;
-                margin: 0;
-                z-index: 1;
+        .productGrid-showMore {
+            margin-top: 0;
+            max-width: 600px;
 
-                .button-remove-wishlist {
-                    font-size: 0;
-                    width: 24px;
-                    height: 24px;
-                    padding: 0;
-                    background-color: transparent;
-                    border: none;
-                    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="%23F7F3E8"/><path d="M8 8L11.9782 12L8 16" stroke="%23252525" stroke-width="1.25" stroke-linejoin="bevel"/><path d="M15.6719 16L11.6937 12L15.6719 8" stroke="%23252525" stroke-width="1.25" stroke-linejoin="bevel"/></svg>');
+            @media (max-width: 767px) {
+                margin-top: 32px;
+                margin-bottom: 4px;
+            }
+
+            .button {
+                min-width: unset;
+
+                @media (max-width: 767px) {
+                    font-size: 8px;
+                    font-weight: 600;
+                    letter-spacing: 1.6px;
+                    min-width: 148px;
                 }
             }
         }
     }
+
 }

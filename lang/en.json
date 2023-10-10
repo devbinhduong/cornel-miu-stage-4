@@ -536,7 +536,7 @@
             "add": "Add Wish List",
             "delete_all": "Delete All",
             "edit": "Edit Wish List",
-            "view_heading": "Wish List: {name}",
+            "view_heading": "Wishlist: {name}",
             "share_intro": "Share this Wish List with friends:",
             "num_products": "{num_products, plural, one {1 product} other {# products}}",
             "create": "Create Wish List",
