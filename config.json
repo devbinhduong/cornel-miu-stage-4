@@ -1,5 +1,5 @@
 {
-  "name": "Stephanus Stage 4 10102023",
+  "name": "Stephanus Done Cart Page",
   "version": "1.0.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -1855,7 +1855,7 @@
         "haloLiveHelp-buttonLink": "#",
         "halo_headerSticky": true,
         "haloRecommendedBlock_cart": true,
-        "haloRecommendedBlock_cart_title": "Customers Who Bought This Item Also Bought",
+        "haloRecommendedBlock_cart_title": "Istoricul meu",
         "haloRecommendedBlock_cart_type": "Featured",
         "share_custom": true,
         "share_custom_code": "#pubid=ra-595b0ea2fb9c5869",

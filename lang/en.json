@@ -76,7 +76,7 @@
             "subtotal": "Subtotal",
             "enter_code": "Coupon code / Gift certificate",
             "gift_wrapping": "Gift wrapping",
-            "shipping": "Shipping",
+            "shipping": "Livrare",
             "grand_total": "Total",
             "select": "Select",
             "update": "Update shipping cost",
@@ -116,7 +116,7 @@
         "gift_certificates": {
             "change_gift_certificate": "Change {certificate_name}",
             "add_cert_code": "Add Certificate",
-            "gift_certificate": "Gift Certificate",
+            "gift_certificate": "Adauga Cardul",
             "code_label": "Gift Certificate ({code})",
             "cert_code": "Enter your certificate code",
             "remove": "Remove"
@@ -136,7 +136,7 @@
             "empty_province_error": "The 'State/Province' field cannot be blank."
         },
         "gift_wrapping": {
-            "title": "Gift Wrapping",
+            "title": "Doresc impachetare cadou",
             "add": "Add",
             "change": "Change",
             "remove": "Remove",

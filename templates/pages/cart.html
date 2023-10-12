@@ -28,10 +28,6 @@ cart: true
             </div>
         {{/and}}
         <div class="page-content" data-cart>
-            <div data-cart-status>
-                {{> components/cart/status-messages}}
-            </div>
-
             {{#if cart.items.length}}
                 <div class="loadingOverlay"></div>
                 <div class="cart-content-wrapper">
@@ -44,6 +40,13 @@ cart: true
                     </div>
                     <div data-cart-totals class="cart-content-item">
                         {{> components/cart/totals}}
+
+                        <div class="cart-total-note">
+                            <h4 class="cart-total-note__title">Esti membru Stephanus?</h4>
+                            <p class="cart-page-note">
+                                <a href="#">Intra in cont</a> pentru a beneficia de transport gratuit la comenzi de cel putin 50 Lei.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 {{{region name="cart_below_totals"}}}

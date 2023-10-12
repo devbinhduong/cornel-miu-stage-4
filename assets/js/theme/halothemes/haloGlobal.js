@@ -2241,32 +2241,12 @@ export default function(context) {
         upperInputs.forEach(function(input, index) {
             input.addEventListener('input', function() {
                 lowerInputs[index].value = this.value;
-
-                // if (this.classList.contains('custom-form__email')) {
-                //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                //     if (emailRegex.test(this.value)) {
-                //         lowerInputs[index].value = this.value;
-                //     }
-                // }
-
-                // const isBothInputsValid = Array.from(upperInputs).every(input => input.value && input.classList.contains('custom-form__email'));
-            
-                // checkoutButton.disabled = !isBothInputsValid;
             });
         });
     }
 
     function getTotalValue() {
         let ticketList = document.querySelectorAll('.special-ticket-blocks .halo-productView-right');
-
-        for (let ticket of ticketList) {
-            // let priceElement = ticket.querySelector('.price--withTax');
-            // let newPriceElement =  priceElement.innerHTML.replace("$", '');
-
-            // priceElement.innerHTML = newPriceElement;
-
-            // console.log("priceElement", priceElement)
-        }
 
         forEach(ticketList, function(ticket) {
             let priceElement = ticket.querySelector('.custom-price-value').innerHTML;

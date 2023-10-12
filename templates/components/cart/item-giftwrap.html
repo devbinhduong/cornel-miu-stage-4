@@ -1,8 +1,11 @@
 {{#if show_gift_wrapping}}
     <dl class="cart-item-options cart-item-options--giftWrapping">
-        <svg class="icon"><use xlink:href="#icon-gift"></use></svg>
+        <dd class="cart-item-option-description">
+            <input type="checkbox"  {{#if gift_wrapping}}checked{{/if}} name="Gift Wrapping" id="{{id}}" data-item-giftwrap="{{id}}">
+        </dd>
+
         <dt class="cart-item-option-title">
-            {{lang 'cart.gift_wrapping.title'}}:
+            <label for="{{id}}">{{lang 'cart.gift_wrapping.title'}}</label>
         </dt>
         {{#if gift_wrapping}}
             <dd class="cart-item-option-description">
@@ -19,12 +22,6 @@
                     {{gift_wrapping.message}}
                 </dd>
             {{/if}}
-        {{else}}
-            <dd class="cart-item-option-description">
-                <a href="" data-item-giftwrap="{{id}}">
-                    <span class="text">{{lang 'cart.gift_wrapping.add'}}</span>
-                </a>
-            </dd>
         {{/if}}
     </dl>
 {{/if}}

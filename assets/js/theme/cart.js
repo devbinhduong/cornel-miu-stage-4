@@ -25,6 +25,13 @@ export default class Cart extends PageManager {
         this.setApplePaySupport();
         this.bindEvents();
 
+        this.changeCartItemBlock();
+
+        /* resize */
+        window.addEventListener('resize', (()=> {
+            this.changeCartItemBlock();
+        }))
+
         haloCalculateFreeShipping(this.context);
         if (this.context.themeSettings.halo_QuickEditCart) {
             haloQuickEditCart(this.context);
@@ -506,6 +513,30 @@ export default class Cart extends PageManager {
                 $('.halo-cart-notification').remove();
             }
         }, 1000);
+    }
+
+    /* Change Position cart block */
+    changeCartItemBlock() {
+        let blockContainer = document.querySelectorAll(".custom-cart-block-mobile");
+
+        if(!blockContainer) return;
+
+        for (let block of blockContainer) {
+            let parent = block.closest(".cart-item"),
+                formPrice = parent.querySelector(".cart-item-price"),
+                formInfo = parent.querySelector(".cart-item-info"),
+                formQuantity = parent.querySelector(".cart-item-quantity");
+
+            if(window.innerWidth < 768) {
+                block.appendChild(formQuantity);
+                block.appendChild(formPrice);
+            }else {
+                /* Add below Form Info */
+                formInfo.after(formQuantity);
+                formInfo.after(formPrice);
+            }
+            
+        }
     }
 
     bindEvents() {
