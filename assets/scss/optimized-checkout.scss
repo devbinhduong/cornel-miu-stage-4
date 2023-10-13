@@ -1008,7 +1008,7 @@ p {
                 .checkout-view-content {
 
                     .checkout-form {
-                        margin-left: 75px;
+                        margin-left: 0;
                     }
                 }
             }
@@ -1092,7 +1092,7 @@ p {
     }
 }
 
-@media(max-width: 550px) {
+@media(max-width: 767px) {
     .stepHeader-body {
         padding-left: 0;
         padding-right: 0;
@@ -1173,4 +1173,389 @@ p {
  
 #checkout-app .remove-checkout-step-numbers li.checkout-step div.checklist-skeleton, .remove-checkout-step-numbers li.checkout-step h2.stepHeader-title {
     margin-left: 35px;
+}
+
+/* Halo Start */
+.checkoutHeader{
+    background-color: transparent;
+    border-bottom: 1px solid #F7F3E8;
+
+    .checkoutHeader-content {
+        padding: 42px 30px;
+
+        @media (max-width: 767px) {
+            padding: 32px 30px;
+        }
+
+        .checkoutHeader-link {
+            img {
+                min-width: 300px;
+
+                @media (max-width: 767px) {
+                    min-width: 184px;
+                }
+            }
+        }
+    }
+}
+#checkout-app {
+    .checkout-steps {
+        .optimizedCheckout-checkoutStep {
+            border-bottom: 1px solid #F7F3E8;
+        }
+    }
+
+    .optimizedCheckout-contentPrimary.layout {
+        max-width: 1440px;
+        padding-left: 108px;
+        padding-right: 108px;
+
+        @media (max-width: 767px) {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+        > div {
+            @media (min-width: 768px) {
+                display: flex;
+                margin-left: -104px;
+                margin-right: -104px;
+            }
+        }
+    }
+
+    .layout-main {
+        @media (min-width: 768px) {
+            width: 100%;
+            max-width: 832px;
+            padding-left: 104px;
+            padding-right: 104px;
+        }
+
+        .checkout-view-header {
+            .stepHeader-figure {
+                border-bottom: none;
+                
+                .icon {
+                    background-color: transparent;
+                    border-radius: 50%;
+                    border: 1px solid #252525;
+                    width: 40px;
+                    height: 40px;
+
+                    @media (max-width: 767px) {
+                        width: 24px;
+                        height: 24px;
+                    }
+    
+                    &::before {
+                        color: #252525;
+                        text-align: center;
+                        font-family: "Work Sans";
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 18px; /* 90% */
+                        letter-spacing: 0.1px;
+                        width: 40px;
+                        height: 40px;
+                        margin-top: 10px;
+
+                        @media (max-width: 767px) {
+                            width: 24px;
+                            height: 24px;
+                            font-size: 12px;
+                            margin-top: 0;
+                            transform: translateY(-6px);
+                        }
+                    }
+    
+                    svg {
+                        fill: #252525;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+    
+                .stepHeader-title {
+                    margin-left: 40px;
+
+                    @media (max-width: 767px) {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    
+        .stepHeader-title {
+            color: #252525;
+            font-family: "flecha-m";
+            font-size: 56px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: -0.84px;
+            text-transform: unset ;
+
+            @media (max-width: 767px) {
+                font-size: 32px;
+                letter-spacing: -0.48px;
+            }
+        }
+    
+        .form-body {
+            .form-label {
+                color: #252525;
+                font-family: "Work Sans";
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 18px; /* 150% */
+                letter-spacing: 0.1px;
+            }
+            .form-input,
+            .form-select {
+                min-height: 48px;
+                border-radius: 50px;
+                border: 1.25px solid #252525;
+            }
+    
+            .dropdown-chevron {
+                display: none;
+            }
+        }
+        
+        .form-fieldset {
+            padding-right: 0;
+        }
+
+        .checkout-view-content {
+            .checkout-form {
+                
+                &#checkout-customer-guest {
+                    .form-fieldset {
+                        @media (min-width: 768px) {
+                            padding-left: 80px;
+                        }
+                    }
+    
+                    .customerEmail-container {
+    
+                        + p {
+                            color: #252525;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 18px; /* 112.5% */
+                            letter-spacing: 0.1px;
+                        }
+                        .customerEmail-body {
+                            max-width: 336px;
+                            width: 100%;
+    
+                            .form-field {
+                                .form-label {
+                                    &::before {
+                                        width: 15px;
+                                        height: 15px;
+                                        border-radius: 50% !important;
+                                        border-color: 1px solid #252525;
+                                    }
+    
+                                    &::after {
+                                        background-image: none;
+                                    }
+                                    > span {
+                                        color: #252525;
+                                        font-size: 16px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                        letter-spacing: 0.1px;
+                                    }
+                                }
+                            }
+                        }
+    
+                        .form-actions {
+                            margin-top: 25px;
+                            padding-left: 0;
+                            padding-right: 0;
+                            max-width: 178px;
+                            margin-left: 30px;
+
+                            .button {
+                                display: flex;
+                                min-width: 178px;
+                                height: 48px;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 8px;
+                                flex-shrink: 0;
+                                border-radius: 50px;
+                                text-align: center;
+                                font-size: 12px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                letter-spacing: 2.4px;
+                                font-family: "termina";
+    
+                                &:hover {
+                                    background-color: stencilColor("button--default-colorHover");
+                                    color: stencilColor("button--default-color");
+                                    border-color: stencilColor("button--default-colorHover");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .layout-cart {
+       @media (min-width: 768px) {
+        width: 100%;
+        max-width: 600px;
+        padding-left: 104px;
+        padding-right: 104px;
+       }
+
+        .optimizedCheckout-orderSummary {
+            box-shadow: none;
+
+            .cart-header {
+                padding-bottom: 0;
+
+                .cart-title {
+                    color: #252525;
+                    font-family: "flecha-s";
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    letter-spacing: 0.1px;
+                }
+
+                .cart-header-link {
+                    color: #252525;
+                    text-align: right;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 18px; /* 150% */
+                    letter-spacing: 0.1px;
+                    text-decoration-line: underline;
+                    background-image: none;
+                }
+            }
+
+            .cart-section {
+                border-color: transparent;
+                padding-top: 0;
+                padding-bottom: 0;
+
+                .cart-section-heading {
+                    color: #252525;
+                    font-family: "Work Sans";
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 18px; /* 150% */
+                    letter-spacing: 0.1px;
+                }
+
+                .productList {
+                    .productList-item {
+                        margin-bottom: 16px;
+
+                        .product {
+                            .product-figure {
+                                width: 80px;
+                                height: 80px;
+                                padding-right: 0;
+
+                                img {
+                                    max-width: 80px;
+                                    max-height: 80px;
+                                }
+                            }
+
+                            .product-body {
+                                margin-left: 24px;
+                                width: 68%;
+                                max-width: 184px;
+                                padding-right: 0;
+
+                                .product-title {
+                                    color: #252525;
+                                    font-family: "Work Sans";
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: normal;
+                                    letter-spacing: 0.1px;
+                                }
+
+                                .product-options {
+                                    color: #252525;
+                                    font-family: "Work Sans";
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal;
+                                    letter-spacing: 0.1px;
+                                }
+                            }
+
+                            .product-actions {
+                               width: auto;
+
+                               .product-price {
+                                    color: #252525;
+                                    font-family: "Work Sans";
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal;
+                                    letter-spacing: 0.1px;
+                               }
+                            }
+                        }
+                    }
+                }
+
+                .cart-priceItem--total {
+                    border-top: 1px solid #F7F3E8;
+                    border-bottom: 1px solid #F7F3E8;
+                    padding-top: 15px;
+                    padding-bottom: 10px;
+                }
+
+            }
+            .cart-price-label {
+                color: #252525;
+                font-family: "Work Sans";
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: 0.1px;
+            }
+
+            .cart-priceItem-value {
+                .cart-price-value {
+                    color: #252525;
+                    text-align: right;
+                    font-family: "Work Sans";
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 18px; /* 150% */
+                    letter-spacing: 0.1px;
+                }
+            }
+        }
+    }
 }
