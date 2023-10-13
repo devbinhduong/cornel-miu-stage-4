@@ -1075,76 +1075,76 @@
 // 1. Animate lines from 'x' to hamburger
 // -----------------------------------------------------------------------------
 
-.mobileMenu-toggle {
-    width: 22px;
-    height: 22px;
-    font-size: 0;
-    overflow: hidden;
-    position: relative;
-    display: block;
-    z-index: 1;
-    outline: none;
-    box-shadow: none;
+// .mobileMenu-toggle {
+//     width: 22px;
+//     height: 22px;
+//     font-size: 0;
+//     overflow: hidden;
+//     position: relative;
+//     display: block;
+//     z-index: 1;
+//     outline: none;
+//     box-shadow: none;
 
-    .mobileMenu-toggleIcon,
-    .mobileMenu-toggleIcon::before,
-    .mobileMenu-toggleIcon::after {
-        content: "";
-        background: stencilColor('color-textBase');
-        display: block;
-        height: 2px;
-        width: 100%;
-        position: absolute;
-        transform: rotate(0deg);
-        transition: transform 100ms ease-in, top 100ms ease-in 150ms, bottom 100ms ease-in 150ms;
-    }
+//     .mobileMenu-toggleIcon,
+//     .mobileMenu-toggleIcon::before,
+//     .mobileMenu-toggleIcon::after {
+//         content: "";
+//         background: stencilColor('color-textBase');
+//         display: block;
+//         height: 2px;
+//         width: 100%;
+//         position: absolute;
+//         transform: rotate(0deg);
+//         transition: transform 100ms ease-in, top 100ms ease-in 150ms, bottom 100ms ease-in 150ms;
+//     }
 
-    .mobileMenu-toggleIcon {
-        top: 50%;
-        width: calc(100%);
-        transform: translateY(-50%);
-        transition: background-color 10ms ease-in 100ms;
-    }
+//     .mobileMenu-toggleIcon {
+//         top: 50%;
+//         width: calc(100%);
+//         transform: translateY(-50%);
+//         transition: background-color 10ms ease-in 100ms;
+//     }
 
-    .mobileMenu-toggleIcon::before {
-        top: -7px;
-    }
+//     .mobileMenu-toggleIcon::before {
+//         top: -7px;
+//     }
 
-    .mobileMenu-toggleIcon::after {
-        bottom: -7px;
-    }
+//     .mobileMenu-toggleIcon::after {
+//         bottom: -7px;
+//     }
 
-    &.is-open {
-        .mobileMenu-toggleIcon {
-            background-color: transparent;
-            transition-delay: 100ms;
-            height: 1px;
+//     &.is-open {
+//         .mobileMenu-toggleIcon {
+//             background-color: transparent;
+//             transition-delay: 100ms;
+//             height: 1px;
 
-            &::before,
-            &::after {
-                bottom: auto;
-                top: auto;
-                transition: transform 100ms ease-in 150ms, top 100ms ease-in, bottom 100ms ease-in;
-                height: 1px;
-            }
+//             &::before,
+//             &::after {
+//                 bottom: auto;
+//                 top: auto;
+//                 transition: transform 100ms ease-in 150ms, top 100ms ease-in, bottom 100ms ease-in;
+//                 height: 1px;
+//             }
 
-            &::before {
-                top: 0;
-                transform: rotate(45deg);
-            }
+//             &::before {
+//                 top: 0;
+//                 transform: rotate(45deg);
+//             }
 
-            &::after {
-                bottom: 0;
-                transform: rotate(-45deg);
-            }
-        }
-    }
+//             &::after {
+//                 bottom: 0;
+//                 transform: rotate(-45deg);
+//             }
+//         }
+//     }
 
-    @media (min-width: 768px) {
-        width: 30px;
-        height: 30px;
-    }
-}
+//     @media (min-width: 768px) {
+//         width: 30px;
+//         height: 30px;
+//     }
+// }
 
 /* Animation Custom*/
 

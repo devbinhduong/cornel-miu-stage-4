@@ -4560,3 +4560,104 @@ main.body {
         }
     }
 }
+
+/* Fix Bug 13102023 */
+.halo-bottomHeader {
+    @media (min-width: 1025px) {
+        padding-bottom: 33px;
+    }
+    .bottomHeader-item {
+        &.text-right {
+            @media (min-width: 1025px) {
+                top: -1px;
+            }
+            .navUser-item {
+                &.navUser-item--currency {
+                    .navUser-action {
+                        padding-top: 12px;
+                        padding-bottom: 10px;
+                    }
+                }
+
+                &.navUser-item--cart {
+                    .navUser-action {
+                        padding-top: 12px;
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.halo-middleHeader {
+    .middleHeader-item__item {
+        &.item--cart {
+            @media (max-width: 767px) {
+                min-width: 20px;
+            }
+        }
+
+        &.item--hamburger {
+
+            .mobileMenu-toggle {
+                .mobileMenu-toggleIcon {
+                    transition: all 0.2s ease;
+                }
+
+                &.is-open {
+                    .mobileMenu-toggleIcon {
+        
+                        // &::before {
+                        //     transform: rotate(45deg) translate3d(4px, 7px, 0) !important;
+                        // }
+        
+                        // &::after {
+                        //     transform: rotate(-45deg) translate3d(4px, -7px, 0) !important;
+                        // }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Menu Toogle */
+.mobileMenu-toggle {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    cursor: pointer;
+
+    span {
+        display: block;
+        height: 2px;
+        background: #252525;
+        margin: 5px auto;
+        width: 22px;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        -webkit-backface-visibility: hidden;
+    }
+
+    &.is-open {
+        span:nth-of-type(1) {
+            transform: rotate(45deg) translate3d(6px, 7px, 0);
+        }
+
+        span:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        span:nth-of-type(3) {
+            transform: rotate(-45deg) translate3d(4px, -4px, 0);
+        }
+    }
+}
