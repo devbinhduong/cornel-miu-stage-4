@@ -180,7 +180,7 @@
         &[data-section-type="footer-webPages"],
         &[data-section-type="footer-brands"] {
             margin-bottom: 0;
-            border-bottom: 1px solid stencilColor("footer_text_color");
+            border-bottom: 1px solid rgba($color: #F7F3E8, $alpha: 0.5);
 
             .footer-info-heading {
                 /*border-bottom: 1px solid stencilColor("footer_text_color");*/
@@ -252,7 +252,7 @@
 
         &[data-section-type="footer-categories"] {
             .footer-info-heading {
-                border-top: 1px solid stencilColor("footer_text_color");
+                border-top: 1px solid rgba($color: #F7F3E8, $alpha: 0.5);
             }
         }
     }
@@ -589,6 +589,7 @@
     line-height: normal;
     letter-spacing: 2.4px;
     margin-bottom: 13px;
+    text-transform: uppercase;
 
     @media(min-width: 1025px) {
         &:hover {

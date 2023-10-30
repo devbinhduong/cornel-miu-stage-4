@@ -316,16 +316,16 @@
         z-index: 99;
         font-size: 0px;
         height: 56px;
+        width: 56px;
         position: fixed;
         bottom: 20%;
-        width: 56px;
         cursor: pointer;
         margin: 0;
         color: stencilColor(button_primary_color);
         border: 1px solid stencilColor(button_primary_color);
         text-align: center;
         background: $color-white;
-        right: 20px;
+        right: 24px;
         transition: all .6s ease;
         padding: 5px;
         border-radius: 50%;
@@ -337,8 +337,6 @@
 
         @media (min-width: 1025px) {
             right: 30px;
-            // width: 28px;
-            // height: 28px;
         }
 
         @media (min-width: 1400px) {
@@ -953,6 +951,8 @@ img:not(.card-image) {
     background: #252525;
     display: block;
     transition: all .6s ease-in-out;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .competition__list+.progress,

@@ -171,8 +171,8 @@
             margin-bottom: 21px;
 
             span {
-                font-family: 'flecha-m-italic';
-                font-style: italic;
+                // font-family: 'flecha-m-italic';
+                // font-style: italic;
             }
         }
 
@@ -1833,9 +1833,32 @@
                     position: absolute;
                     top: 0;
                     left: 0;
+                    height: 100%;
                     width: 100%;
                     transition: all .7s ease;
                 }
+            }
+        }
+
+        .item-content {
+            .title {
+                text-overflow: ellipsis;
+                    overflow: hidden;
+                > a {
+                    white-space: nowrap;
+                    
+                }
+            }
+
+            .summary {
+                --lineHeight : 24px;
+                --row: 2;
+                line-height: var(--lineHeight);
+                height: calc(var(--lineHeight) * var(--row));
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: var(--row);
             }
         }
 

@@ -129,7 +129,8 @@
     width: 100%;
 
     .panel {
-        background: $color-custom-greyLight;
+        // background: $color-custom-greyLight;
+        background-color: transparent;
         padding: 48px 30px 52px 30px;
     }
 
@@ -193,5 +194,18 @@
         .panel {
             padding: 98px 50px 102px 100px;
         }
+    }
+}
+
+/* Start Custom */
+.custom-button-create-new {
+    @media (min-width: 1025px) {
+        display: inline-block;
+        vertical-align: top;
+        min-width: 170px !important;
+        width: auto;
+        line-height: 40px;
+        height: 40px;
+        font-size: 9px;
     }
 }

@@ -4564,7 +4564,7 @@ main.body {
 /* Fix Bug 13102023 */
 .halo-bottomHeader {
     @media (min-width: 1025px) {
-        padding-bottom: 33px;
+        padding-bottom: 28px;
     }
     .bottomHeader-item {
         &.text-right {
