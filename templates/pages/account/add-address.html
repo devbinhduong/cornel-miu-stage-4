@@ -1,14 +1,6 @@
 {{#partial "page"}}
     <div class="container">
         <div class="page page-account custom-page-account">
-            <div class="page-header">
-                {{#if forms.address.address_id}}
-                    <h1 class="page-heading">{{lang 'forms.address.edit.heading'}}</h1>
-                {{else}}
-                    <h1 class="page-heading">{{lang 'forms.address.add.heading'}}</h1>
-                {{/if}}
-            </div>
-
             <div class="page-account__sidebar">
                 {{> components/account/navigation account_page='addresses'}}
                 {{> components/account/account-wishlist}}

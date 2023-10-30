@@ -214,3 +214,45 @@
     }
 
 }
+
+/* Fix 13102023 */
+.wishlists-table {
+    .table-tbody {
+        .table-actions {
+            .form {
+                .button {
+                    background-color: transparent;
+                    border: none;
+                    color: #252525;
+                    font-size: 14px;
+                    color: #252525;
+                    font-family: "flecha-s";
+                    font-style: normal;
+                    font-weight: 500;
+                    letter-spacing: 0.1px;
+                    text-transform: unset;
+                    padding-right: 0;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+/* Wishlist Item loading */
+.wishlist-item-example {
+    .card-sample {
+        display: flex;
+        width: 100%;
+        
+        .card-figure {
+            width: 20%;
+            height: fit-content;
+        }
+        
+        .card-body {
+            width: 80%;
+            min-height: 93px;
+        }
+    }
+}

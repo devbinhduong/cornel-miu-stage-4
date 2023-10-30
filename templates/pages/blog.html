@@ -135,7 +135,7 @@ products:
                  <!-- Mint Start -->
                 {{#each ../breadcrumbs}}
                     {{#if @last}}
-                        {{#if url '==' 'https://store-5xii52yioo.mybigcommerce.com/blog/'}}
+                        {{#or (if url '==' 'https://store-5xii52yioo.mybigcommerce.com/blog/') (if url '==' 'https://stephanustest.mybigcommerce.com/blog/')}}
                             {{> components/blog/blog-custom-layout}}   
                         {{else}} 
                             <div class="blog-tab__content blog-category-special normal-tag">
@@ -157,7 +157,7 @@ products:
                                     {{/if}}
                                 </div>
                             </div>
-                        {{/if}}
+                        {{/or}}
                     {{/if}}
                 {{/each}}
                 

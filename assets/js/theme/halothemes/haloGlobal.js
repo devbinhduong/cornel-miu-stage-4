@@ -2727,17 +2727,9 @@ function accountWishlistSidebar($context) {
 
     if(!productWishlist) return;
 
-    /* Add Loading */
-    const loadingElement = document.createElement('div');
-    loadingElement.classList.add('wislist-loading');
-    productWishlist.appendChild(loadingElement);
-    
     fetch('/wishlist.php')
         .then(response => response.text())
         .then(data => {
-            /* Remove Loading 1 */
-            loadingElement.remove();
-
             const tempElement = document.createElement('div');
             tempElement.innerHTML = data;
 
@@ -2746,16 +2738,9 @@ function accountWishlistSidebar($context) {
             const lastTr = trList[trList.length - 1];
             const lastAHref = lastTr.querySelector('a').getAttribute('href');
             
-            const loadingElement2 = document.createElement('div');
-            loadingElement2.classList.add('wislist-loading');
-            productWishlist.appendChild(loadingElement2);
-
             fetch(lastAHref)
                 .then(response => response.text())
                 .then(data => {
-
-                    /* Remove Loading 2 */
-                    loadingElement2.remove();
 
                     const tempElement = document.createElement('div');
                     tempElement.innerHTML = data;
@@ -2771,6 +2756,12 @@ function accountWishlistSidebar($context) {
                                 productWishlist.appendChild(productBlock);
                             }
                         });
+                    }
+                    
+                    let wishlist_list = document.querySelectorAll(".wishlist-item-example");
+
+                    for(let wishlist__item of wishlist_list){
+                        wishlist__item.remove();
                     }
 
                 })

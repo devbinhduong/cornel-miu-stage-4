@@ -1,20 +1,6 @@
 {{#partial "page"}}
     <div class="container">
         <div class="page page-account custom-page-account">
-            <div class="page-header">
-                <h1 class="page-heading">
-                    {{#if forms.wishlist.id}}
-                        {{lang 'account.wishlists.edit'}}
-                    {{else}}
-                        {{#if forms.wishlist.action}}
-                            {{lang 'account.wishlists.new'}}
-                        {{else}}
-                            {{lang 'account.wishlists.heading'}}
-                        {{/if}}
-                    {{/if}}
-                </h1>
-            </div>
-
             <div class="page-account__sidebar">
                 {{> components/account/navigation account_page='wishlists'}}
                 {{> components/account/account-wishlist}}
