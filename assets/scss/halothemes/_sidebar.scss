@@ -229,6 +229,12 @@
             }
         }
 
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .halo-sidebar-content {
+                max-width: 275px;
+            }
+        }
+
         @media(min-width: 1025px) {
             max-width: 420px;
             height: auto;
@@ -506,6 +512,10 @@
             height: 48px;
             line-height: 48px;
             border-bottom: 1px solid #252525;
+
+            @media (min-width: 1441px) {
+                min-width: 420px;
+            }
 
             +.button {
                 min-width: 50px;

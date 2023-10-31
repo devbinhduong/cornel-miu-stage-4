@@ -4,7 +4,7 @@
 
     <div id="facetedSearch-content--{{dashcase facet}}" class="accordion-content{{#unless start_collapsed}} is-open{{/unless}}">
         <ul id="facetedSearch-navList--{{dashcase facet}}" class="navList haloCustomScrollbar" data-facet="{{facet}}" data-has-more-results="{{has_more_results}}">
-            {{#each items}}
+            {{#each (limit items 5)}}
                 <li class="navList-item">
                     <a
                         href="{{url}}"
@@ -28,13 +28,13 @@
             {{/each}}
         </ul>
 
-        {{#if show_more_toggle}}
+        <!-- {{#if show_more_toggle}}
             <div class="navView-all">
                 <a href="#facetedSearch-navList--{{dashcase facet}}" role="button" class="toggleLink toggleLink-viewMore">
                     <span class="toggleLink-text toggleLink-text--off">{{lang 'search.faceted.show-more'}}</span>
                 </a>
             </div>
-        {{/if}}
+        {{/if}} -->
 
         {{#if selected}}
             <div class="navView-clear">

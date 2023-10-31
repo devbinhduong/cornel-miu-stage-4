@@ -486,6 +486,10 @@
         .slick-list {
             margin-left: -12px;
             margin-right: -12px;
+
+            .slick-track {
+              margin-left: 0 !important;
+            }
         }
     }
 }

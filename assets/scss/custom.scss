@@ -4661,3 +4661,59 @@ main.body {
         }
     }
 }
+
+/* Update 30-10-2023 */
+.facetedSearch-refineFilters {
+    display: none;
+}
+
+.navList--rating {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.form-minMaxRow {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-field {
+        width: fit-content !important;
+        @media (min-width: 1025px) {
+        }
+
+        &--button {
+            width: 100%;
+        }
+    }
+
+    .custom-filer-price-text {
+        width: fit-content !important;
+        text-align: center;
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .navUser-section.navUser-section--alt{
+        >.navPages-item {
+            >.navPages-action,
+            >.navUser-item__item {
+                transition-delay: .1s;
+                transition-property: transform, opacity;
+                transition-timing-function: ease;
+                transform: translatey(-45px);
+                opacity: 0;
+            }
+        }
+
+        .navPages-item {
+            @for $i from 0 through 100 {
+                &:nth-child(n + #{$i}) {
+                    >.navPages-action {
+                        transition-duration: .5s + $i*0.05;
+                    }
+                }
+            }
+        }
+    }
+}
