@@ -32,3 +32,12 @@
         @include lazy-loaded-padding('brand_size');
     }
 }
+
+
+.page-type-brand {
+    @media (min-width: 1025px) {
+        .page-sidebar + .page-content {
+            float: right;
+        }
+    }
+}

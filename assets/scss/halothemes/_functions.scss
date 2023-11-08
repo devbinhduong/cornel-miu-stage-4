@@ -4237,6 +4237,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 767px) {
+        top: -100%;
+      }
       &.is-active {
         opacity: 1;
         pointer-events: auto;

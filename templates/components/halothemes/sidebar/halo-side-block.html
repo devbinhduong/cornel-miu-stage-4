@@ -12,6 +12,18 @@
 				</a>
 			</div>
 		    <div class="halo-sidebar-wrapper">
+				<div class="account-info-block">
+					<div class="info-block__icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="33" viewBox="0 0 30 33" fill="none">
+							<path d="M15.1422 14.2464C18.9622 14.2464 22.0589 11.2811 22.0589 7.62319C22.0589 3.9653 18.9622 1 15.1422 1C11.3223 1 8.22559 3.9653 8.22559 7.62319C8.22559 11.2811 11.3223 14.2464 15.1422 14.2464Z" stroke="#252525" stroke-width="1.25" stroke-miterlimit="10"/>
+							<path d="M1 33.0007C1 25.1907 7.33137 18.8594 15.1413 18.8594C22.9513 18.8594 29.2827 25.1907 29.2827 33.0007" stroke="#252525" stroke-width="1.25" stroke-miterlimit="10"/>
+						</svg>
+					</div>
+					<div class="info-block__text">
+						<p>{{customer.name}}</p>
+						<p>{{customer.email}}</p>
+					</div>
+				</div>
 		        <ul class="account-dropdown account-dropdown-sidebar">
 		            <li class="account-item">
 		                <a class="account-action" href="{{urls.account.orders.all}}">

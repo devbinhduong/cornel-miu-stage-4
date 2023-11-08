@@ -253,6 +253,36 @@
                             {{/if}}
                         {{/unless}}
                     </div> -->
+
+                    <div class="productView-topInfo">
+                        <div class="productView-rating">
+                            {{#if settings.show_product_rating}}
+                                {{> components/products/ratings rating=product.rating}}
+                                <span class="productView-reviewLink review-link">
+                                    {{#if product.num_reviews '>' 0}}
+                                        <a href="{{product.url}}#product-reviews" class="reviewLink-pc">
+                                            <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
+                                        </a>
+                                        <a href="{{product.url}}#tab-reviews" class="reviewLink-mb">
+                                            <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
+                                        </a>
+                                    {{else}}
+                                        {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                                    {{/if}}
+                                </span>
+                            {{/if}}
+                            {{#if settings.show_product_reviews}}
+                                <span class="productView-reviewLink">
+                                    <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
+                                       {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
+                                       <span>{{lang 'products.reviews.new'}}</span>
+                                    </a>
+                                </span>
+                                {{> components/products/modals/writeReview}}
+                            {{/if}}
+                        </div>
+                    </div>
+
                     <div class="productView-price">
                         {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                             {{> components/products/price price=product.price}}
@@ -495,6 +525,7 @@
                 
                 <div class="productView-tab halo-description">
                     {{> components/products/description-tabs}}
+                    <p class="text-below-tab">Transport gratuit la comanda de 100 lei</p>
                 </div>
                 {{#if theme_settings.show_product_details_tabs}}
                 {{/if}}

@@ -3081,8 +3081,33 @@ body {
     }
 }
 
-.page-type-product:has(.halo-productView-digital) {
+.page-type-product:has(.digital-sidebar.active) {
     .header-sticky {
         z-index: -1;
+    }
+}
+
+/* CSS for Product digital layout slider */
+.related-digital-block {
+    .product-group-wrapper {
+        .product-group {
+            .product {
+                .card-digital {
+                    .card-img-container {
+                        @media (max-width: 767px) {
+                            max-height: auto;
+                            max-width: 100%;
+                        }
+                    }
+    
+                    .card-body--digital {
+                        @media (max-width: 767px) {
+                            padding: 24px 15px 16px;
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

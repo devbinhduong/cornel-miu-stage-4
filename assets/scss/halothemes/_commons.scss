@@ -350,15 +350,18 @@
         svg {
             fill: #1e1e1e;
             color: #1e1e1e;
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: 50%;
             position: relative;
-            top: 0px;
+            top: 50%;
+            transform: translateY(-50%);
 
             max-width: 28px;
 
             @media(min-width: 1025px) {
-                top: 0px;
+                // top: 0px;
+                width: 100%;
+                height: 100%;
             }
 
         }

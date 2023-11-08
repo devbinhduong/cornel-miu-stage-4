@@ -108,6 +108,8 @@ export default function(context) {
             viewMoreButton();
             addBrandForWishlistItem($context);
             removeWishlistItem();
+            closeHeaderSearch();
+            formartPrice();
 
             if (theme_settings.halo_recently_viewed_products) {
                 haloRecentlyViewedProduct($context);
@@ -750,7 +752,7 @@ export default function(context) {
 
     function haloStickyHeader(tScroll) {
         if (theme_settings.halo_headerSticky) {
-            if (tScroll > height_promotion && tScroll < scroll_position) {
+            if (tScroll > height_promotion) {
                 if ($(window).width() > 1024) {
                     if ($('.halo-search-sticky').length) {
                         $('.halo-search-main #quickSearch').appendTo('.halo-search-sticky');
@@ -1153,7 +1155,7 @@ export default function(context) {
         wrap.not('.slick-initialized').slick({
             dots: true,
             arrows: false,
-            infinite: false,
+            infinite: true,
             mobileFirst: true,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -3043,4 +3045,42 @@ function removeWishlistItem () {
             });
         });
     });
+}
+
+function closeHeaderSearch() {
+    let searchButton = document.querySelector(".custom-close-search"),
+        header = document.querySelector('.header');
+
+    searchButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        header.click();
+    })
+}
+
+function formartPrice() {
+    let prices = document.querySelectorAll('.price');
+
+    for (let price of prices) {
+        let priceString = price.textContent;
+
+        if(priceString !== '') {   
+            
+            // Remove all character not a number
+            let numericPart = priceString.replace(/[^\d,]/g, '');
+
+            // Format Currency
+            let currency = priceString.replace(/[^a-zA-Z]+/g, '');
+
+            // Uppercase first character
+            currency = currency.charAt(0).toUpperCase() + currency.slice(1).toLowerCase();
+
+            let filnalPrice =  numericPart + ' ' + currency;
+
+            price.textContent = filnalPrice;
+
+        }
+    }
+    
 }

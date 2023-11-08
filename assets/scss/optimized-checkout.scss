@@ -19,6 +19,16 @@
     outline-color: stencilColor("optimizedCheckout-colorFocus");
 }
 
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Regular.woff2') format('woff2'),
+        url('../fonts/FlechaM-Regular.woff') format('woff'),
+        url('../fonts/FlechaM-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .optimizedCheckout-header {
     background-color: stencilColor("optimizedCheckout-header-backgroundColor");
     // scss-lint:disable StringQuotes
@@ -1383,30 +1393,6 @@ p {
                             padding-right: 0;
                             max-width: 178px;
                             margin-left: 30px;
-
-                            .button {
-                                display: flex;
-                                min-width: 178px;
-                                height: 48px;
-                                justify-content: center;
-                                align-items: center;
-                                gap: 8px;
-                                flex-shrink: 0;
-                                border-radius: 50px;
-                                text-align: center;
-                                font-size: 12px;
-                                font-style: normal;
-                                font-weight: 600;
-                                line-height: normal;
-                                letter-spacing: 2.4px;
-                                font-family: "termina";
-    
-                                &:hover {
-                                    background-color: stencilColor("button--default-colorHover");
-                                    color: stencilColor("button--default-color");
-                                    border-color: stencilColor("button--default-colorHover");
-                                }
-                            }
                         }
                     }
                 }
@@ -1557,5 +1543,86 @@ p {
                 }
             }
         }
+    }
+
+    .form-actions {
+        .button {
+            display: flex;
+            min-width: 178px;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: 2.4px;
+            font-family: "termina";
+
+            &:hover {
+                background-color: stencilColor("button--default-colorHover");
+                color: stencilColor("button--default-color");
+                border-color: stencilColor("button--default-colorHover");
+            }
+        }
+    }
+}
+
+/* Custom Checkout logo */
+.custom-checkout-logo {
+    display: flex;
+    align-items: center;
+
+    .svg-first {
+        margin-right: 22px;
+        transform: translateY(-5px);
+    }
+}
+
+.checkoutFooterContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid #F7F3E8;
+    padding-top: 40px;
+    padding-bottom: 75px;
+    margin-top: 30px;
+
+    .footerContent__heading {
+        margin-bottom: 0;
+        color: #252525;
+        text-align: center;
+        font-family: 'flecha-s';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.1px;
+        margin-bottom: 44px;
+    }
+
+    > a {
+        display: block;  
+        color: #252525;
+        text-align: center;
+        font-family: "Work Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.1px;  
+    }
+
+    .footerContent__phone {
+        text-decoration: underline;
+        margin-bottom: 19px;
+    }
+
+    .footerContent__mail {
     }
 }

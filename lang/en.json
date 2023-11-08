@@ -188,7 +188,7 @@
         "compare": "Compare",
         "change": "Change",
         "sign_up": "Creeaza cont",
-        "login": "Creeaza",
+        "login": "INTRĂ ÎN CONT",
         "logout": "Sign out",
         "account": "Account",
         "my_account": "My account",
@@ -329,7 +329,7 @@
         "field_email_2": "Email Address:",
         "field_password": "Password",
         "field_password_2": "Password:",
-        "submit_value": "Creeaza",
+        "submit_value": "INTRĂ ÎN CONT",
         "forgot_password": "Forgot your password?",
         "new_customer": {
             "heading": "New Customer?",

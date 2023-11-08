@@ -1791,7 +1791,8 @@ $card-preview-zoom-bottom-offset: 6rem;
                             }
                             .cart-item-options--giftWrapping {  
                                 display: inline-flex;
-                                align-items: flex-end;
+                                // align-items: flex-end;
+                                align-items: center;
                                 margin-top: 29px;
 
                                 @media (max-width: 767px) {
@@ -1824,7 +1825,7 @@ $card-preview-zoom-bottom-offset: 6rem;
                                 .cart-item-option-title {
                                     line-height: normal;
                                     height: fit-content;
-
+                                    transform: translateY(-1px);
                                     label {
                                         color: #252525;
                                         font-size: 12px;

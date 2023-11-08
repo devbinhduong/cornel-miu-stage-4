@@ -1,5 +1,5 @@
 {
-  "name": "Stephanus Done Custom",
+  "name": "Stephanus Done Feedback 02112023",
   "version": "1.0.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -1197,9 +1197,9 @@
         "optimizedCheckout-logo-size": "121x25",
         "optimizedCheckout-logo-position": "center",
         "optimizedCheckout-headingPrimary-color": "#000000",
-        "optimizedCheckout-headingPrimary-font": "Google_Work+Sans_700",
+        "optimizedCheckout-headingPrimary-font": "Flecha M",
         "optimizedCheckout-headingSecondary-color": "#000000",
-        "optimizedCheckout-headingSecondary-font": "Google_Work+Sans_600",
+        "optimizedCheckout-headingSecondary-font": "Flecha M",
         "optimizedCheckout-body-backgroundColor": "#ffffff",
         "optimizedCheckout-colorFocus": "#4496f6",
         "optimizedCheckout-contentPrimary-color": "#333333",
