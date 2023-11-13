@@ -4771,7 +4771,22 @@ p.text-below-tab {
         background-color: rgba($color: #cccccc, $alpha: 0.4);
         display: block;
         position: absolute;
-        top:-100%;
+        top:-20px;
+        bottom:0;
+        width: 56px;
+        height: 56px;
+        right:24px;
+    }
+}
+
+.button_quick_add {
+    &~ .choose_options_add--fake {
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(204, 204, 204, 0.24) 0px 1px 2px;
+        box-shadow: 0 0 25px 0 rgba(0,0,0,0.4);
+        background-color: rgba($color: #cccccc, $alpha: 0.4);
+        display: block;
+        position: absolute;
+        top:-20px;
         bottom:0;
         width: 56px;
         height: 56px;
@@ -4907,6 +4922,54 @@ p.text-below-tab {
 
         @media (max-width: 1024px) {
             display: none;
+        }
+    }
+}
+
+/* Updated 09112023 */
+.page-type-login {
+    .page-heading {
+        color: #252525;
+        font-family: "flecha-m";
+        font-size: 56px;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.84px;
+        text-transform: none;
+    }
+
+    .form-actions {
+        .button {
+            font-family: 'Termina';
+            font-size: 12px;
+            font-weight: 600;
+            font-style: normal;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: auto;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 50px;
+            margin: 0;
+            padding: 0 15px;
+            height: 40px;
+            line-height: 38px;
+            letter-spacing: 2.4px;
+            border: 1px solid #252525;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.3s ease;
+            width: auto;
+            line-height: 40px;
+            height: 40px;
+            font-size: 9px;
         }
     }
 }

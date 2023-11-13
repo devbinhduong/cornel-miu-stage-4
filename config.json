@@ -1,5 +1,5 @@
 {
-  "name": "Stephanus Done Feedback 02112023",
+  "name": "Stephanus Update09112023",
   "version": "1.0.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -1223,7 +1223,7 @@
         "optimizedCheckout-formChecklist-color": "#8b714a",
         "optimizedCheckout-formChecklist-borderColor": "transparent",
         "optimizedCheckout-formChecklist-backgroundColorSelected": "#fbf8e5",
-        "optimizedCheckout-buttonSecondary-font": "Google_Rubik_500",
+        "optimizedCheckout-buttonSecondary-font": "Google_Work+Sans_500",
         "optimizedCheckout-buttonSecondary-color": "#333333",
         "optimizedCheckout-buttonSecondary-colorHover": "#333333",
         "optimizedCheckout-buttonSecondary-colorActive": "#000000",
@@ -1234,7 +1234,7 @@
         "optimizedCheckout-buttonSecondary-borderColorHover": "#999999",
         "optimizedCheckout-buttonSecondary-borderColorActive": "#757575",
         "optimizedCheckout-link-color": "#476bef",
-        "optimizedCheckout-link-font": "Google_Rubik_500",
+        "optimizedCheckout-link-font": "Google_Work+Sans_500",
         "optimizedCheckout-discountBanner-backgroundColor": "#e5e5e5",
         "optimizedCheckout-discountBanner-textColor": "#333333",
         "optimizedCheckout-discountBanner-iconColor": "#333333",

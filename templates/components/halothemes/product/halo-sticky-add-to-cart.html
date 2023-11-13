@@ -78,6 +78,18 @@
                         {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                             <div class="form-action">
 
+                                <input id="form-action-addToCart2" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary halothemes" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}" {{#if product.can_purchase}}{{else}}disabled {{/if}}>
+                                <label for="form-action-addToCart2" class="button button--primary button_quick_add">
+                                    <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.98723 21.9354C8.83234 21.9354 9.51743 21.2503 9.51743 20.4052C9.51743 19.5601 8.83234 18.875 7.98723 18.875C7.14212 18.875 6.45703 19.5601 6.45703 20.4052C6.45703 21.2503 7.14212 21.9354 7.98723 21.9354Z" fill="white"/>
+                                        <path d="M16.2802 21.9354C17.1253 21.9354 17.8104 21.2503 17.8104 20.4052C17.8104 19.5601 17.1253 18.875 16.2802 18.875C15.4351 18.875 14.75 19.5601 14.75 20.4052C14.75 21.2503 15.4351 21.9354 16.2802 21.9354Z" fill="white"/>
+                                        <path d="M6.37226 8.20294H19.2192C19.4985 8.20294 19.7072 8.46024 19.6495 8.73375L17.9366 16.8099C17.8938 17.0128 17.7143 17.1586 17.5062 17.1586H6.72808C6.52068 17.1586 6.34115 17.0134 6.29773 16.8099L4.0922 6.4109C4.04164 6.1711 3.82971 6 3.58472 6H0" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                        <path d="M12.8057 10.28V15.34H11.8757V10.28H12.8057ZM14.7957 12.36V13.25H9.87572V12.36H14.7957Z" fill="white"/>
+                                    </svg>
+                                </label>
+                                <span class="choose_options_add--fake"></span>
+
+
                                 {{#if product.options}}
                                 <!-- start change -->
                                     <a href="javascript:void(0)" class="button button--primary choose_options_add">

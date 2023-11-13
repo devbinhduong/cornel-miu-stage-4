@@ -4211,7 +4211,6 @@
   color: #252525;
 }
 #halo_sticky_addToCart {
-  height: 100%;
   width: 100%;
   background-color: transparent;
   box-shadow: none;
@@ -4239,7 +4238,8 @@
       align-items: center;
 
       @media (max-width: 767px) {
-        top: -100%;
+        // top: -100%;
+        top: -20px;
       }
       &.is-active {
         opacity: 1;

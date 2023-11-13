@@ -21,6 +21,116 @@
 
 @font-face {
     font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Italic.woff2') format('woff2'),
+        url('../fonts/FlechaM-Italic.woff') format('woff'),
+        url('../fonts/FlechaM-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Italic_1.woff2') format('woff2'),
+        url('../fonts/FlechaM-Italic_1.woff') format('woff'),
+        url('../fonts/FlechaM-Italic_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Italic_2.woff2') format('woff2'),
+        url('../fonts/FlechaM-Italic_2.woff') format('woff'),
+        url('../fonts/FlechaM-Italic_2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Medium.woff2') format('woff2'),
+        url('../fonts/FlechaM-Medium.woff') format('woff'),
+        url('../fonts/FlechaM-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-MediumItalic.woff2') format('woff2'),
+        url('../fonts/FlechaM-MediumItalic.woff') format('woff'),
+        url('../fonts/FlechaM-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-MediumItalic_1.woff2') format('woff2'),
+        url('../fonts/FlechaM-MediumItalic_1.woff') format('woff'),
+        url('../fonts/FlechaM-MediumItalic_1.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Medium_1.woff2') format('woff2'),
+        url('../fonts/FlechaM-Medium_1.woff') format('woff'),
+        url('../fonts/FlechaM-Medium_1.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-MediumItalic_2.woff2') format('woff2'),
+        url('../fonts/FlechaM-MediumItalic_2.woff') format('woff'),
+        url('../fonts/FlechaM-MediumItalic_2.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Medium_2.woff2') format('woff2'),
+        url('../fonts/FlechaM-Medium_2.woff') format('woff'),
+        url('../fonts/FlechaM-Medium_2.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-s';
+    src: url('../fonts/FlechaS-Medium.woff2') format('woff2'),
+        url('../fonts/FlechaS-Medium.woff') format('woff'),
+        url('../fonts/FlechaS-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Italic_3.woff2') format('woff2'),
+        url('../fonts/FlechaM-Italic_3.woff') format('woff'),
+        url('../fonts/FlechaM-Italic_3.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
     src: url('../fonts/FlechaM-Regular.woff2') format('woff2'),
         url('../fonts/FlechaM-Regular.woff') format('woff'),
         url('../fonts/FlechaM-Regular.ttf') format('truetype');
@@ -28,6 +138,170 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'flecha-s';
+    src: url('../fonts/FlechaS-MediumItalic.woff2') format('woff2'),
+        url('../fonts/FlechaS-MediumItalic.woff') format('woff'),
+        url('../fonts/FlechaS-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Regular_1.woff2') format('woff2'),
+        url('../fonts/FlechaM-Regular_1.woff') format('woff'),
+        url('../fonts/FlechaM-Regular_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Regular_2.woff2') format('woff2'),
+        url('../fonts/FlechaM-Regular_2.woff') format('woff'),
+        url('../fonts/FlechaM-Regular_2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-s';
+    src: url('../fonts/FlechaS-MediumItalic_1.woff2') format('woff2'),
+        url('../fonts/FlechaS-MediumItalic_1.woff') format('woff'),
+        url('../fonts/FlechaS-MediumItalic_1.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-m';
+    src: url('../fonts/FlechaM-Italic_4.woff2') format('woff2'),
+        url('../fonts/FlechaM-Italic_4.woff') format('woff'),
+        url('../fonts/FlechaM-Italic_4.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'flecha-s';
+    src: url('../fonts/FlechaS-Medium_1.woff2') format('woff2'),
+        url('../fonts/FlechaS-Medium_1.woff') format('woff'),
+        url('../fonts/FlechaS-Medium_1.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Black.woff2') format('woff2'),
+        url('../fonts/Termina-Black.woff') format('woff'),
+        url('../fonts/Termina-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Demi.woff2') format('woff2'),
+        url('../fonts/Termina-Demi.woff') format('woff'),
+        url('../fonts/Termina-Demi.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-ExtraLight.woff2') format('woff2'),
+        url('../fonts/Termina-ExtraLight.woff') format('woff'),
+        url('../fonts/Termina-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/BHNTerminaDemi.woff2') format('woff2'),
+        url('../fonts/BHNTerminaDemi.woff') format('woff'),
+        url('../fonts/BHNTerminaDemi.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Bold.woff2') format('woff2'),
+        url('../fonts/Termina-Bold.woff') format('woff'),
+        url('../fonts/Termina-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Thin.woff2') format('woff2'),
+        url('../fonts/Termina-Thin.woff') format('woff'),
+        url('../fonts/Termina-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Heavy.woff2') format('woff2'),
+        url('../fonts/Termina-Heavy.woff') format('woff'),
+        url('../fonts/Termina-Heavy.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Light.woff2') format('woff2'),
+        url('../fonts/Termina-Light.woff') format('woff'),
+        url('../fonts/Termina-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Regular.woff2') format('woff2'),
+        url('../fonts/Termina-Regular.woff') format('woff'),
+        url('../fonts/Termina-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../fonts/Termina-Medium.woff2') format('woff2'),
+        url('../fonts/Termina-Medium.woff') format('woff'),
+        url('../fonts/Termina-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
 
 .optimizedCheckout-header {
     background-color: stencilColor("optimizedCheckout-header-backgroundColor");
@@ -1497,6 +1771,7 @@ p {
 
                             .product-actions {
                                width: auto;
+                               transform: translateY(-2px);
 
                                .product-price {
                                     color: #252525;
@@ -1622,7 +1897,19 @@ p {
         text-decoration: underline;
         margin-bottom: 19px;
     }
+}
 
-    .footerContent__mail {
+/* Updated 09112023 */
+.optimizedCheckout-orderSummary-cartSection {
+    .cart-priceItem-value {
+        font-weight: 400;
+    }
+
+    .cart-priceItem--total {
+
+        .cart-priceItem-label,
+        .cart-priceItem-value {
+            font-weight: 500;
+        }
     }
 }
