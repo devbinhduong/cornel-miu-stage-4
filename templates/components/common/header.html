@@ -58,7 +58,7 @@
                     </a>
                 </div>
                 <div class="middleHeader-item__item item--searchMobile">
-                    <a class="navUser-action" href="javascript:void(0)" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
+                    <a class="navUser-action" href="#" onclick="fn()" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
                         <div class="navUser-icon">
                             <svg class="icon" role="img" aria-label="{{lang 'search.quick_search.input_label'}}">
                                 <title>{{lang 'search.quick_search.input_label'}}</title>
@@ -67,7 +67,7 @@
                             </svg>
                         </div>
                     </a>
-                    <a class="navUser-action navUser-close" href="javascript:void(0)" aria-controls="quickSearch" aria-expanded="false">
+                    <a class="navUser-action navUser-close" href="#" onclick="fn()" aria-controls="quickSearch" aria-expanded="false">
                         <div class="navUser-icon">
                             <svg class="icon icon-close" role="img" aria-label="{{lang 'search.quick_search.input_label'}}">
                                 <title>{{lang 'search.quick_search.input_label'}}</title>
@@ -117,7 +117,7 @@
                 <div class="bottomHeader-item text-left{{#if theme_settings.header_logo_svg }} header_logo_svg{{/if}}">
                     <div class="bottomHeader-item__item item--sticky-logo">
                         {{#if theme_settings.header_logo_svg }}
-                            <a href="{{urls.home}}" class="header-logo__link header-logo__link_svg" data-header-logo-link>
+                            <a href="{{urls.home}}" class="header-logo__link header-logo__link_svg" aria-label="{{urls.home}}" data-header-logo-link>
                                 {{{theme_settings.header_logo_svg}}}
                             </a>
                         {{else}}

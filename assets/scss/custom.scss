@@ -1,6 +1,4 @@
-// Custom Style
-// Sticky Toolbar Mobile
-// -----------------------------------------------------------------------------
+/* Sticky Toolbar Mobile */
 .container {
     @media (max-width: 1024px) {
         padding-left: 24px;
@@ -637,7 +635,6 @@ main.body {
 
 /* Member Convince */
 .member-convince {
-    // margin-top: 95px;
     margin-top: 70px;
 
     @media (max-width: 767px) {
@@ -884,10 +881,6 @@ main.body {
 .competition {
     margin-bottom: 12px;
 
-    // @media (max-width: 767px) {
-    //     margin-bottom: -88px;
-    // }
-
     .container {
         @media (max-width: 767px) {
             
@@ -1088,9 +1081,6 @@ main.body {
             padding-left: 41px;
             padding-right: 41px;
             margin-top: 61px;
-        }
-        .banner-with-text__img {
-            
         }
 
         .banner-with-text__text {
@@ -1805,9 +1795,6 @@ main.body {
                 padding-left: 0;
                 padding-top: 60px;
             }
-            .store-title {
-
-            }
 
             .store-subHeading {
                 text-transform: unset;
@@ -1871,10 +1858,6 @@ main.body {
                     letter-spacing: 0.1px;
                 }
             }   
-        }
-
-        .store-address__banner {
-
         }
     }
 }
@@ -2010,7 +1993,6 @@ main.body {
                 .card {
                     border-top: none;
                     border-bottom: none;
-                    // 1px solid #F7F3E8;
 
                     &:nth-child(1) {
                         .card-header {
@@ -2127,33 +2109,6 @@ main.body {
     height: 100%;
     object-fit: contain;
 }
-
-
-@media (max-width: 1024px) {
-    // .page-digital-content {
-    //     .productListing {
-    //         display: flex;
-    //         flex-wrap: wrap;
-    //         flex-direction: column;
-
-    //         .product-group {
-    //             display: flex;
-    //             flex-wrap: nowrap;
-
-    //             .product {
-    //                 width: 30%; /* Adjust this as needed */
-    //                 box-sizing: border-box;
-    //                 padding: 10px;
-    //                 border: 1px solid #ccc;
-    //                 margin: 5px;
-    //             }
-    //         }
-    //     }
-    // }
-}
-
-
-
 
 
 /* Event Page Start */
@@ -2483,10 +2438,6 @@ main.body {
 
                         }
 
-                        .item__image {
-
-                        }
-
                         .item__info {
                             display: flex;
                             flex-direction: column;
@@ -2636,7 +2587,7 @@ main.body {
     }
 }
 
-// Begin Page Reminder 
+/* Begin Page Reminder  */
 .reminder-top-banner {
     display: flex;
     justify-content: space-between;
@@ -2885,8 +2836,6 @@ main.body {
         @media (max-width: 767px) {
             max-width: 288px;
             width: 100%;
-        }
-        .reminder-form__left-image {
         }
     }
     .reminder-form__right {
@@ -3589,7 +3538,7 @@ main.body {
     }
 }
 
-// terms-conditions-layout
+/* terms-conditions-layout */
 .terms-conditions-layout {
     .faqs-content .faq-title {
         @media (max-width: 767px) {
@@ -3690,7 +3639,7 @@ main.body {
     }
 }
 
-// privacy-layout
+/* privacy-layout */
 .privacy-layout {
     .container {
         @media (max-width: 1024px) {
@@ -4605,19 +4554,6 @@ main.body {
                 .mobileMenu-toggleIcon {
                     transition: all 0.2s ease;
                 }
-
-                &.is-open {
-                    .mobileMenu-toggleIcon {
-        
-                        // &::before {
-                        //     transform: rotate(45deg) translate3d(4px, 7px, 0) !important;
-                        // }
-        
-                        // &::after {
-                        //     transform: rotate(-45deg) translate3d(4px, -7px, 0) !important;
-                        // }
-                    }
-                }
             }
         }
     }
@@ -4725,7 +4661,6 @@ main.body {
     margin-right: -40px;
     display: flex;
     align-items: center;
-    // justify-content: center;
     padding-top: 35px;
     padding-bottom: 39px;
     padding-left: 40px;
@@ -4970,6 +4905,19 @@ p.text-below-tab {
             line-height: 40px;
             height: 40px;
             font-size: 9px;
+        }
+    }
+}
+
+.footer-info__logo {
+    > a {
+        > img {
+            @media (min-width: 1025px) {
+                width: 100%;
+                height: 100%;
+                max-width: 288px;
+                max-height: 50px;
+            }
         }
     }
 }

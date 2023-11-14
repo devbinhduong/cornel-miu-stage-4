@@ -57,7 +57,7 @@
                     {{#if (merge this hasBackground=../theme_settings.carousel-bgColor)}}{{/if}}
                 {{/if}}
                 <div class="heroCarousel-image-wrapper">
-                    <a class="heroCarousel-image" href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}">
+                    <a class="heroCarousel-image" href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{url}}{{/if}}">
                         {{#if @first}}
                             {{> components/common/responsive-img
                                 image=stencil_image
