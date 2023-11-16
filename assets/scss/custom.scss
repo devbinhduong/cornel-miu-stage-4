@@ -4921,3 +4921,15 @@ p.text-below-tab {
         }
     }
 }
+
+/* Fix Bugs 16112023 */
+.page-type-product {
+    .halo-productView-right {
+        .form-wishlist {
+            .dropdown-menu-button {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

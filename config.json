@@ -1,5 +1,5 @@
 {
-  "name": "Stephanus Optimize Part 1",
+  "name": "Stephanus Optimize Part 2",
   "version": "1.0.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -1642,7 +1642,7 @@
         "color_border_product_new_badges": "#2a6876",
         "color_text_product_new_badges": "#2a6876",
         "sale_badges_type": "text",
-        "home_product_limit": 9,
+        "home_product_limit": 5,
         "product_lookbook_size": "210x270",
         "button--default-backgroundColor": "#C9A241",
         "button--default-backgroundColorHover": "#ffffff",
